@@ -28,27 +28,41 @@ export function StatusBadge({ status }: { status: Project["status"] }) {
 }
 
 /**
- * Project card. Projects have no screenshots (coverImage is null for all),
- * so the cover is typographic: navy block, gold initial, title.
+ * Project card. Projects with a video show the playable YouTube embed
+ * as the cover; the rest keep the typographic cover (no fake screenshots).
  */
 export function ProjectCard({ project }: { project: Project }) {
   const c = useContent();
   return (
     <article className="card card-hover flex flex-col">
-      <Link
-        href={`/projects/${project.id}`}
-        aria-label={`${project.title} — ${c.ui.viewProject}`}
-        className="block"
-      >
-        <div className="project-cover flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
-          <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
-            {project.title.charAt(0)}
-          </span>
-          <span className="font-display text-lg font-semibold leading-snug text-bg">
-            {project.title}
-          </span>
+      {project.videoId ? (
+        <div className="aspect-[16/9] overflow-hidden rounded-lg">
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${project.videoId}`}
+            title={project.videoTitle ?? project.title}
+            className="h-full w-full"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
         </div>
-      </Link>
+      ) : (
+        <Link
+          href={`/projects/${project.id}`}
+          aria-label={`${project.title} — ${c.ui.viewProject}`}
+          className="block"
+        >
+          <div className="project-cover flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
+            <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
+              {project.title.charAt(0)}
+            </span>
+            <span className="font-display text-lg font-semibold leading-snug text-bg">
+              {project.title}
+            </span>
+          </div>
+        </Link>
+      )}
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <span className="chip">{project.category}</span>
         <StatusBadge status={project.status} />

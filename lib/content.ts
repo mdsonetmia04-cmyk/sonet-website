@@ -100,6 +100,9 @@ export interface Project {
   /** Real image from public/images/ only. null = typographic cover. */
   coverImage: string | null;
   coverImageAlt: string | null;
+  /** YouTube video shown in the card and on the detail page. Omit = no video. */
+  videoId?: string | null;
+  videoTitle?: string | null;
   tags: string[];
   placeholder?: boolean;
   placeholderNote?: string;
@@ -402,6 +405,7 @@ export interface SiteContent {
     featuredProjects: string;
     viewAllProjects: string;
     viewProject: string;
+    watchVideo: string;
     backToProjects: string;
     backToHome: string;
     statusLive: string;
@@ -953,7 +957,28 @@ export const content: SiteContent = {
         urlLabel: "Visit PromptEx",
         coverImage: null,
         coverImageAlt: null,
+        videoId: "vjTXhOmEzIU",
+        videoTitle: "Turn Images into Sell-Ready Metadata in Seconds | PromptEx",
         tags: ["AI tools", "Metadata", "Free"],
+      },
+      {
+        id: "sweet-smart-calculator",
+        title: "Sweet Smart Calculator",
+        shortDescription:
+          "A clean, intuitive calculator for everyday math.",
+        category: "App",
+        role: "Creator",
+        objectives: ["Do everyday math in a clean, intuitive calculator"],
+        tools: ["Sweet Smart Calculator"],
+        status: "Live",
+        results: [],
+        url: null,
+        urlLabel: null,
+        coverImage: null,
+        coverImageAlt: null,
+        videoId: "QEMB14UxTkk",
+        videoTitle: "You Missed Christmas. Don't Miss the Next Season! Sweet Smart Calculator (For team members only)",
+        tags: ["App", "Calculator", "Video"],
       },
       {
         id: "sonet-english-academy",
@@ -1356,6 +1381,7 @@ export const content: SiteContent = {
     featuredProjects: "Featured Projects",
     viewAllProjects: "View all projects",
     viewProject: "View project",
+    watchVideo: "Watch the video",
     backToProjects: "Back to all projects",
     backToHome: "Back to home",
     statusLive: "Live",

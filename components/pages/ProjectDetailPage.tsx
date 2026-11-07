@@ -80,6 +80,25 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
           </div>
         </section>
 
+        {project.videoId ? (
+          <section className="bg-bg py-10 md:py-14">
+            <div className="mx-auto max-w-[1280px] px-6 md:px-8">
+              <h2 className="heading-3">{c.ui.watchVideo}</h2>
+              <div className="mt-5 aspect-video w-full max-w-[880px] overflow-hidden rounded-2xl">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${project.videoId}`}
+                  title={project.videoTitle ?? project.title}
+                  className="h-full w-full"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section className="bg-bg py-16 md:py-24">
           <div className="mx-auto grid max-w-[1280px] gap-10 px-6 md:px-8 lg:grid-cols-3">
             <div className="lg:col-span-2">
