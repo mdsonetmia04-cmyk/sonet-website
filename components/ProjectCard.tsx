@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/lib/content";
@@ -47,6 +48,22 @@ export function ProjectCard({ project }: { project: Project }) {
             allowFullScreen
           />
         </div>
+      ) : project.coverImage ? (
+        <Link
+          href={`/projects/${project.id}`}
+          aria-label={`${project.title} — ${c.ui.viewProject}`}
+          className="block"
+        >
+          <div className="relative aspect-[16/9] overflow-hidden rounded-lg">
+            <Image
+              src={project.coverImage}
+              alt={project.coverImageAlt ?? project.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            />
+          </div>
+        </Link>
       ) : (
         <Link
           href={`/projects/${project.id}`}

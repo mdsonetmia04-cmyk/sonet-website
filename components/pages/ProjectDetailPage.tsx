@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useContent } from "@/lib/useContent";
@@ -44,14 +45,27 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
               <ArrowLeft size={16} aria-hidden="true" />
               {c.ui.backToProjects}
             </Link>
-            <div className="mt-8 flex aspect-[21/9] flex-col justify-between rounded-2xl bg-ink p-6 md:p-10">
-              <span className="font-display text-6xl font-bold text-gold md:text-8xl" aria-hidden="true">
-                {project.title.charAt(0)}
-              </span>
-              <span className="font-display text-2xl font-semibold leading-snug text-bg md:text-4xl">
-                {project.title}
-              </span>
-            </div>
+            {project.coverImage ? (
+              <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-2xl">
+                <Image
+                  src={project.coverImage}
+                  alt={project.coverImageAlt ?? project.title}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  priority
+                />
+              </div>
+            ) : (
+              <div className="mt-8 flex aspect-[21/9] flex-col justify-between rounded-2xl bg-ink p-6 md:p-10">
+                <span className="font-display text-6xl font-bold text-gold md:text-8xl" aria-hidden="true">
+                  {project.title.charAt(0)}
+                </span>
+                <span className="font-display text-2xl font-semibold leading-snug text-bg md:text-4xl">
+                  {project.title}
+                </span>
+              </div>
+            )}
             <div className="mt-8 flex flex-wrap items-center gap-2">
               <span className="chip">{project.category}</span>
               <StatusBadge status={project.status} />
