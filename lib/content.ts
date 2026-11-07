@@ -995,8 +995,8 @@ export const content: SiteContent = {
         results: [],
         url: null,
         urlLabel: null,
-        coverImage: null,
-        coverImageAlt: null,
+        coverImage: "/images/project-sonet-english-academy.webp",
+        coverImageAlt: "Sonet English Academy — Learn English for Real Progress",
         tags: ["English", "Teaching"],
         placeholder: true,
         placeholderNote:
@@ -1015,8 +1015,8 @@ export const content: SiteContent = {
         results: [],
         url: null,
         urlLabel: null,
-        coverImage: null,
-        coverImageAlt: null,
+        coverImage: "/images/project-jobmatch-bangladesh.webp",
+        coverImageAlt: "JobMatch Bangladesh — Jobs Matched to Your CV",
         tags: ["Jobs", "Bangladesh"],
         placeholder: true,
         placeholderNote:

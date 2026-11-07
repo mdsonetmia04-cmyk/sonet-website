@@ -533,8 +533,8 @@ export const bn: SiteContent = {
         results: [],
         url: null,
         urlLabel: null,
-        coverImage: null,
-        coverImageAlt: null,
+        coverImage: "/images/project-sonet-english-academy.webp",
+        coverImageAlt: "সনেট ইংলিশ একাডেমি — সত্যিকারের অগ্রগতির জন্য ইংরেজি শিখুন",
         tags: ["ইংরেজি", "শিক্ষাদান"],
         placeholder: true,
         placeholderNote:
@@ -553,8 +553,8 @@ export const bn: SiteContent = {
         results: [],
         url: null,
         urlLabel: null,
-        coverImage: null,
-        coverImageAlt: null,
+        coverImage: "/images/project-jobmatch-bangladesh.webp",
+        coverImageAlt: "জবম্যাচ বাংলাদেশ — আপনার সিভির সঙ্গে মিলিয়ে চাকরি",
         tags: ["চাকরি", "বাংলাদেশ"],
         placeholder: true,
         placeholderNote:
