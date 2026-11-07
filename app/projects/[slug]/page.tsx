@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { content } from "@/lib/content";
 import { ProjectDetailPage } from "@/components/pages/ProjectDetailPage";
 
@@ -29,5 +30,9 @@ export default async function ProjectDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const project = content.projects.items.find((p) => p.id === slug);
+  if (!project) {
+    notFound();
+  }
   return <ProjectDetailPage slug={slug} />;
 }
