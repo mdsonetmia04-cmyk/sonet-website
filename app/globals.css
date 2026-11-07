@@ -25,23 +25,25 @@
    No gradients, no glassmorphism, no neon. */
 
 /* Warm Editorial light (the default theme) — also the :root fallback so
-   first paint before the provider script runs shows the default theme. */
+   first paint before the provider script runs shows the default theme.
+   Values sampled from the user's phone screenshot (2026-11-07 18:13):
+   page #faf5ef, nav pill #fdfcf7, About band #f2ebdb, gold button #a66c1d. */
 :root {
-  --bg: #f5f2ea;
-  --surface: #fdfcf9;
-  --surface-2: #fbf9f4;
-  --ink: #252525;
-  --body: #3f3b34;
-  --muted: #857a68;
-  --gold: #a97935;
-  --gold-hover: #8f6528;
-  --gold-soft: #f3ead9;
-  --border: #e5ddcb;
-  --ring: #a97935;
+  --bg: #faf5ef;
+  --surface: #fdfcf7;
+  --surface-2: #f2ebdb;
+  --ink: #26221a;
+  --body: #4f4636;
+  --muted: #877c6c;
+  --gold: #a66c1d;
+  --gold-hover: #8a5a17;
+  --gold-soft: #eee3cb;
+  --border: #e6dcc6;
+  --ring: #a66c1d;
   --shadow: rgba(60, 45, 20, 0.08);
-  --btn-bg: #252525;
-  --btn-bg-hover: #171716;
-  --btn-text: #f5f2ea;
+  --btn-bg: #a66c1d;
+  --btn-bg-hover: #8a5a17;
+  --btn-text: #fdfaf3;
   --on-gold: #252525;
   /* Serif brand face. --font-playfair is added by the provider (layout.tsx);
      Georgia is the fallback until then. */
@@ -91,23 +93,24 @@
 
 /* ---------- Warm Editorial light (default) ----------
    Warm cream ground, soft ivory surfaces, deep charcoal type,
-   muted bronze / warm gold accents, subtle warm borders. */
+   muted bronze / warm gold accents, subtle warm borders.
+   Tokens sampled from the user's phone screenshot (see :root). */
 [data-theme-variant="warm-editorial"][data-color-mode="light"] {
-  --bg: #f5f2ea;
-  --surface: #fdfcf9;
-  --surface-2: #fbf9f4;
-  --ink: #252525;
-  --body: #3f3b34;
-  --muted: #857a68;
-  --gold: #a97935;
-  --gold-hover: #8f6528;
-  --gold-soft: #f3ead9;
-  --border: #e5ddcb;
-  --ring: #a97935;
+  --bg: #faf5ef;
+  --surface: #fdfcf7;
+  --surface-2: #f2ebdb;
+  --ink: #26221a;
+  --body: #4f4636;
+  --muted: #877c6c;
+  --gold: #a66c1d;
+  --gold-hover: #8a5a17;
+  --gold-soft: #eee3cb;
+  --border: #e6dcc6;
+  --ring: #a66c1d;
   --shadow: rgba(60, 45, 20, 0.08);
-  --btn-bg: #252525;
-  --btn-bg-hover: #171716;
-  --btn-text: #f5f2ea;
+  --btn-bg: #a66c1d;
+  --btn-bg-hover: #8a5a17;
+  --btn-text: #fdfaf3;
   --on-gold: #252525;
 }
 
@@ -616,7 +619,7 @@ html[data-theme-variant="warm-editorial"] .hero-portrait {
 }
 
 /* 3. Warm cream About band: `band` sections already use --surface-2,
-   which is soft ivory (#FBF9F4 / #2E362F) in Warm Editorial — no extra
+   which is the deeper warm cream (#F2EBDB / #2E362F) in Warm Editorial — no extra
    rule needed. The editorial number gets a serif face here. */
 html[data-theme-variant="warm-editorial"] .section-index {
   font-family: var(--font-brand);

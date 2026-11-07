@@ -35,13 +35,13 @@ export function ThemeSelector({
       preview: (
         <div
           className="flex h-16 flex-col gap-1.5 overflow-hidden rounded-lg p-2"
-          style={{ backgroundColor: "#f5f2ea" }}
+          style={{ backgroundColor: "#faf5ef" }}
           aria-hidden="true"
         >
-          <div className="h-2 w-3/4 rounded-full" style={{ backgroundColor: "#252525" }} />
-          <div className="h-1.5 w-full rounded-full" style={{ backgroundColor: "#e5ddcb" }} />
-          <div className="h-1.5 w-2/3 rounded-full" style={{ backgroundColor: "#e5ddcb" }} />
-          <div className="mt-auto h-2 w-8 rounded-full" style={{ backgroundColor: "#a97935" }} />
+          <div className="h-2 w-3/4 rounded-full" style={{ backgroundColor: "#26221a" }} />
+          <div className="h-1.5 w-full rounded-full" style={{ backgroundColor: "#e6dcc6" }} />
+          <div className="h-1.5 w-2/3 rounded-full" style={{ backgroundColor: "#e6dcc6" }} />
+          <div className="mt-auto h-2 w-8 rounded-full" style={{ backgroundColor: "#a66c1d" }} />
         </div>
       ),
     },
