@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
 import "./globals.css";
+import { strings } from "@/i18n/strings";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -16,40 +18,33 @@ const manrope = Manrope({
   display: "swap",
 });
 
+// Metadata stays English: it is SEO/social metadata, not on-page UI copy.
+// The on-page strings (including meta.*) live in i18n/strings.ts.
 export const metadata: Metadata = {
   metadataBase: new URL("https://mdsonetmia.vercel.app"),
-  title: "Md Sonet Mia — Writer, Educator, AI Creator",
-  description:
-    "Md Sonet Mia is an English graduate, educator, writer and digital creator from Tangail, Bangladesh, blending teaching, creativity and AI tools to build educational content and digital ideas.",
-  keywords: [
-    "Md Sonet Mia",
-    "English teacher Tangail",
-    "AI creator Bangladesh",
-    "Sweet Smart Calendar",
-    "PromptEx",
-    "Sweet CGI Lab",
-    "SiteIncome Lab",
-  ],
+  title: strings["meta.title"].en,
+  description: strings["meta.description"].en,
+  keywords: strings["meta.keywords"].en.split(", "),
   authors: [{ name: "Md Sonet Mia" }],
   openGraph: {
-    title: "Md Sonet Mia — Writer, Educator, AI Creator",
-    description:
-      "An English graduate, educator, writer and digital creator from Tangail, Bangladesh.",
+    title: strings["meta.title"].en,
+    description: strings["meta.ogDescription"].en,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: "Md Sonet Mia speaking on stage" }],
+    images: [{ url: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: strings["meta.ogImageAlt"].en }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Md Sonet Mia — Writer, Educator, AI Creator",
-    description:
-      "An English graduate, educator, writer and digital creator from Tangail, Bangladesh.",
+    title: strings["meta.title"].en,
+    description: strings["meta.ogDescription"].en,
     images: ["/images/speaking-stage.jpg"],
   },
   icons: { icon: "/favicon.svg" },
 };
 
-const themeScript = `(function(){try{var t=localStorage.getItem('sonet-theme');if(!t||t==='system'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`;
+// Runs before first paint: resolves the stored theme (or the OS preference)
+// and the stored language, so neither flashes on load.
+const themeScript = `(function(){try{var t=localStorage.getItem('sonet-theme');if(!t||t==='system'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}try{var l=localStorage.getItem('sonet-lang');if(l==='en'||l==='bn'){document.documentElement.setAttribute('lang',l);}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -62,7 +57,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${playfair.variable} ${manrope.variable} antialiased grain`}>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

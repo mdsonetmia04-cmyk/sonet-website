@@ -1,28 +1,30 @@
+"use client";
+
 import { Icon } from "./icons";
+import { useLang } from "@/i18n/LanguageContext";
 
 export function Footer() {
+  const { t } = useLang();
   return (
     <footer className="bg-surface-2 py-16">
       <div className="mx-auto max-w-[1200px] px-6 md:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <div className="max-w-[420px]">
-            <p className="font-display text-2xl font-semibold text-ink">Md Sonet Mia</p>
-            <p className="body-4 mt-4">
-              English graduate, educator, writer and digital creator from Tangail, Bangladesh.
-            </p>
+            <p className="font-display text-2xl font-semibold text-ink">{t("footer.name")}</p>
+            <p className="body-4 mt-4">{t("footer.bio")}</p>
           </div>
-          <nav aria-label="Footer" className="flex flex-col gap-2">
+          <nav aria-label={t("footer.navAriaLabel")} className="flex flex-col gap-2">
             <a href="#about" className="title-2 text-body hover:text-ink">
-              About
+              {t("footer.about")}
             </a>
             <a href="#projects" className="title-2 text-body hover:text-ink">
-              Projects
+              {t("footer.projects")}
             </a>
             <a href="#book" className="title-2 text-body hover:text-ink">
-              Book a session
+              {t("footer.bookSession")}
             </a>
             <a href="#contact" className="title-2 text-body hover:text-ink">
-              Contact
+              {t("footer.contact")}
             </a>
           </nav>
           <div className="flex flex-col gap-2">
@@ -32,7 +34,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-body hover:text-ink"
             >
-              <Icon name="youtube" size={20} /> YouTube
+              <Icon name="youtube" size={20} /> {t("footer.youtube")}
             </a>
             <a
               href="https://facebook.com/mdsont.mia.777"
@@ -40,7 +42,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-body hover:text-ink"
             >
-              <Icon name="facebook" size={20} /> Facebook
+              <Icon name="facebook" size={20} /> {t("footer.facebook")}
             </a>
             <a
               href="https://wa.me/8801797953059"
@@ -48,18 +50,18 @@ export function Footer() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-body hover:text-ink"
             >
-              <Icon name="whatsapp" size={20} /> WhatsApp
+              <Icon name="whatsapp" size={20} /> {t("footer.whatsapp")}
             </a>
           </div>
         </div>
         <div className="mt-12 flex flex-col gap-4 border-t border-border pt-6 md:flex-row md:items-center md:justify-between">
-          <p className="caption-1">Copyright 2026 Md Sonet Mia. All rights reserved.</p>
+          <p className="caption-1">{t("footer.copyright")}</p>
           <div className="flex gap-6">
             <a href="/privacy" className="caption-1 hover:text-ink">
-              Privacy policy
+              {t("footer.privacy")}
             </a>
             <a href="/terms" className="caption-1 hover:text-ink">
-              Terms
+              {t("footer.terms")}
             </a>
           </div>
         </div>

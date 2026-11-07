@@ -33,7 +33,10 @@ type IconName =
   | "clapper"
   | "trophy"
   | "graduation"
-  | "translate";
+  | "translate"
+  | "sun"
+  | "moon"
+  | "monitor";
 
 const paths: Record<IconName, ReactNode> = {
   book: (
@@ -226,6 +229,23 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M4 5h9M8.5 3v2c0 4-2 7-4.5 8.5" />
       <path d="m5 8 3 6 3-6" />
       <path d="m13 21 4.5-10L22 21M14.8 17h5.4" />
+    </>
+  ),
+  sun: (
+    <>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+    </>
+  ),
+  moon: (
+    <>
+      <path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z" />
+    </>
+  ),
+  monitor: (
+    <>
+      <rect x="3" y="4" width="18" height="12" rx="2" />
+      <path d="M9 20h6M12 16v4" />
     </>
   ),
 };
