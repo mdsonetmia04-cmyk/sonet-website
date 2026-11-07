@@ -1,30 +1,35 @@
 import type { Metadata } from "next";
-import { Manrope, Inter, Playfair_Display } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { content } from "@/lib/content";
 import { AppearanceProvider } from "@/providers/AppearanceProvider";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
-const manrope = Manrope({
+// Self-hosted variable fonts (public/fonts/*.woff2, latin subset) —
+// same families and weights as before, but the build no longer fetches
+// from Google Fonts: the next/font/google loader crashed the Vercel
+// build twice (v6.2 Turbopack + v6.2.1 webpack) while parsing the
+// fetched CSS. CSS variables are unchanged, so no other file changes.
+const manrope = localFont({
+  src: "../public/fonts/manrope.woff2",
   variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "200 800",
   display: "swap",
 });
 
-const inter = Inter({
+const inter = localFont({
+  src: "../public/fonts/inter.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "100 900",
   display: "swap",
 });
 
 // Serif branding face for the Warm Editorial theme (styling agent keys it
 // off data-theme-variant="warm-editorial"). Bangla stays SolaimanLipi.
-const playfair = Playfair_Display({
+const playfair = localFont({
+  src: "../public/fonts/playfair.woff2",
   variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: "400 900",
   display: "swap",
 });
 
