@@ -123,3 +123,134 @@ source-verified:
 - `meta.keywords` is identical in `en` and `bn` (SEO keywords stay English).
 - The `t(key, lang)` helper at the bottom of `strings.ts` falls back to English for a
   missing key or language.
+
+---
+
+# Copy Notes — v3 rebuild (2026-11-07)
+
+Audit-driven pass against the ORIGINAL site (mdsonetmia.vercel.app).
+Only `i18n/strings.ts` was edited (plus this file). No app code, no deploy.
+**Counts: 370 keys → 520 keys** (247 added, 97 deleted, 17 changed; every key
+has `en` + `bn`; `tsc --noEmit` clean). Note: the brief said "371 keys" — the
+real v2 count was 370; the 371st `en:`/`bn:` hit was the `Record<string,
+{ en: string; bn: string }>` type declaration line itself.
+
+## (d) What changed, by task code
+
+**Added (247 keys)** — exact key paths for the implementation agent:
+- `about.detailFullName/Born/Nationality/Location.{label,value}` (G3)
+- `education.ielts.{title,subtitle,date,body,resultLabel,resultValue,nextLabel,nextValue}`,
+  `education.ba.{desc,date,coursesLabel,coursesValue}`,
+  `education.stats.{study,courses,languages,certifications}.{figure,label}` (G4–G6)
+- `teaching.session1–3.{title,duration,price,desc}`,
+  `teaching.stats.{schools,students,sessions,years}.{figure,label}`,
+  `teaching.role1.dates`, `teaching.role2.dates` (G7/G8/G10)
+- `acting.card1–3.{title,desc}` (G11)
+- `writing.booksHeading`, `writing.book1–5.{title,kind}`,
+  `writing.stats.{books,published,genres}.{figure,label}` (G12)
+- `achievements.award1–6.{title,desc}`,
+  `achievements.stats.{awards,certifications,trainings,events}.{figure,label}`,
+  `achievements.carousel1–5.{caption,sub}` (G13–G15)
+- `volunteering.photo1–4Alt`, `volunteering.activity1–6.{title,desc}`,
+  `volunteering.stats.{activities,lives,trainings,organizations}.{figure,label}`,
+  `volunteering.scope.{international,national,local}.{label,value}` (G16–G18)
+- `apps.useButton` — links to #contact (G19)
+- `podcast.topicsHeading`, `podcast.topic1–4` (G20)
+- `stock.stats.{downloads,earnings,status}.{figure,label}` (G21)
+- `skills.groupTools`, `skills.tool1–7.{name,level}`,
+  `skills.stats.{tools,platforms,proficiency}.{figure,label}` (G22/G23)
+- `languages.{bangla,english,hindi,arabic,urdu,korean}.percent` (G24)
+- `hobbies.activitiesHeading`, `hobbies.activity1–5`,
+  `hobbies.plantsHeading`, `hobbies.plant1–5` (G26/G27)
+- `gallery.photo1–20.{alt,caption}`,
+  `gallery.stats.{photos,events,memories}.{figure,label}`,
+  `gallery.albumLink`, `gallery.albumUrl` (G28)
+- `booking.form.dateLabel`, `booking.type.creativeDiscussion` (G29/G30)
+- `contact.form.emailLabel`, `contact.form.submit`, `contact.form.success` (G31)
+- `footer.quickLinksHeading`, `footer.teaching`, `footer.writing`, `footer.aiServices`,
+  `footer.contactHeading`, `footer.whatsappNumber`, `footer.email` (G33)
+- `nav.education`, `nav.skills` (G34); `hero.exploreSkills` — links to #skills (G35)
+
+**Changed (17 keys):**
+- `hero.headline` → "Md. Sonet Mia" (name as H1, T16); `hero.eyebrow` → the
+  tagline with · separators. **Decision (T16): the old headline line
+  "Teacher, actor, writer, building with AI." was DROPPED, not kept as a
+  sub-line** — the tagline already lists the roles and the subhead already
+  covers teaching/creating with AI; keeping it would triple-state the same thing.
+  `hero.subhead` unchanged.
+- `teaching.role1/role2.{title,org}` — original wording, reordered
+  chronologically (Sobuz Kuri 2022–2023 first, Prativa 2023–2024 second); dates
+  split out into new `teaching.role1/2.dates` keys; the v2 org strings carried
+  location + dates inline ("…Jamalpur, Jan 2023 to Mar 2024"), the original
+  gives school name + year range only, so location/dates no longer sit in `.org`.
+- `bookMid.label` → "Book a quick session" (D9, distinct from `booking.label`).
+- `bookMid.intro` + `booking.intro` trimmed — the WhatsApp/no-payment
+  explanation now lives ONLY in `booking.form.helper` (D7).
+- `ai.intro` → "Using AI to build, create, and innovate." (D1); `ai.course2.desc`
+  + `ai.course3.desc` restored to the ORIGINAL wording (T15).
+- `stock.body` — first half only (T7); `podcast.body` — faceless claim cut, it
+  appears once in `podcast.intro` (D11).
+- `reflections.quote` → the original quote (G25).
+- `footer.bio` → the tagline (D8/G33); `footer.copyright` → "Made with ♥ by
+  Md. Sonet Mia © 2026" (G33).
+
+**Deleted (97 keys):**
+- T1 `tagline.*` (all 5, incl. aria-label; whole Tagline component removed —
+  the empty section divider was removed too).
+- T17 `hero.proof`. T3 `about.fact*` (6). T4 `acting.body`. T5
+  `volunteering.body`. T2 `reflections.closing`. T9
+  `teaching.service1–4.outcome`. T10 `writing.service1–3.desc`. T11
+  `booking.benefitsHeading` + `benefit1–3.{title,body}`. T13
+  `languages.*.note` (6). T14 `hobbies.chip*` (4). T6/D10 `ai.panelTitle`,
+  `ai.panelBody`. T8 `stock.cardTitle`, `stock.cardBody`, `stock.askLink`.
+- D6 `teaching.bookSession`, `writing.bookConsultation`, `ai.bookSession`.
+- D7 `booking.noPaymentNote`.
+- D2/D3 `skills.groupAi/Content/Teaching/Stock` (17).
+- D4/D5 `achievements.{cgpa,students,views,posts,chess,debate}.*` (18).
+- D12 `gallery.{venice1,speaking,football,capacity,venice2,podium,teamwork}.*` (14).
+
+**Reused, not duplicated:** contact form "Your name" / "Message" reuse
+`booking.form.nameLabel` / `booking.form.messageLabel` (G31). The AI 4-pack
+("Prompt writing / Content creation / Video generation / Creative strategy")
+lives ONLY in `ai.chip1–4` now (D1).
+
+## (e) Open questions / discrepancies for the user
+
+1. **Footer email — OPEN QUESTION (flagged in the brief):** `footer.email` is
+   now **md.sonet.mia01@gmail.com** (the original's published address). The v2
+   site used **md.Sonet.mia2@gmail.com** everywhere else. `contact.email`,
+   `privacy.para5` and `terms.para4` were deliberately LEFT as mia2 (task: do
+   not touch the email in privacy/terms; contact section not named) — so the
+   site now shows mia01 in the footer and mia2 in the contact section. Ask
+   Sonet which address should be canonical; if mia01, the implementation agent
+   should also update `contact.email` (+ privacy/terms if he agrees).
+2. **CGPA — kept 3.38, NOT changed.** The original site says 3.8; the user's
+   own CV says 3.38. `education.body` / `education.cgpa` stay 3.38 per the
+   brief. If he confirms 3.8, change those two keys only.
+3. **Name spelling:** the original writes "Md. Sonet Mia" (with period) — used
+   for `hero.headline`, `about.detailFullName.value`, `footer.copyright`.
+   `nav.brand`, `meta.title` and `footer.name` still say "Md Sonet Mia"
+   (no period, as in v2). Worth aligning one way or the other.
+4. **`acting.playTitle` / `acting.playNote` kept** — they now duplicate
+   `acting.card1.title` ("The Merchant of Venice"). The implementation agent
+   should drop one of them when wiring the acting cards.
+5. **"বিসর্জন"** stays in Bengali script in BOTH `en` and `bn`
+   (`writing.book3.title`) — it is the book's title as published.
+6. **"∞"** stays as the symbol in both languages (`gallery.stats.memories.figure`).
+7. **"Rotaract"** — spelled without a hyphen in both languages (proper name).
+8. **Bangla dates:** "12 January 2000" → "12 জানুয়ারি 2000" (Bangla month,
+   Western digits, per the file's digit convention); "Completed 2025/2024" →
+   "2025/2024 সালে সম্পন্ন". Employment dates stay "2022–2023" /
+   "2023–2024" in both languages.
+9. **"Allamanda"** → "অলকানন্দা" (the standard Bangla name for the flower);
+   "Beli" → "বেলি", "Hasnahena" → "হাসনাহেনা", "Nagchampa" → "নাগচম্পা".
+10. **"Chief Sergeant at Arms"** → transliterated "চিফ সার্জেন্ট অ্যাট আর্মস"
+    (a Rotaract role title; no natural Bangla equivalent).
+11. **`gallery.photo*.alt` = the caption text** in both languages (alt and
+    caption carry the same wording per photo, as the original gives one line
+    per photo).
+12. **No strings were invented.** Every added `en:` value is the original's
+    exact wording from the brief; `bn:` values are new natural translations.
+    `education.stats.languages` = "3" (Bangla/English/Hindi as working
+    languages — the original's "3 Languages" stat; the languages section lists
+    six including reading-level ones).

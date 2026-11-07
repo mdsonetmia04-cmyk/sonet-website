@@ -222,6 +222,39 @@ p {
   color: var(--gold);
 }
 
+/* Hero H1: larger than heading-1, on the type scale (text-6xl / text-7xl) */
+.hero-title {
+  font-size: 3.75rem;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+}
+
+/* Anchored sections sit below the floating nav instead of under it */
+section[id] {
+  scroll-margin-top: 120px;
+}
+
+/* Gold-accent card (IELTS): a stronger gold border, still one flat border */
+.card-gold {
+  border-color: var(--gold);
+}
+
+/* Skill/language level bars fill on reveal, on the base curve */
+.level-fill {
+  transition: width 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Cards lift and pick up a gold edge on hover */
+.card-hover:hover {
+  border-color: var(--gold);
+}
+
 /* Hero heading: the one permitted gradient, text only */
 .hero-gradient {
   background: linear-gradient(to right, var(--ink), var(--gold));
@@ -391,15 +424,6 @@ p {
   transform: translateY(0);
 }
 
-/* Tagline word reveal */
-.tagline-word {
-  opacity: 0.3;
-  transition: opacity 500ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-.tagline-word.is-lit {
-  opacity: 1;
-}
-
 /* Mobile menu links */
 .menu-link {
   opacity: 0;
@@ -427,11 +451,15 @@ p {
     scroll-behavior: auto;
   }
   .reveal,
-  .tagline-word,
   .menu-link {
     opacity: 1;
     transform: none;
     transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* Keep carousel crossfade state intact; only drop the motion itself. */
+  .carousel-fade,
+  .level-fill {
+    transition: none;
   }
   .btn-primary,
   .btn-secondary,

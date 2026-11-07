@@ -20,24 +20,28 @@ const manrope = Manrope({
 
 // Metadata stays English: it is SEO/social metadata, not on-page UI copy.
 // The on-page strings (including meta.*) live in i18n/strings.ts.
+// Social-share image: the hero portrait, defined once and shared by the
+// Open Graph and Twitter cards (one metadata image, not a page placement).
+const ogImage = "/images/hero-portrait.jpg";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://mdsonetmia.vercel.app"),
   title: strings["meta.title"].en,
   description: strings["meta.description"].en,
   keywords: strings["meta.keywords"].en.split(", "),
-  authors: [{ name: "Md Sonet Mia" }],
+  authors: [{ name: "Md. Sonet Mia" }],
   openGraph: {
     title: strings["meta.title"].en,
     description: strings["meta.ogDescription"].en,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: strings["meta.ogImageAlt"].en }],
+    images: [{ url: ogImage, width: 1885, height: 1890, alt: strings["meta.ogImageAlt"].en }],
   },
   twitter: {
     card: "summary_large_image",
     title: strings["meta.title"].en,
     description: strings["meta.ogDescription"].en,
-    images: ["/images/speaking-stage.jpg"],
+    images: [ogImage],
   },
   icons: { icon: "/favicon.svg" },
 };

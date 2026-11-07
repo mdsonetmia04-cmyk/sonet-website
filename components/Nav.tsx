@@ -8,22 +8,26 @@ import type { Lang } from "@/i18n/strings";
 // Nav link ids in page order; labels come from i18n nav.* keys.
 const linkIds = [
   "about",
+  "education",
   "teaching",
   "writing",
   "projects",
   "ai-creator",
+  "skills",
   "gallery",
   "contact",
 ] as const;
 type LinkId = (typeof linkIds)[number];
 
-// nav.* key for each link id (ai-creator -> nav.aiCreator).
+// nav.* key for each link id (ai-creator -> nav.aiCreator, skills -> nav.skills).
 const linkKey: Record<LinkId, string> = {
   about: "about",
+  education: "education",
   teaching: "teaching",
   writing: "writing",
   projects: "projects",
   "ai-creator": "aiCreator",
+  skills: "skills",
   gallery: "gallery",
   contact: "contact",
 };
@@ -169,7 +173,7 @@ export function Nav() {
           <a href="#top" className="font-display order-1 text-xl font-semibold text-ink">
             {t("nav.brand")}
           </a>
-          <ul className="hidden items-center gap-6 lg:flex">
+          <ul className="hidden items-center gap-4 lg:flex xl:gap-6">
             {linkIds.map((id) => (
               <li key={id}>
                 <a

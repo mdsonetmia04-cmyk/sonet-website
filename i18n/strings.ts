@@ -16,40 +16,48 @@
 //   nav.*         components/Nav.tsx — skip link, wordmark, nav links, theme
 //                  segmented control, language toggle, mobile menu,
 //                  menu toggle aria-labels
-//   hero.*        app/page.tsx — hero eyebrow, headline, subhead, CTAs, proof line,
+//   hero.*        app/page.tsx — hero eyebrow (tagline), headline (name), subhead, CTAs,
 //                  hero image alt + caption
-//   tagline.*     components/Tagline.tsx — word-by-word reveal lines + section aria-label
-//   about.*       app/page.tsx #about — label, heading, 3 paragraphs, 3 quick facts
+//   tagline.*     DELETED in v3 (Tagline component removed, T1).
+//   about.*       app/page.tsx #about — label, heading, 3 paragraphs, personal details
 //   projects.*    app/page.tsx #projects — label, heading, intro, 4 project cards
 //                  (name/outcome/fact/tags/visit link), visit-link template
 //   education.*   app/page.tsx #education — label, heading, intro, degree, university,
-//                  CGPA line (cgpa is the gold-styled span inside body)
-//   teaching.*    app/page.tsx #teaching — label, heading, intro, 4 service rows,
-//                  "Teaching roles" + 2 employment entries
+//                  CGPA line (cgpa is the gold-styled span inside body), IELTS card,
+//                  BA card details, education stats
+//   teaching.*    app/page.tsx #teaching — label, heading, intro, 4 service titles,
+//                  3 session cards, teaching stats, "Teaching roles" + 2 employment entries
 //   bookMid.*     app/page.tsx #book-mid — compact booking section heading/intro
-//   acting.*      app/page.tsx #acting — label, heading, intro, body, production list,
-//                  image alts + captions
-//   writing.*     app/page.tsx #writing — label, heading, intro, body, 3 services
-//   achievements.* app/page.tsx #achievements — label, heading, intro, 6 stat cards
-//   volunteering.* app/page.tsx #volunteering — label, heading, intro, body, CTA
-//   apps.*        app/page.tsx #applications — label, heading, intro, 10 app names + purposes
-//   podcast.*     app/page.tsx #think-spark — label, heading, intro, body, image alts
+//   acting.*      app/page.tsx #acting — label, heading, intro, 3 acting cards,
+//                  production list, image alts + captions
+//   writing.*     app/page.tsx #writing — label, heading, intro, body, 3 service names,
+//                  5 books, writing stats
+//   achievements.* app/page.tsx #achievements — label, heading, intro, 6 award cards,
+//                  4 stats, 5 carousel captions
+//   volunteering.* app/page.tsx #volunteering — label, heading, intro, 4 photo alts,
+//                  6 activity cards, stats, scope, CTA
+//   apps.*        app/page.tsx #applications — label, heading, intro, 10 app names + purposes,
+//                  use button (links to #contact)
+//   podcast.*     app/page.tsx #think-spark — label, heading, intro, body, image alts,
+//                  4 topics
 //   ai.*          app/page.tsx #ai-creator — label, heading, intro, 3 courses,
-//                  side panel, capability chips
+//                  capability chips
 //   stock.*       app/page.tsx #adobe-stock — label, heading, intro, body,
-//                  3 guidance rows, status card
-//   skills.*      app/page.tsx #digital-skills — label, heading, 4 skill groups + chips
-//   languages.*   app/page.tsx #languages — label, heading, 6 languages (name/level/note)
-//   reflections.* app/page.tsx — personal reflections aria-label, quote, closing line
+//                  3 guidance rows, 3-stat row
+//   skills.*      app/page.tsx #digital-skills — label, heading, 7 tools + proficiency,
+//                  stats
+//   languages.*   app/page.tsx #languages — label, heading, 6 languages (name/level/percent)
+//   reflections.* app/page.tsx — personal reflections aria-label, quote
 //   hobbies.*     app/page.tsx #hobbies — label, heading, intro, 2 photo captions/alts,
-//                  4 hobby rows, 4 chips
-//   gallery.*     app/page.tsx #gallery — label, heading, intro, 7 image alts + captions
+//                  4 hobby rows, activities I love, plants in my room
+//   gallery.*     app/page.tsx #gallery — label, heading, intro, 20 photos, stats,
+//                  Facebook album link
 //   booking.*     app/page.tsx #book + components/BookingForm.tsx — full booking section,
-//                  benefits, form labels/placeholders/errors/success state,
+//                  form labels/placeholders/errors/success state, date field,
 //                  WhatsApp message template, session-type options
-//   contact.*     app/page.tsx #contact — label, heading, intro, link labels
-//   footer.*      components/Footer.tsx — bio, footer nav, social labels, copyright,
-//                  Privacy/Terms links, footer nav aria-label
+//   contact.*     app/page.tsx #contact — label, heading, intro, link labels, form
+//   footer.*      components/Footer.tsx — bio, quick links, contact column, social labels,
+//                  bottom line, Privacy/Terms links, footer nav aria-label
 //   privacy.*     app/privacy/page.tsx — privacy policy page
 //   terms.*       app/terms/page.tsx — terms of use page
 //   misc.*        app/not-found.tsx (bonus, outside the scoped file list) — 404 strings
@@ -59,8 +67,8 @@ export type Lang = "en" | "bn";
 export const strings: Record<string, { en: string; bn: string }> = {
   // ---------------------------------------------------------------- meta
   "meta.title": {
-    en: "Md Sonet Mia — Writer, Educator, AI Creator",
-    bn: "Md Sonet Mia — Writer, Educator, AI Creator",
+    en: "Md. Sonet Mia — Writer, Educator, AI Creator",
+    bn: "Md. Sonet Mia — Writer, Educator, AI Creator",
   },
   "meta.description": {
     en: "English graduate, educator, writer and digital creator from Tangail, Bangladesh. He teaches, creates with AI tools, and builds educational content and digital ideas.",
@@ -75,13 +83,13 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "Md Sonet Mia, English teacher Tangail, AI creator Bangladesh, Sweet Smart Calendar, PromptEx, Sweet CGI Lab, SiteIncome Lab",
   },
   "meta.ogImageAlt": {
-    en: "Md Sonet Mia speaking on stage",
-    bn: "মঞ্চে বক্তৃতা দিচ্ছেন Md Sonet Mia",
+    en: "Portrait of Md. Sonet Mia",
+    bn: "Md. Sonet Mia-র প্রতিকৃতি",
   },
 
   // ---------------------------------------------------------------- nav
   "nav.skipToContent": { en: "Skip to content", bn: "মূল কনটেন্টে যান" },
-  "nav.brand": { en: "Md Sonet Mia", bn: "Md Sonet Mia" },
+  "nav.brand": { en: "Md. Sonet Mia", bn: "Md. Sonet Mia" },
   "nav.mainAriaLabel": { en: "Main navigation", bn: "প্রধান নেভিগেশন" },
   "nav.about": { en: "About", bn: "আমার সম্পর্কে" },
   "nav.teaching": { en: "Teaching", bn: "শিক্ষাদান" },
@@ -90,6 +98,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "nav.aiCreator": { en: "AI creator", bn: "এআই ক্রিয়েটর" },
   "nav.gallery": { en: "Gallery", bn: "গ্যালারি" },
   "nav.contact": { en: "Contact", bn: "যোগাযোগ" },
+  "nav.education": { en: "Education", bn: "শিক্ষা" },
+  "nav.skills": { en: "Skills", bn: "দক্ষতা" },
   "nav.themeLabel": { en: "Colour theme", bn: "রঙের থিম" },
   "nav.themeSystem": { en: "System theme", bn: "সিস্টেম থিম" },
   "nav.themeLight": { en: "Light theme", bn: "হালকা থিম" },
@@ -107,44 +117,22 @@ export const strings: Record<string, { en: string; bn: string }> = {
 
   // ---------------------------------------------------------------- hero
   "hero.ariaLabel": { en: "Introduction", bn: "ভূমিকা" },
-  "hero.eyebrow": {
-    en: "Writer, educator, AI creator, digital thinker",
-    bn: "লেখক, শিক্ষক, এআই ক্রিয়েটর, ডিজিটাল চিন্তক",
-  },
-  "hero.headline": {
-    en: "Teacher, actor, writer, building with AI.",
-    bn: "শিক্ষক, অভিনেতা, লেখক — এআই দিয়ে গড়ছি।",
-  },
+  "hero.eyebrow": { en: "Writer · Educator · AI Creator · Digital Thinker", bn: "লেখক · শিক্ষক · এআই ক্রিয়েটর · ডিজিটাল চিন্তক" },
+  "hero.headline": { en: "Md. Sonet Mia", bn: "Md. Sonet Mia" },
   "hero.subhead": {
     en: "English graduate from Tangail, teaching and creating with AI tools.",
     bn: "টাঙ্গাইলের ইংরেজি স্নাতক — এআই টুল দিয়ে শেখাই ও তৈরি করি।",
   },
   "hero.bookSession": { en: "Book a session", bn: "সেশন বুক করুন" },
   "hero.seeProjects": { en: "See my projects", bn: "আমার প্রজেক্টগুলো দেখুন" },
-  "hero.proof": {
-    en: "Teaching 2+ years, 50 to 70 students a day.",
-    bn: "2+ বছর ধরে পড়াচ্ছি, প্রতিদিন 50–70 জন শিক্ষার্থী।",
-  },
+  "hero.exploreSkills": { en: "Explore Skills", bn: "দক্ষতা দেখুন" },
   "hero.imageAlt": {
-    en: "Md Sonet Mia speaking on stage",
-    bn: "মঞ্চে বক্তৃতা দিচ্ছেন Md Sonet Mia",
+    en: "Portrait of Md. Sonet Mia",
+    bn: "Md. Sonet Mia-র প্রতিকৃতি",
   },
   "hero.imageCaption": {
-    en: "Speaking on stage to a live audience.",
-    bn: "মঞ্চে সরাসরি দর্শকদের সামনে বক্তৃতা দিচ্ছেন।",
-  },
-
-  // ---------------------------------------------------------------- tagline
-  "tagline.ariaLabel": {
-    en: "A note on teaching and creating",
-    bn: "শিক্ষাদান ও সৃষ্টি নিয়ে একটি কথা",
-  },
-  "tagline.line1": { en: "Teach with patience.", bn: "ধৈর্য ধরে শেখাই।" },
-  "tagline.line2": { en: "Create with curiosity.", bn: "কৌতূহল নিয়ে তৈরি করি।" },
-  "tagline.line3": { en: "Earn with honest work.", bn: "সৎ পরিশ্রমে উপার্জন করি।" },
-  "tagline.line4": {
-    en: "In English and Bangla, for learners everywhere.",
-    bn: "ইংরেজি ও বাংলায়, সব শিক্ষার্থীর জন্য।",
+    en: "Writer, educator, AI creator.",
+    bn: "লেখক, শিক্ষক, এআই ক্রিয়েটর।",
   },
 
   // ---------------------------------------------------------------- about
@@ -162,17 +150,20 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "My faith in Islam (Sunni) and my commitment to community service shape everything I do — from volunteering to building apps that serve others.",
     bn: "ইসলামে (সুন্নি) আমার বিশ্বাস আর সমাজসেবার প্রতি আমার অঙ্গীকার আমার প্রতিটি কাজকে গড়ে তোলে — স্বেচ্ছাসেবা থেকে শুরু করে মানুষের উপকারে আসে এমন অ্যাপ তৈরি পর্যন্ত।",
   },
-  "about.factRoleValue": { en: "Educator", bn: "শিক্ষক" },
-  "about.factRoleLabel": { en: "Role", bn: "ভূমিকা" },
-  "about.factBaseValue": { en: "Tangail", bn: "টাঙ্গাইল" },
-  "about.factBaseLabel": { en: "Base", bn: "ঠিকানা" },
-  "about.factFocusValue": { en: "Teaching and AI", bn: "শিক্ষাদান ও এআই" },
-  "about.factFocusLabel": { en: "Focus", bn: "মনোযোগ" },
   "about.imageAlt": {
-    en: "Md Sonet Mia speaking at a podium",
-    bn: "পোডিয়ামে বক্তৃতা দিচ্ছেন Md Sonet Mia",
+    en: "Md. Sonet Mia in a suit",
+    bn: "স্যুট পরা Md. Sonet Mia",
   },
 
+  // Personal details (original site) — replaces the fact trio (T3).
+  "about.detailFullName.label": { en: "Full Name", bn: "পুরো নাম" },
+  "about.detailFullName.value": { en: "Md. Sonet Mia", bn: "Md. Sonet Mia" },
+  "about.detailBorn.label": { en: "Born", bn: "জন্ম" },
+  "about.detailBorn.value": { en: "12 January 2000", bn: "12 জানুয়ারি 2000" },
+  "about.detailNationality.label": { en: "Nationality", bn: "জাতীয়তা" },
+  "about.detailNationality.value": { en: "Bangladeshi", bn: "বাংলাদেশি" },
+  "about.detailLocation.label": { en: "Location", bn: "ঠিকানা" },
+  "about.detailLocation.value": { en: "Tangail, Bangladesh", bn: "টাঙ্গাইল, বাংলাদেশ" },
   // ---------------------------------------------------------------- projects
   "projects.label": { en: "My projects", bn: "আমার প্রজেক্ট" },
   "projects.heading": { en: "Work that is already live", bn: "যেসব কাজ ইতিমধ্যে লাইভ" },
@@ -247,6 +238,38 @@ export const strings: Record<string, { en: string; bn: string }> = {
   },
   "education.cgpa": { en: "3.38 out of 4.00", bn: "3.38 out of 4.00" },
 
+  // IELTS card (original site).
+  "education.ielts.title": { en: "IELTS Completed", bn: "IELTS সম্পন্ন" },
+  "education.ielts.subtitle": {
+    en: "International English Proficiency",
+    bn: "আন্তর্জাতিক ইংরেজি দক্ষতা",
+  },
+  "education.ielts.date": { en: "Completed 2025", bn: "2025 সালে সম্পন্ন" },
+  "education.ielts.body": {
+    en: "Successfully completed the IELTS examination with a band score of 6.5, demonstrating strong English proficiency across all four modules.",
+    bn: "IELTS পরীক্ষায় 6.5 ব্যান্ড স্কোর নিয়ে সফলভাবে উত্তীর্ণ হয়েছি — চারটি মডিউলেই আমার শক্তিশালী ইংরেজি দক্ষতার প্রমাণ।",
+  },
+  "education.ielts.resultLabel": { en: "Result", bn: "ফলাফল" },
+  "education.ielts.resultValue": { en: "6.5", bn: "6.5" },
+  "education.ielts.nextLabel": { en: "Next Target", bn: "পরবর্তী লক্ষ্য" },
+  "education.ielts.nextValue": { en: "7.5", bn: "7.5" },
+  // BA card details (original site).
+  "education.ba.desc": {
+    en: "Deep study of English literature, linguistics, and communication — building a strong foundation for teaching, writing, and creative work.",
+    bn: "ইংরেজি সাহিত্য, ভাষাবিজ্ঞান ও যোগাযোগের গভীর অধ্যয়ন — শিক্ষাদান, লেখালেখি ও সৃজনশীল কাজের শক্ত ভিত্তি গড়ে দিয়েছে।",
+  },
+  "education.ba.date": { en: "Completed 2024", bn: "2024 সালে সম্পন্ন" },
+  "education.ba.coursesLabel": { en: "Courses", bn: "কোর্স" },
+  "education.ba.coursesValue": { en: "40+", bn: "40+" },
+  // Education stats (original site).
+  "education.stats.study.figure": { en: "4+", bn: "4+" },
+  "education.stats.study.label": { en: "Years of Study", bn: "বছরের পড়াশোনা" },
+  "education.stats.courses.figure": { en: "40+", bn: "40+" },
+  "education.stats.courses.label": { en: "Courses Completed", bn: "কোর্স সম্পন্ন" },
+  "education.stats.languages.figure": { en: "3", bn: "3" },
+  "education.stats.languages.label": { en: "Languages", bn: "ভাষা" },
+  "education.stats.certifications.figure": { en: "5+", bn: "5+" },
+  "education.stats.certifications.label": { en: "Certifications", bn: "সার্টিফিকেশন" },
   // ---------------------------------------------------------------- teaching
   "teaching.label": { en: "Teaching services", bn: "শিক্ষাদান সেবা" },
   "teaching.heading": {
@@ -258,44 +281,68 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "2+ বছর ধরে পড়াচ্ছি, প্রতিদিন 50–70 জন শিক্ষার্থী, প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল।",
   },
   "teaching.service1.title": { en: "English grammar coaching", bn: "ইংরেজি গ্রামার কোচিং" },
-  "teaching.service1.outcome": {
-    en: "Clear grammar in plain words, so students write and speak with confidence.",
-    bn: "সহজ ভাষায় পরিষ্কার গ্রামার — যাতে শিক্ষার্থীরা আত্মবিশ্বাসের সঙ্গে লিখতে ও বলতে পারে।",
-  },
   "teaching.service2.title": { en: "Spoken English improvement", bn: "স্পোকেন ইংরেজি উন্নয়ন" },
-  "teaching.service2.outcome": {
-    en: "Guided speaking practice that turns hesitant learners into fluent speakers.",
-    bn: "গাইডেড স্পিকিং প্র্যাকটিস — দ্বিধাগ্রস্ত শিক্ষার্থীদের সাবলীল বক্তায় পরিণত করে।",
-  },
   "teaching.service3.title": { en: "Writing improvement", bn: "লেখার দক্ষতা উন্নয়ন" },
-  "teaching.service3.outcome": {
-    en: "Honest feedback on real writing, so every draft comes back stronger.",
-    bn: "আসল লেখার ওপর সৎ ফিডব্যাক — প্রতিটি ড্রাফট আগের চেয়ে শক্তিশালী হয়ে ফিরে আসে।",
-  },
   "teaching.service4.title": { en: "Student mentoring", bn: "শিক্ষার্থী মেন্টরিং" },
-  "teaching.service4.outcome": {
-    en: "One to one guidance on study habits, goals, and what to learn next.",
-    bn: "পড়াশোনার অভ্যাস, লক্ষ্য ও পরবর্তী ধাপ নিয়ে ব্যক্তিগত গাইডলাইন।",
-  },
-  "teaching.bookSession": { en: "Book a session", bn: "সেশন বুক করুন" },
   "teaching.rolesHeading": { en: "Teaching roles", bn: "শিক্ষকতার ভূমিকা" },
-  "teaching.role1.title": { en: "Assistant Teacher, English", bn: "সহকারী শিক্ষক, ইংরেজি" },
-  "teaching.role1.org": {
-    en: "Prativa School and College Coaching, Jamalpur, Jan 2023 to Mar 2024",
-    bn: "Prativa School and College Coaching, Jamalpur, Jan 2023 to Mar 2024",
-  },
-  "teaching.role2.title": { en: "Assistant Teacher", bn: "সহকারী শিক্ষক" },
-  "teaching.role2.org": {
-    en: "Sobuz Kuri Lab. School and College, Jamalpur, Jan 2022 to Jan 2023",
-    bn: "Sobuz Kuri Lab. School and College, Jamalpur, Jan 2022 to Jan 2023",
-  },
+  "teaching.role1.title": { en: "Assistant Teacher (English Language & Grammar)", bn: "সহকারী শিক্ষক (ইংরেজি ভাষা ও গ্রামার)" },
+  "teaching.role1.org": { en: "Sobuz Kuri Laboratory School & College", bn: "Sobuz Kuri Laboratory School & College" },
+  "teaching.role2.title": { en: "Assistant Teacher (English Language & Grammar)", bn: "সহকারী শিক্ষক (ইংরেজি ভাষা ও গ্রামার)" },
+  "teaching.role2.org": { en: "Prativa Preparatory School & College", bn: "Prativa Preparatory School & College" },
 
+  // Session cards (original site) — replace the service outcome lines (T9).
+  "teaching.session1.title": { en: "Grammar Mastery Session", bn: "গ্রামার মাস্টারি সেশন" },
+  "teaching.session1.duration": { en: "60 min", bn: "60 মিনিট" },
+  "teaching.session1.price": { en: "Contact for pricing", bn: "মূল্যের জন্য যোগাযোগ করুন" },
+  "teaching.session1.desc": {
+    en: "Deep dive into English grammar rules, common mistakes, and advanced usage.",
+    bn: "ইংরেজি গ্রামারের নিয়ম, সাধারণ ভুল ও উন্নত ব্যবহার নিয়ে গভীর আলোচনা।",
+  },
+  "teaching.session2.title": { en: "Spoken English Coaching", bn: "স্পোকেন ইংরেজি কোচিং" },
+  "teaching.session2.duration": { en: "45 min", bn: "45 মিনিট" },
+  "teaching.session2.price": { en: "Contact for pricing", bn: "মূল্যের জন্য যোগাযোগ করুন" },
+  "teaching.session2.desc": {
+    en: "Build confidence in spoken English with guided practice and feedback.",
+    bn: "গাইডেড প্র্যাকটিস ও ফিডব্যাকের মধ্য দিয়ে স্পোকেন ইংরেজিতে আত্মবিশ্বাস গড়ে তুলুন।",
+  },
+  "teaching.session3.title": { en: "Exam Preparation Guidance", bn: "পরীক্ষার প্রস্তুতি গাইডলাইন" },
+  "teaching.session3.duration": { en: "90 min", bn: "90 মিনিট" },
+  "teaching.session3.price": { en: "Contact for pricing", bn: "মূল্যের জন্য যোগাযোগ করুন" },
+  "teaching.session3.desc": {
+    en: "Strategic preparation for English exams with tips, practice, and review.",
+    bn: "টিপস, প্র্যাকটিস ও রিভিউসহ ইংরেজি পরীক্ষার কৌশলগত প্রস্তুতি।",
+  },
+  // Teaching stats (original site).
+  "teaching.stats.schools.figure": { en: "2", bn: "2" },
+  "teaching.stats.schools.label": { en: "Schools", bn: "স্কুল" },
+  "teaching.stats.students.figure": { en: "200+", bn: "200+" },
+  "teaching.stats.students.label": { en: "Students", bn: "শিক্ষার্থী" },
+  "teaching.stats.sessions.figure": { en: "500+", bn: "500+" },
+  "teaching.stats.sessions.label": { en: "Sessions", bn: "সেশন" },
+  "teaching.stats.years.figure": { en: "2+", bn: "2+" },
+  "teaching.stats.years.label": { en: "Years", bn: "বছর" },
+  // Teaching-role dates (original wording; roles reordered chronologically, G10).
+  "teaching.role1.dates": { en: "2022–2023", bn: "2022–2023" },
+  "teaching.role2.dates": { en: "2023–2024", bn: "2023–2024" },
+  // Teaching carousel image alts (v3 wiring — photos seen, alts describe them).
+  "teaching.carousel1Alt": {
+    en: "Md. Sonet Mia teaching a group with a microphone",
+    bn: "মাইক্রোফোন হাতে দলকে পড়াচ্ছেন Md. Sonet Mia",
+  },
+  "teaching.carousel2Alt": {
+    en: "Md. Sonet Mia presenting on stage with a microphone",
+    bn: "মঞ্চে মাইক্রোফোন হাতে উপস্থাপনা করছেন Md. Sonet Mia",
+  },
+  "teaching.carousel3Alt": {
+    en: "Md. Sonet Mia speaking into a microphone while seated",
+    bn: "বসে মাইক্রোফোনে কথা বলছেন Md. Sonet Mia",
+  },
   // ---------------------------------------------------------------- book-mid
-  "bookMid.label": { en: "Book a session", bn: "সেশন বুক করুন" },
+  "bookMid.label": { en: "Book a quick session", bn: "দ্রুত সেশন বুক করুন" },
   "bookMid.heading": { en: "Work with Sonet directly", bn: "সনেটের সঙ্গে সরাসরি কাজ করুন" },
   "bookMid.intro": {
-    en: "Book an English guidance session, a writing consultation, or an AI workshop. Your request goes straight to WhatsApp.",
-    bn: "ইংরেজি গাইডলাইন সেশন, লেখার পরামর্শ, বা এআই ওয়ার্কশপ বুক করুন। আপনার অনুরোধ সরাসরি WhatsApp-এ যাবে।",
+    en: "Book an English guidance session, a writing consultation, or an AI workshop.",
+    bn: "ইংরেজি গাইডলাইন সেশন, লেখার পরামর্শ, বা এআই ওয়ার্কশপ বুক করুন।",
   },
 
   // ---------------------------------------------------------------- acting
@@ -304,10 +351,6 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "acting.intro": {
     en: "Bringing classic literature to life through performance.",
     bn: "অভিনয়ের মধ্য দিয়ে ক্লাসিক সাহিত্যকে প্রাণবন্ত করে তোলা।",
-  },
-  "acting.body": {
-    en: "Theatre taught me how a story lands in a room: timing, voice, the pause before a line. That timing shapes how I teach and speak on camera today.",
-    bn: "থিয়েটার আমাকে শিখিয়েছে একটি গল্প ঘরে কীভাবে পৌঁছায়: সময়, কণ্ঠস্বর, আর লাইনের আগের নীরবতা। সেই সময়জ্ঞানই আজ আমার শেখানো আর ক্যামেরার সামনে বলাকে গড়ে তোলে।",
   },
   "acting.playTitle": { en: "The Merchant of Venice", bn: "The Merchant of Venice" },
   "acting.playNote": {
@@ -327,6 +370,22 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "The Merchant of Venice অভিনয়ের একটি দৃশ্য",
   },
 
+  // Acting cards (original site) — replace the body paragraph (T4).
+  "acting.card1.title": { en: "The Merchant of Venice", bn: "The Merchant of Venice" },
+  "acting.card1.desc": {
+    en: "Performed in William Shakespeare's iconic tragedy, showcasing dramatic range and stage presence at a university-level production.",
+    bn: "উইলিয়াম শেকসপিয়রের আইকনিক ট্র্যাজেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
+  },
+  "acting.card2.title": { en: "Stage Performance", bn: "মঞ্চ পরিবেশনা" },
+  "acting.card2.desc": {
+    en: "Delivered a compelling portrayal that combined classical English literature with expressive theatrical storytelling.",
+    bn: "ক্লাসিক ইংরেজি সাহিত্যকে অভিব্যক্তিপূর্ণ নাটকীয় গল্প বলার সঙ্গে মিলিয়ে এক মনোমুগ্ধকর চরিত্র উপস্থাপন।",
+  },
+  "acting.card3.title": { en: "Drama & Expression", bn: "নাটক ও অভিব্যক্তি" },
+  "acting.card3.desc": {
+    en: "Passionate about using theatre as a medium to bring classic literature to life and connect with audiences.",
+    bn: "থিয়েটারকে ক্লাসিক সাহিত্যকে প্রাণবন্ত করে দর্শকের সঙ্গে যুক্ত হওয়ার মাধ্যম হিসেবে ব্যবহারের প্রতি আগ্রহী।",
+  },
   // ---------------------------------------------------------------- writing
   "writing.label": { en: "Writing and author", bn: "লেখালেখি ও লেখক" },
   "writing.heading": { en: "Words that inspire", bn: "অনুপ্রেরণার শব্দ" },
@@ -340,22 +399,28 @@ export const strings: Record<string, { en: string; bn: string }> = {
   },
   "writing.servicesHeading": { en: "Writing services", bn: "লেখার সেবা" },
   "writing.service1.title": { en: "Creative writing mentoring", bn: "সৃজনশীল লেখা মেন্টরিং" },
-  "writing.service1.desc": {
-    en: "Guidance for writers finding their voice and finishing their work.",
-    bn: "নিজের কণ্ঠ খুঁজে পাওয়া আর কাজ শেষ করা — লেখকদের জন্য গাইডলাইন।",
-  },
   "writing.service2.title": { en: "Poetry writing workshop", bn: "কবিতা লেখার ওয়ার্কশপ" },
-  "writing.service2.desc": {
-    en: "A practical workshop on writing poems that say something real.",
-    bn: "সত্যিকারের কিছু বলা কবিতা লেখার বাস্তবসম্মত ওয়ার্কশপ।",
-  },
   "writing.service3.title": { en: "Story writing guidance", bn: "গল্প লেখার গাইডলাইন" },
-  "writing.service3.desc": {
-    en: "Help shaping an idea into a story with a beginning, a middle, and an end.",
-    bn: "একটি আইডিয়াকে শুরু, মধ্য ও শেষসহ পূর্ণ গল্পে রূপ দিতে সাহায্য।",
-  },
-  "writing.bookConsultation": { en: "Book a consultation", bn: "পরামর্শ বুক করুন" },
 
+  // Books (original site) — services keep names only (T10).
+  "writing.booksHeading": { en: "My books", bn: "আমার বই" },
+  "writing.book1.title": { en: "A Story of Two Hearts", bn: "A Story of Two Hearts" },
+  "writing.book1.kind": { en: "Story Book", bn: "গল্পের বই" },
+  "writing.book2.title": { en: "Smritimoy Kabya", bn: "Smritimoy Kabya" },
+  "writing.book2.kind": { en: "Joint Poetry Book (Published)", bn: "যৌথ কবিতার বই (প্রকাশিত)" },
+  "writing.book3.title": { en: "বিসর্জন", bn: "বিসর্জন" },
+  "writing.book3.kind": { en: "Published on Bortoi.com", bn: "Bortoi.com-এ প্রকাশিত" },
+  "writing.book4.title": { en: "One More Step", bn: "One More Step" },
+  "writing.book4.kind": { en: "Motivational eBook", bn: "অনুপ্রেরণামূলক ইবুক" },
+  "writing.book5.title": { en: "Why?", bn: "Why?" },
+  "writing.book5.kind": { en: "Motivational English Book", bn: "অনুপ্রেরণামূলক ইংরেজি বই" },
+  // Writing stats (original site).
+  "writing.stats.books.figure": { en: "5", bn: "5" },
+  "writing.stats.books.label": { en: "Books", bn: "বই" },
+  "writing.stats.published.figure": { en: "3", bn: "3" },
+  "writing.stats.published.label": { en: "Published", bn: "প্রকাশিত" },
+  "writing.stats.genres.figure": { en: "4", bn: "4" },
+  "writing.stats.genres.label": { en: "Genres", bn: "ধরন" },
   // ---------------------------------------------------------------- achievements
   "achievements.label": { en: "Achievements", bn: "অর্জন" },
   "achievements.heading": { en: "Recognition and growth", bn: "স্বীকৃতি ও অগ্রগতি" },
@@ -363,34 +428,59 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "Continuous learning, service, and excellence.",
     bn: "নিরবচ্ছিন্ন শেখা, সেবা ও উৎকর্ষ।",
   },
-  "achievements.cgpa.figure": { en: "3.38 / 4.00", bn: "3.38 / 4.00" },
-  "achievements.cgpa.label": { en: "CGPA, BA (Honours) in English", bn: "CGPA, BA (Honours) in English" },
-  "achievements.cgpa.source": {
-    en: "Sheikh Fazilatunnesa Mujib University",
-    bn: "Sheikh Fazilatunnesa Mujib University",
-  },
-  "achievements.students.figure": { en: "53", bn: "53" },
-  "achievements.students.label": { en: "Approved students", bn: "অনুমোদিত শিক্ষার্থী" },
-  "achievements.students.source": {
-    en: "Sweet Smart Calendar training platform",
-    bn: "Sweet Smart Calendar ট্রেনিং প্ল্যাটফর্ম",
-  },
-  "achievements.views.figure": { en: "98,000+", bn: "98,000+" },
-  "achievements.views.label": { en: "Views", bn: "ভিউ" },
-  "achievements.views.source": {
-    en: "Sweet CGI Lab YouTube Shorts channel",
-    bn: "Sweet CGI Lab YouTube Shorts চ্যানেল",
-  },
-  "achievements.posts.figure": { en: "18", bn: "18" },
-  "achievements.posts.label": { en: "Posts live", bn: "লাইভ পোস্ট" },
-  "achievements.posts.source": { en: "SiteIncome Lab blog", bn: "SiteIncome Lab ব্লগ" },
-  "achievements.chess.figure": { en: "Chess champion", bn: "দাবা চ্যাম্পিয়ন" },
-  "achievements.chess.label": { en: "Championship certificates", bn: "চ্যাম্পিয়নশিপ সার্টিফিকেট" },
-  "achievements.chess.source": { en: "Strategic chess tournaments", bn: "কৌশলগত দাবা টুর্নামেন্ট" },
-  "achievements.debate.figure": { en: "Debate champion", bn: "বিতর্ক চ্যাম্পিয়ন" },
-  "achievements.debate.label": { en: "Multiple recognitions", bn: "একাধিক স্বীকৃতি" },
-  "achievements.debate.source": { en: "Competitive debate events", bn: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠান" },
 
+  // Award cards (original site) — replace the recycled stats (D5) and the
+  // chess/debate stat cards (D4; they stay in Hobbies).
+  "achievements.award1.title": { en: "Rising Star Award", bn: "রাইজিং স্টার অ্যাওয়ার্ড" },
+  "achievements.award1.desc": {
+    en: "Recognized for outstanding growth and contribution.",
+    bn: "অসাধারণ অগ্রগতি ও অবদানের স্বীকৃতি।",
+  },
+  "achievements.award2.title": { en: "Best Volunteer Award", bn: "সেরা স্বেচ্ছাসেবক পুরস্কার" },
+  "achievements.award2.desc": {
+    en: "Honored for exceptional community service and dedication.",
+    bn: "অসাধারণ সমাজসেবা ও নিষ্ঠার জন্য সম্মানিত।",
+  },
+  "achievements.award3.title": { en: "Debate Competition Certificates", bn: "বিতর্ক প্রতিযোগিতার সার্টিফিকেট" },
+  "achievements.award3.desc": {
+    en: "Multiple recognitions in competitive debate events.",
+    bn: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।",
+  },
+  "achievements.award4.title": { en: "Chess Championship Certificates", bn: "দাবা চ্যাম্পিয়নশিপ সার্টিফিকেট" },
+  "achievements.award4.desc": {
+    en: "Achievements in strategic chess tournaments.",
+    bn: "কৌশলগত দাবা টুর্নামেন্টে অর্জন।",
+  },
+  "achievements.award5.title": { en: "17+ Online Course Certifications", bn: "17+ অনলাইন কোর্স সার্টিফিকেশন" },
+  "achievements.award5.desc": {
+    en: "Continuous learning across diverse digital disciplines.",
+    bn: "বিভিন্ন ডিজিটাল বিষয়ে নিরবচ্ছিন্ন শেখা।",
+  },
+  "achievements.award6.title": { en: "6+ Training Completed", bn: "6+ ট্রেনিং সম্পন্ন" },
+  "achievements.award6.desc": {
+    en: "Professional development training in leadership, capacity building, and youth empowerment.",
+    bn: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।",
+  },
+  // Achievements stats (original site).
+  "achievements.stats.awards.figure": { en: "5+", bn: "5+" },
+  "achievements.stats.awards.label": { en: "Awards", bn: "পুরস্কার" },
+  "achievements.stats.certifications.figure": { en: "17+", bn: "17+" },
+  "achievements.stats.certifications.label": { en: "Certifications", bn: "সার্টিফিকেশন" },
+  "achievements.stats.trainings.figure": { en: "6+", bn: "6+" },
+  "achievements.stats.trainings.label": { en: "Trainings", bn: "প্রশিক্ষণ" },
+  "achievements.stats.events.figure": { en: "30+", bn: "30+" },
+  "achievements.stats.events.label": { en: "Events", bn: "অনুষ্ঠান" },
+  // Achievements carousel captions (original site).
+  "achievements.carousel1.caption": { en: "Chief Sergeant at Arms", bn: "চিফ সার্জেন্ট অ্যাট আর্মস" },
+  "achievements.carousel1.sub": { en: "Leadership Role", bn: "নেতৃত্বের ভূমিকা" },
+  "achievements.carousel2.caption": { en: "Youth event", bn: "যুব অনুষ্ঠান" },
+  "achievements.carousel2.sub": { en: "Youth Events", bn: "যুব অনুষ্ঠান" },
+  "achievements.carousel3.caption": { en: "Volunteer event", bn: "স্বেচ্ছাসেবী অনুষ্ঠান" },
+  "achievements.carousel3.sub": { en: "Community Service", bn: "সমাজসেবা" },
+  "achievements.carousel4.caption": { en: "Capacity building training", bn: "ক্যাপাসিটি বিল্ডিং ট্রেনিং" },
+  "achievements.carousel4.sub": { en: "Professional Training", bn: "পেশাদার প্রশিক্ষণ" },
+  "achievements.carousel5.caption": { en: "Public speaking", bn: "পাবলিক স্পিকিং" },
+  "achievements.carousel5.sub": { en: "Public Speaking", bn: "পাবলিক স্পিকিং" },
   // ---------------------------------------------------------------- volunteering
   "volunteering.label": { en: "Volunteering", bn: "স্বেচ্ছাসেবা" },
   "volunteering.heading": { en: "Serving communities", bn: "সমাজের সেবায়" },
@@ -398,15 +488,62 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "Making a real impact through social service, education, and youth empowerment.",
     bn: "সমাজসেবা, শিক্ষা ও যুব ক্ষমতায়নের মধ্য দিয়ে বাস্তব পরিবর্তন আনা।",
   },
-  "volunteering.body": {
-    en: "Community service is part of how I work, not an extra. From teaching to youth programs, the goal is the same: leave people better equipped than I found them.",
-    bn: "সমাজসেবা আমার কাজেরই অংশ, আলাদা কিছু নয়। শিক্ষাদান থেকে যুব কর্মসূচি — লক্ষ্য একটাই: মানুষকে আগের চেয়ে ভালোভাবে প্রস্তুত রেখে যাওয়া।",
-  },
   "volunteering.joinCta": {
     en: "Join my volunteer network",
     bn: "আমার স্বেচ্ছাসেবক নেটওয়ার্কে যোগ দিন",
   },
 
+  // Volunteering photo alts (original site).
+  "volunteering.photo1Alt": { en: "Volunteering with children", bn: "শিশুদের সঙ্গে স্বেচ্ছাসেবা" },
+  "volunteering.photo2Alt": { en: "Community outreach with kids", bn: "শিশুদের সঙ্গে কমিউনিটি আউটরিচ" },
+  "volunteering.photo3Alt": { en: "Group presentation", bn: "দলগত উপস্থাপনা" },
+  "volunteering.photo4Alt": { en: "Cultural engagement", bn: "সাংস্কৃতিক সম্পৃক্ততা" },
+  // Volunteering activity cards (original site) — replace the body paragraph (T5).
+  "volunteering.activity1.title": { en: "Community Education", bn: "কমিউনিটি শিক্ষা" },
+  "volunteering.activity1.desc": {
+    en: "Teaching underprivileged children and spreading educational awareness in rural areas.",
+    bn: "সুবিধাবঞ্চিত শিশুদের পড়ানো ও গ্রামীণ এলাকায় শিক্ষা সচেতনতা ছড়িয়ে দেওয়া।",
+  },
+  "volunteering.activity2.title": { en: "Youth Leadership", bn: "যুব নেতৃত্ব" },
+  "volunteering.activity2.desc": {
+    en: "Mentoring young people and organizing community-building events and workshops.",
+    bn: "তরুণদের মেন্টরিং আর কমিউনিটি গড়ে তোলার অনুষ্ঠান ও ওয়ার্কশপ আয়োজন।",
+  },
+  "volunteering.activity3.title": { en: "Social Campaigns", bn: "সামাজিক প্রচারণা" },
+  "volunteering.activity3.desc": {
+    en: "Leading awareness campaigns on education, health, and environmental issues.",
+    bn: "শিক্ষা, স্বাস্থ্য ও পরিবেশ বিষয়ে সচেতনতা প্রচারণার নেতৃত্ব।",
+  },
+  "volunteering.activity4.title": { en: "Disaster Relief", bn: "দুর্যোগ ত্রাণ" },
+  "volunteering.activity4.desc": {
+    en: "Volunteering in relief efforts and distributing aid during natural disasters.",
+    bn: "প্রাকৃতিক দুর্যোগের সময় ত্রাণ কাজে স্বেচ্ছাসেবা ও সহায়তা বিতরণ।",
+  },
+  "volunteering.activity5.title": { en: "Book Distribution", bn: "বই বিতরণ" },
+  "volunteering.activity5.desc": {
+    en: "Providing educational materials and books to underserved communities.",
+    bn: "সুবিধাবঞ্চিত কমিউনিটিতে শিক্ষা উপকরণ ও বই পৌঁছে দেওয়া।",
+  },
+  "volunteering.activity6.title": { en: "Cultural Preservation", bn: "সাংস্কৃতিক সংরক্ষণ" },
+  "volunteering.activity6.desc": {
+    en: "Promoting Bangladeshi culture, language, and heritage through community events.",
+    bn: "কমিউনিটি অনুষ্ঠানের মধ্য দিয়ে বাংলাদেশি সংস্কৃতি, ভাষা ও ঐতিহ্যের প্রচার।",
+  },
+  // Volunteering stats + scope (original site).
+  "volunteering.stats.activities.figure": { en: "117+", bn: "117+" },
+  "volunteering.stats.activities.label": { en: "Social Activities", bn: "সামাজিক কার্যক্রম" },
+  "volunteering.stats.lives.figure": { en: "500+", bn: "500+" },
+  "volunteering.stats.lives.label": { en: "Lives Impacted", bn: "জীবনে প্রভাব" },
+  "volunteering.stats.trainings.figure": { en: "12+", bn: "12+" },
+  "volunteering.stats.trainings.label": { en: "Certified Training Completed", bn: "সার্টিফায়েড ট্রেনিং সম্পন্ন" },
+  "volunteering.stats.organizations.figure": { en: "13+", bn: "13+" },
+  "volunteering.stats.organizations.label": { en: "Organizations", bn: "সংস্থা" },
+  "volunteering.scope.international.label": { en: "International", bn: "আন্তর্জাতিক" },
+  "volunteering.scope.international.value": { en: "4", bn: "4" },
+  "volunteering.scope.national.label": { en: "National", bn: "জাতীয়" },
+  "volunteering.scope.national.value": { en: "6", bn: "6" },
+  "volunteering.scope.local.label": { en: "Local", bn: "স্থানীয়" },
+  "volunteering.scope.local.value": { en: "3", bn: "3" },
   // ---------------------------------------------------------------- apps
   "apps.label": { en: "Applications", bn: "অ্যাপ্লিকেশন" },
   "apps.heading": { en: "My applications", bn: "আমার অ্যাপ্লিকেশন" },
@@ -466,6 +603,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "স্মার্ট সমস্যা সমাধানকারী সহকারী।",
   },
 
+  // Links to #contact (G19).
+  "apps.useButton": { en: "Use My Applications", bn: "আমার অ্যাপ্লিকেশন ব্যবহার করুন" },
   // ---------------------------------------------------------------- podcast (Think & Spark)
   "podcast.label": { en: "Projects", bn: "প্রজেক্ট" },
   "podcast.heading": { en: "Think and Spark", bn: "Think and Spark" },
@@ -474,8 +613,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "একটি ফেসলেস YouTube পডকাস্ট — বিশ্বজুড়ে শ্রোতাদের শিক্ষিত ও অনুপ্রাণিত করে।",
   },
   "podcast.body": {
-    en: "Think and Spark is built for listeners: clear ideas, honest conversation, lessons you can use the same day. No face on screen — just the thinking.",
-    bn: "Think and Spark শ্রোতাদের জন্য তৈরি: পরিষ্কার আইডিয়া, সৎ আলোচনা, আর একই দিনে ব্যবহার করা যায় এমন শিক্ষা। পর্দায় কোনো মুখ নেই — শুধু চিন্তাভাবনা।",
+    en: "Think and Spark is built for listeners: clear ideas, honest conversation, lessons you can use the same day.",
+    bn: "Think and Spark শ্রোতাদের জন্য তৈরি: পরিষ্কার আইডিয়া, সৎ আলোচনা, আর একই দিনে ব্যবহার করা যায় এমন শিক্ষা।",
   },
   "podcast.imageAlt": {
     en: "Md Sonet Mia speaking on stage for the Think and Spark podcast",
@@ -487,13 +626,16 @@ export const strings: Record<string, { en: string; bn: string }> = {
   },
   "podcast.teamworkAlt": { en: "Teamwork and collaboration", bn: "টিমওয়ার্ক ও সহযোগিতা" },
 
+  // Think & Spark topics (original site).
+  "podcast.topicsHeading": { en: "Topics", bn: "টপিক" },
+  "podcast.topic1": { en: "English Grammar", bn: "ইংরেজি গ্রামার" },
+  "podcast.topic2": { en: "Motivation", bn: "অনুপ্রেরণা" },
+  "podcast.topic3": { en: "Life Hacks", bn: "লাইফ হ্যাক" },
+  "podcast.topic4": { en: "Book Reviews", bn: "বই পর্যালোচনা" },
   // ---------------------------------------------------------------- ai creator
   "ai.label": { en: "AI creator", bn: "এআই ক্রিয়েটর" },
   "ai.heading": { en: "AI powered creativity", bn: "এআই-চালিত সৃজনশীলতা" },
-  "ai.intro": {
-    en: "Using AI to build, create, and innovate: prompt writing, content creation, video generation, and creative strategy.",
-    bn: "এআই দিয়ে তৈরি, সৃষ্টি ও উদ্ভাবন: প্রম্পট লেখা, কনটেন্ট তৈরি, ভিডিও জেনারেশন ও সৃজনশীল কৌশল।",
-  },
+  "ai.intro": { en: "Using AI to build, create, and innovate.", bn: "এআই দিয়ে তৈরি, সৃষ্টি ও উদ্ভাবন।" },
   "ai.course1.title": { en: "AI Prompt Masterclass", bn: "AI Prompt Masterclass" },
   "ai.course1.desc": {
     en: "Learn to write effective prompts for ChatGPT, Gemini, and other AI tools.",
@@ -501,19 +643,13 @@ export const strings: Record<string, { en: string; bn: string }> = {
   },
   "ai.course2.title": { en: "AI Content Strategy", bn: "AI Content Strategy" },
   "ai.course2.desc": {
-    en: "Build an AI powered content strategy for wider reach and deeper engagement.",
-    bn: "ব্যাপক রিচ ও গভীর এনগেজমেন্টের জন্য এআই-চালিত কনটেন্ট কৌশল তৈরি করুন।",
+    en: "Develop a content strategy powered by AI for maximum reach and engagement.",
+    bn: "সর্বোচ্চ রিচ ও এনগেজমেন্টের জন্য এআই-চালিত কনটেন্ট কৌশল তৈরি করুন।",
   },
   "ai.course3.title": { en: "AI Video Workshop", bn: "AI Video Workshop" },
   "ai.course3.desc": {
-    en: "Create video concepts with AI driven brainstorming.",
-    bn: "এআই-চালিত ব্রেইনস্টর্মিং দিয়ে সৃজনশীল ভিডিও আইডিয়া তৈরি করুন।",
-  },
-  "ai.bookSession": { en: "Book a session", bn: "সেশন বুক করুন" },
-  "ai.panelTitle": { en: "AI Creator", bn: "এআই ক্রিয়েটর" },
-  "ai.panelBody": {
-    en: "Faster drafts, sharper ideas, and more time for the teaching that only a person can do.",
-    bn: "দ্রুত ড্রাফট, তীক্ষ্ণ আইডিয়া, আর শুধু মানুষই পারে এমন শেখানোর জন্য আরও সময়।",
+    en: "Generate creative video concepts using AI-driven brainstorming techniques.",
+    bn: "এআই-চালিত ব্রেইনস্টর্মিং কৌশলের সাহায্যে সৃজনশীল ভিডিও ধারণা তৈরি করুন।",
   },
   "ai.chip1": { en: "Prompt writing", bn: "প্রম্পট লেখা" },
   "ai.chip2": { en: "Content creation", bn: "কনটেন্ট তৈরি" },
@@ -528,8 +664,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "বিশ্ববাজারের জন্য ভিজ্যুয়াল কনটেন্ট তৈরি করছি।",
   },
   "stock.body": {
-    en: "As an Adobe Stock contributor, I create images and video for buyers around the world. The craft is in the details: a clean concept, honest metadata, and content that solves a real need.",
-    bn: "Adobe Stock কন্ট্রিবিউটর হিসেবে আমি বিশ্বজুড়ে ক্রেতাদের জন্য ছবি ও ভিডিও তৈরি করি। কারিগরি দক্ষতা লুকিয়ে আছে খুঁটিনাটিতে: পরিষ্কার ধারণা, সৎ মেটাডেটা, আর আসল প্রয়োজন মেটায় এমন কনটেন্ট।",
+    en: "As an Adobe Stock contributor, I create images and video for buyers around the world.",
+    bn: "Adobe Stock কন্ট্রিবিউটর হিসেবে আমি বিশ্বজুড়ে ক্রেতাদের জন্য ছবি ও ভিডিও তৈরি করি।",
   },
   "stock.guide1.title": { en: "AI image creation guidance", bn: "এআই ছবি তৈরির গাইডলাইন" },
   "stock.guide1.desc": {
@@ -546,75 +682,71 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "Choosing topics by season and demand, not by guesswork.",
     bn: "অনুমানের বদলে মৌসুম ও চাহিদা দেখে টপিক বেছে নেওয়া।",
   },
-  "stock.cardTitle": { en: "Active contributor", bn: "সক্রিয় কন্ট্রিবিউটর" },
-  "stock.cardBody": {
-    en: "Creating and uploading stock content on Adobe Stock.",
-    bn: "Adobe Stock-এ স্টক কনটেন্ট তৈরি ও আপলোড করছি।",
-  },
-  "stock.askLink": { en: "Ask about stock strategy", bn: "স্টক কৌশল নিয়ে জিজ্ঞাসা করুন" },
 
+  // Adobe Stock stats (original site) — replace the status card (T8).
+  "stock.stats.downloads.figure": { en: "1,143", bn: "1,143" },
+  "stock.stats.downloads.label": { en: "Total Downloads", bn: "মোট ডাউনলোড" },
+  "stock.stats.earnings.figure": { en: "$1,122.44", bn: "$1,122.44" },
+  "stock.stats.earnings.label": { en: "Total Earnings", bn: "মোট আয়" },
+  "stock.stats.status.figure": { en: "Active Contributor", bn: "সক্রিয় কন্ট্রিবিউটর" },
+  "stock.stats.status.label": { en: "Status", bn: "অবস্থা" },
   // ---------------------------------------------------------------- digital skills
   "skills.label": { en: "Digital skills", bn: "ডিজিটাল দক্ষতা" },
   "skills.heading": { en: "Tools and technologies", bn: "টুল ও প্রযুক্তি" },
-  "skills.groupAi": { en: "AI tools", bn: "এআই টুল" },
-  "skills.groupAi.item1": { en: "ChatGPT", bn: "ChatGPT" },
-  "skills.groupAi.item2": { en: "Gemini", bn: "Gemini" },
-  "skills.groupContent": { en: "Content creation", bn: "কনটেন্ট তৈরি" },
-  "skills.groupContent.item1": { en: "Prompt writing", bn: "প্রম্পট লেখা" },
-  "skills.groupContent.item2": { en: "Content creation", bn: "কনটেন্ট তৈরি" },
-  "skills.groupContent.item3": { en: "Video generation", bn: "ভিডিও জেনারেশন" },
-  "skills.groupContent.item4": { en: "Creative strategy", bn: "সৃজনশীল কৌশল" },
-  "skills.groupTeaching": { en: "Teaching", bn: "শিক্ষাদান" },
-  "skills.groupTeaching.item1": { en: "English grammar", bn: "ইংরেজি গ্রামার" },
-  "skills.groupTeaching.item2": { en: "Spoken English", bn: "স্পোকেন ইংরেজি" },
-  "skills.groupTeaching.item3": { en: "Writing improvement", bn: "লেখার দক্ষতা উন্নয়ন" },
-  "skills.groupTeaching.item4": { en: "Student mentoring", bn: "শিক্ষার্থী মেন্টরিং" },
-  "skills.groupStock": { en: "Stock content", bn: "স্টক কনটেন্ট" },
-  "skills.groupStock.item1": { en: "AI image creation", bn: "এআই ছবি তৈরি" },
-  "skills.groupStock.item2": { en: "AI video generation", bn: "এআই ভিডিও জেনারেশন" },
-  "skills.groupStock.item3": { en: "Stock content strategy", bn: "স্টক কনটেন্ট কৌশল" },
 
+  // Real tool list (original site) — replaces the duplicated AI/teaching/stock
+  // groups (D1–D3). Tool names stay in English where they are brand names.
+  "skills.groupTools": { en: "Digital Tools", bn: "ডিজিটাল টুল" },
+  "skills.tool1.name": { en: "Microsoft Word", bn: "Microsoft Word" },
+  "skills.tool1.level": { en: "90%", bn: "90%" },
+  "skills.tool2.name": { en: "Excel", bn: "Excel" },
+  "skills.tool2.level": { en: "80%", bn: "80%" },
+  "skills.tool3.name": { en: "PowerPoint", bn: "PowerPoint" },
+  "skills.tool3.level": { en: "85%", bn: "85%" },
+  "skills.tool4.name": { en: "Photoshop", bn: "Photoshop" },
+  "skills.tool4.level": { en: "70%", bn: "70%" },
+  "skills.tool5.name": { en: "Internet Research", bn: "ইন্টারনেট রিসার্চ" },
+  "skills.tool5.level": { en: "95%", bn: "95%" },
+  "skills.tool6.name": { en: "Email Management", bn: "ইমেইল ব্যবস্থাপনা" },
+  "skills.tool6.level": { en: "90%", bn: "90%" },
+  "skills.tool7.name": { en: "AI Tools (ChatGPT, Gemini, DeepSeek +)", bn: "এআই টুল (ChatGPT, Gemini, DeepSeek +)" },
+  "skills.tool7.level": { en: "92%", bn: "92%" },
+  // Digital Skills stats (original site).
+  "skills.stats.tools.figure": { en: "15+", bn: "15+" },
+  "skills.stats.tools.label": { en: "Tools Mastered", bn: "টুলে দক্ষতা" },
+  "skills.stats.platforms.figure": { en: "8+", bn: "8+" },
+  "skills.stats.platforms.label": { en: "AI Platforms", bn: "এআই প্ল্যাটফর্ম" },
+  "skills.stats.proficiency.figure": { en: "92%", bn: "92%" },
+  "skills.stats.proficiency.label": { en: "Proficiency", bn: "দক্ষতা" },
   // ---------------------------------------------------------------- languages
   "languages.label": { en: "Language proficiency", bn: "ভাষার দক্ষতা" },
   "languages.heading": { en: "Languages I work in", bn: "যেসব ভাষায় কাজ করি" },
   "languages.bangla.name": { en: "Bangla", bn: "বাংলা" },
   "languages.bangla.level": { en: "Native", bn: "মাতৃভাষা" },
-  "languages.bangla.note": {
-    en: "First language, spoken and written every day.",
-    bn: "প্রথম ভাষা — প্রতিদিন বলি ও লিখি।",
-  },
   "languages.english.name": { en: "English", bn: "ইংরেজি" },
   "languages.english.level": { en: "Advanced", bn: "উন্নত" },
-  "languages.english.note": {
-    en: "BA Honours in English, teaching and writing in English.",
-    bn: "ইংরেজিতে BA Honours, ইংরেজিতে পড়াই ও লিখি।",
-  },
   "languages.hindi.name": { en: "Hindi", bn: "হিন্দি" },
   "languages.hindi.level": { en: "Fluent", bn: "সাবলীল" },
-  "languages.hindi.note": {
-    en: "Fluent in everyday conversation.",
-    bn: "দৈনন্দিন কথোপকথনে সাবলীল।",
-  },
   "languages.arabic.name": { en: "Arabic", bn: "আরবি" },
   "languages.arabic.level": { en: "Reading", bn: "পড়া" },
-  "languages.arabic.note": { en: "Reading level.", bn: "পড়তে পারি।" },
   "languages.urdu.name": { en: "Urdu", bn: "উর্দু" },
   "languages.urdu.level": { en: "Reading", bn: "পড়া" },
-  "languages.urdu.note": { en: "Reading level.", bn: "পড়তে পারি।" },
   "languages.korean.name": { en: "Korean", bn: "কোরিয়ান" },
   "languages.korean.level": { en: "Reading", bn: "পড়া" },
-  "languages.korean.note": { en: "Reading level.", bn: "পড়তে পারি।" },
 
+  // Proficiency percentages (original site) — notes removed (T13).
+  "languages.bangla.percent": { en: "100%", bn: "100%" },
+  "languages.english.percent": { en: "90%", bn: "90%" },
+  "languages.hindi.percent": { en: "80%", bn: "80%" },
+  "languages.arabic.percent": { en: "40%", bn: "40%" },
+  "languages.urdu.percent": { en: "40%", bn: "40%" },
+  "languages.korean.percent": { en: "30%", bn: "30%" },
   // ---------------------------------------------------------------- reflections
   "reflections.ariaLabel": { en: "Personal reflections", bn: "ব্যক্তিগত ভাবনা" },
   "reflections.label": { en: "Personal reflections", bn: "ব্যক্তিগত ভাবনা" },
   "reflections.quote": {
-    en: "Language opened the first door for me. Teaching opened the second. Now AI tools open a third, and I walk through it the same way: slowly, honestly, and with learners beside me.",
-    bn: "ভাষা আমার জন্য প্রথম দরজাটা খুলে দিয়েছিল। শিক্ষাদান খুলেছিল দ্বিতীয়টা। এখন এআই টুল খুলছে তৃতীয়টি — আর আমি একইভাবে হাঁটি: ধীরে, সততার সঙ্গে, শিক্ষার্থীদের পাশে নিয়ে।",
-  },
-  "reflections.closing": {
-    en: "Everything on this page comes back to one idea. Learn something well, then turn around and teach it to someone else.",
-    bn: "এই পাতার সবকিছুই একটিই কথায় ফিরে আসে — কিছু ভালোভাবে শেখো, তারপর ঘুরে দাঁড়িয়ে অন্য কাউকে শেখাও।",
+    en: "Every achievement is by the mercy of Allah and the support of my parents and sister.",
+    bn: "প্রতিটি অর্জন আল্লাহর রহমত আর আমার বাবা-মা ও বোনের সহযোগিতার ফল।",
   },
 
   // ---------------------------------------------------------------- hobbies
@@ -660,11 +792,20 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "Multiple recognitions in competitive debate events.",
     bn: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।",
   },
-  "hobbies.chipFootball": { en: "Football", bn: "ফুটবল" },
-  "hobbies.chipBadminton": { en: "Badminton", bn: "ব্যাডমিন্টন" },
-  "hobbies.chipChess": { en: "Chess", bn: "দাবা" },
-  "hobbies.chipDebate": { en: "Debate", bn: "বিতর্ক" },
 
+  // Activities I Love + Plants in My Room (original site).
+  "hobbies.activitiesHeading": { en: "Activities I Love", bn: "যেসব কাজ ভালোবাসি" },
+  "hobbies.activity1": { en: "Reading Books", bn: "বই পড়া" },
+  "hobbies.activity2": { en: "Gardening", bn: "বাগান করা" },
+  "hobbies.activity3": { en: "Calligraphy", bn: "ক্যালিগ্রাফি" },
+  "hobbies.activity4": { en: "Handmade Flower Art", bn: "হাতে তৈরি ফুলের শিল্প" },
+  "hobbies.activity5": { en: "Technology Exploration", bn: "প্রযুক্তি অন্বেষণ" },
+  "hobbies.plantsHeading": { en: "Plants in My Room", bn: "আমার ঘরের গাছপালা" },
+  "hobbies.plant1": { en: "Beli", bn: "বেলি" },
+  "hobbies.plant2": { en: "Hasnahena", bn: "হাসনাহেনা" },
+  "hobbies.plant3": { en: "Nagchampa", bn: "নাগচম্পা" },
+  "hobbies.plant4": { en: "Rose", bn: "গোলাপ" },
+  "hobbies.plant5": { en: "Allamanda", bn: "অলকানন্দা" },
   // ---------------------------------------------------------------- gallery
   "gallery.label": { en: "Gallery", bn: "গ্যালারি" },
   "gallery.heading": { en: "Captured moments", bn: "ধারণ করা মুহূর্ত" },
@@ -672,84 +813,62 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "A visual journey through my experiences, events, and memories.",
     bn: "আমার অভিজ্ঞতা, অনুষ্ঠান ও স্মৃতির ভিজ্যুয়াল যাত্রা।",
   },
-  "gallery.venice1.alt": {
-    en: "Md Sonet Mia performing in The Merchant of Venice",
-    bn: "The Merchant of Venice-এ অভিনয় করছেন Md Sonet Mia",
-  },
-  "gallery.venice1.caption": {
-    en: "The Merchant of Venice, on stage",
-    bn: "The Merchant of Venice, মঞ্চে",
-  },
-  "gallery.speaking.alt": {
-    en: "Md Sonet Mia speaking on a stage",
-    bn: "মঞ্চে বক্তৃতা দিচ্ছেন Md Sonet Mia",
-  },
-  "gallery.speaking.caption": { en: "Speaking on stage", bn: "মঞ্চে বক্তৃতা" },
-  "gallery.football.alt": {
-    en: "Md Sonet Mia with his football team",
-    bn: "ফুটবল দলের সঙ্গে Md Sonet Mia",
-  },
-  "gallery.football.caption": {
-    en: "Football with the university team",
-    bn: "বিশ্ববিদ্যালয় দলের সঙ্গে ফুটবল",
-  },
-  "gallery.capacity.alt": {
-    en: "Md Sonet Mia at a capacity building training session",
-    bn: "ক্যাপাসিটি বিল্ডিং ট্রেনিং সেশনে Md Sonet Mia",
-  },
-  "gallery.capacity.caption": {
-    en: "Capacity building training",
-    bn: "ক্যাপাসিটি বিল্ডিং ট্রেনিং",
-  },
-  "gallery.venice2.alt": {
-    en: "A scene from The Merchant of Venice performance",
-    bn: "The Merchant of Venice অভিনয়ের একটি দৃশ্য",
-  },
-  "gallery.venice2.caption": {
-    en: "The Merchant of Venice, a scene",
-    bn: "The Merchant of Venice-এর একটি দৃশ্য",
-  },
-  "gallery.podium.alt": {
-    en: "Md Sonet Mia speaking at a podium during a debate event",
-    bn: "বিতর্ক অনুষ্ঠানে পোডিয়ামে বক্তৃতা দিচ্ছেন Md Sonet Mia",
-  },
-  "gallery.podium.caption": {
-    en: "Debate and public speaking",
-    bn: "বিতর্ক ও পাবলিক স্পিকিং",
-  },
-  "gallery.teamwork.alt": {
-    en: "Md Sonet Mia working with a team",
-    bn: "একটি দলের সঙ্গে কাজ করছেন Md Sonet Mia",
-  },
-  "gallery.teamwork.caption": { en: "Teamwork and collaboration", bn: "টিমওয়ার্ক ও সহযোগিতা" },
 
+  // 20 original photos (G28) — replace the 7 recycled images (D12).
+  "gallery.photo1.alt": { en: "Teaching at school", bn: "স্কুলে পড়াচ্ছেন" },
+  "gallery.photo1.caption": { en: "Teaching at school", bn: "স্কুলে পড়াচ্ছেন" },
+  "gallery.photo2.alt": { en: "Rotaract Club meeting", bn: "রোটার্যাক্ট ক্লাবের মিটিং" },
+  "gallery.photo2.caption": { en: "Rotaract Club meeting", bn: "রোটার্যাক্ট ক্লাবের মিটিং" },
+  "gallery.photo3.alt": { en: "Heritage site visit", bn: "ঐতিহ্যবাহী স্থান পরিদর্শন" },
+  "gallery.photo3.caption": { en: "Heritage site visit", bn: "ঐতিহ্যবাহী স্থান পরিদর্শন" },
+  "gallery.photo4.alt": { en: "Award ceremony", bn: "পুরস্কার বিতরণী অনুষ্ঠান" },
+  "gallery.photo4.caption": { en: "Award ceremony", bn: "পুরস্কার বিতরণী অনুষ্ঠান" },
+  "gallery.photo5.alt": { en: "Group photo with trophy", bn: "ট্রফি হাতে দলগত ছবি" },
+  "gallery.photo5.caption": { en: "Group photo with trophy", bn: "ট্রফি হাতে দলগত ছবি" },
+  "gallery.photo6.alt": { en: "Holding a book", bn: "বই হাতে" },
+  "gallery.photo6.caption": { en: "Holding a book", bn: "বই হাতে" },
+  "gallery.photo7.alt": { en: "Event group photo", bn: "অনুষ্ঠানের দলগত ছবি" },
+  "gallery.photo7.caption": { en: "Event group photo", bn: "অনুষ্ঠানের দলগত ছবি" },
+  "gallery.photo8.alt": { en: "Boat ride with friends", bn: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ" },
+  "gallery.photo8.caption": { en: "Boat ride with friends", bn: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ" },
+  "gallery.photo9.alt": { en: "Community event with children", bn: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান" },
+  "gallery.photo9.caption": { en: "Community event with children", bn: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান" },
+  "gallery.photo10.alt": { en: "A Story of Two Hearts book", bn: "A Story of Two Hearts বই" },
+  "gallery.photo10.caption": { en: "A Story of Two Hearts book", bn: "A Story of Two Hearts বই" },
+  "gallery.photo11.alt": { en: "Speaking at event", bn: "অনুষ্ঠানে বক্তৃতা" },
+  "gallery.photo11.caption": { en: "Speaking at event", bn: "অনুষ্ঠানে বক্তৃতা" },
+  "gallery.photo12.alt": { en: "Workshop session", bn: "ওয়ার্কশপ সেশন" },
+  "gallery.photo12.caption": { en: "Workshop session", bn: "ওয়ার্কশপ সেশন" },
+  "gallery.photo13.alt": { en: "Rotaract certificate ceremony", bn: "রোটার্যাক্ট সার্টিফিকেট অনুষ্ঠান" },
+  "gallery.photo13.caption": { en: "Rotaract certificate ceremony", bn: "রোটার্যাক্ট সার্টিফিকেট অনুষ্ঠান" },
+  "gallery.photo14.alt": { en: "Community fair market", bn: "কমিউনিটি মেলা" },
+  "gallery.photo14.caption": { en: "Community fair market", bn: "কমিউনিটি মেলা" },
+  "gallery.photo15.alt": { en: "Group photo at workshop", bn: "ওয়ার্কশপে দলগত ছবি" },
+  "gallery.photo15.caption": { en: "Group photo at workshop", bn: "ওয়ার্কশপে দলগত ছবি" },
+  "gallery.photo16.alt": { en: "Food distribution event", bn: "খাদ্য বিতরণ অনুষ্ঠান" },
+  "gallery.photo16.caption": { en: "Food distribution event", bn: "খাদ্য বিতরণ অনুষ্ঠান" },
+  "gallery.photo17.alt": { en: "Distribution of fans with children", bn: "শিশুদের সঙ্গে ফ্যান বিতরণ" },
+  "gallery.photo17.caption": { en: "Distribution of fans with children", bn: "শিশুদের সঙ্গে ফ্যান বিতরণ" },
+  "gallery.photo18.alt": { en: "Formal gathering with friends", bn: "বন্ধুদের সঙ্গে আনুষ্ঠানিক আড্ডা" },
+  "gallery.photo18.caption": { en: "Formal gathering with friends", bn: "বন্ধুদের সঙ্গে আনুষ্ঠানিক আড্ডা" },
+  "gallery.photo19.alt": { en: "Meeting at library", bn: "লাইব্রেরিতে মিটিং" },
+  "gallery.photo19.caption": { en: "Meeting at library", bn: "লাইব্রেরিতে মিটিং" },
+  "gallery.photo20.alt": { en: "Tree planting campaign", bn: "বৃক্ষরোপণ কর্মসূচি" },
+  "gallery.photo20.caption": { en: "Tree planting campaign", bn: "বৃক্ষরোপণ কর্মসূচি" },
+  // Gallery stats (original site).
+  "gallery.stats.photos.figure": { en: "20+", bn: "20+" },
+  "gallery.stats.photos.label": { en: "Photos", bn: "ছবি" },
+  "gallery.stats.events.figure": { en: "15+", bn: "15+" },
+  "gallery.stats.events.label": { en: "Events", bn: "অনুষ্ঠান" },
+  "gallery.stats.memories.figure": { en: "∞", bn: "∞" },
+  "gallery.stats.memories.label": { en: "Memories", bn: "স্মৃতি" },
+  // Facebook album link (URL stays as-is, never translated).
+  "gallery.albumLink": { en: "View the full album on Facebook", bn: "পুরো অ্যালবামটি Facebook-এ দেখুন" },
+  "gallery.albumUrl": { en: "https://www.facebook.com/media/set/?set=a.694677762083396&type=3", bn: "https://www.facebook.com/media/set/?set=a.694677762083396&type=3" },
   // ---------------------------------------------------------------- booking
   "booking.label": { en: "Book a session", bn: "সেশন বুক করুন" },
   "booking.heading": { en: "Let's work together", bn: "চলুন একসঙ্গে কাজ করি" },
-  "booking.intro": {
-    en: "Tell Sonet what you need help with. Your request opens in WhatsApp, ready to send.",
-    bn: "কীসে সাহায্য দরকার, সনেটকে জানান। আপনার অনুরোধ WhatsApp-এ খুলবে, পাঠানোর জন্য প্রস্তুত।",
-  },
-  "booking.benefitsHeading": { en: "What a session gives you", bn: "একটি সেশন আপনাকে যা দেয়" },
-  "booking.benefit1.title": { en: "Clear next steps.", bn: "পরিষ্কার পরবর্তী ধাপ।" },
-  "booking.benefit1.body": {
-    en: "You leave knowing exactly what to practise.",
-    bn: "কী অনুশীলন করবেন, তা জেনেই বিদায় নেবেন।",
-  },
-  "booking.benefit2.title": { en: "Honest feedback.", bn: "সৎ ফিডব্যাক।" },
-  "booking.benefit2.body": {
-    en: "Real notes on your work, not generic praise.",
-    bn: "আপনার কাজের ওপর আসল মন্তব্য, গতানুগতিক প্রশংসা নয়।",
-  },
-  "booking.benefit3.title": { en: "A plan you can follow.", bn: "অনুসরণযোগ্য পরিকল্পনা।" },
-  "booking.benefit3.body": {
-    en: "Materials and guidance matched to your level.",
-    bn: "আপনার স্তরের সঙ্গে মানানসই ম্যাটেরিয়াল ও গাইডলাইন।",
-  },
-  "booking.noPaymentNote": {
-    en: "No payment is taken on this site. Sessions are confirmed on WhatsApp.",
-    bn: "এই সাইটে কোনো পেমেন্ট নেওয়া হয় না। সেশন WhatsApp-এ নিশ্চিত করা হয়।",
-  },
+  "booking.intro": { en: "Tell Sonet what you need help with.", bn: "কীসে সাহায্য দরকার, সনেটকে জানান।" },
   // --- BookingForm fields, validation, success state
   "booking.form.nameLabel": { en: "Your name", bn: "আপনার নাম" },
   "booking.form.namePlaceholder": { en: "Your full name", bn: "আপনার পুরো নাম" },
@@ -805,6 +924,9 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "booking.whatsapp.sessionLabel": { en: "Session:", bn: "সেশন:" },
   "booking.whatsapp.messageLabel": { en: "Message:", bn: "বার্তা:" },
 
+  // Preferred date field (G29) + Creative Discussion session type (G30).
+  "booking.form.dateLabel": { en: "Preferred date", bn: "পছন্দের তারিখ" },
+  "booking.type.creativeDiscussion": { en: "Creative Discussion", bn: "সৃজনশীল আলোচনা" },
   // ---------------------------------------------------------------- contact
   "contact.label": { en: "Contact", bn: "যোগাযোগ" },
   "contact.heading": { en: "Get in touch", bn: "যোগাযোগ করুন" },
@@ -812,16 +934,21 @@ export const strings: Record<string, { en: string; bn: string }> = {
     en: "The fastest way to reach Sonet is WhatsApp. Email works too.",
     bn: "সনেটের কাছে পৌঁছানোর দ্রুততম উপায় WhatsApp। ইমেইলও চলবে।",
   },
-  "contact.email": { en: "md.Sonet.mia2@gmail.com", bn: "md.Sonet.mia2@gmail.com" },
+  "contact.email": { en: "md.sonet.mia01@gmail.com", bn: "md.sonet.mia01@gmail.com" },
   "contact.whatsapp": { en: "WhatsApp 01797953059", bn: "WhatsApp 01797953059" },
   "contact.facebook": { en: "Facebook", bn: "Facebook" },
   "contact.youtube": { en: "YouTube, Sweet CGI Lab", bn: "YouTube, Sweet CGI Lab" },
 
+  // Contact form (G31). Name + Message reuse booking.form.nameLabel /
+  // booking.form.messageLabel (identical strings).
+  "contact.form.emailLabel": { en: "Email", bn: "ইমেইল" },
+  "contact.form.submit": { en: "Send Message", bn: "বার্তা পাঠান" },
+  "contact.form.success": { en: "Message sent! I'll reply soon.", bn: "বার্তা পাঠানো হয়েছে! শীঘ্রই উত্তর দেব।" },
   // ---------------------------------------------------------------- footer
-  "footer.name": { en: "Md Sonet Mia", bn: "Md Sonet Mia" },
+  "footer.name": { en: "Md. Sonet Mia", bn: "Md. Sonet Mia" },
   "footer.bio": {
-    en: "English graduate, educator, writer and digital creator from Tangail, Bangladesh.",
-    bn: "টাঙ্গাইলের ইংরেজি স্নাতক, শিক্ষক, লেখক ও ডিজিটাল স্রষ্টা।",
+    en: "Writer, Educator, AI Creator & Digital Thinker from Tangail, Bangladesh.",
+    bn: "টাঙ্গাইল, বাংলাদেশের লেখক, শিক্ষক, এআই ক্রিয়েটর ও ডিজিটাল চিন্তক।",
   },
   "footer.navAriaLabel": { en: "Footer", bn: "ফুটার" },
   "footer.about": { en: "About", bn: "আমার সম্পর্কে" },
@@ -831,13 +958,27 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "footer.youtube": { en: "YouTube", bn: "YouTube" },
   "footer.facebook": { en: "Facebook", bn: "Facebook" },
   "footer.whatsapp": { en: "WhatsApp", bn: "WhatsApp" },
-  "footer.copyright": {
-    en: "Copyright 2026 Md Sonet Mia. All rights reserved.",
-    bn: "কপিরাইট 2026 Md Sonet Mia। সর্বস্বত্ব সংরক্ষিত।",
-  },
+  "footer.copyright": { en: "Made with ♥ by Md. Sonet Mia © 2026", bn: "♥ দিয়ে তৈরি — Md. Sonet Mia © 2026" },
   "footer.privacy": { en: "Privacy policy", bn: "গোপনীয়তা নীতি" },
   "footer.terms": { en: "Terms", bn: "শর্তাবলি" },
 
+  // Quick Links (original site) — footer.about / .projects / .bookSession /
+  // .contact already exist.
+  "footer.quickLinksHeading": { en: "Quick Links", bn: "দ্রুত লিংক" },
+  "footer.teaching": { en: "Teaching", bn: "শিক্ষাদান" },
+  "footer.writing": { en: "Writing", bn: "লেখালেখি" },
+  "footer.aiServices": { en: "AI Services", bn: "এআই সেবা" },
+  // Contact column (original site). Footer email is the original's published
+  // address — see COPY_NOTES.md v3 open question.
+  "footer.contactHeading": { en: "Contact", bn: "যোগাযোগ" },
+  "footer.whatsappNumber": { en: "WhatsApp: +880 1797953059", bn: "WhatsApp: +880 1797953059" },
+  "footer.email": { en: "md.sonet.mia01@gmail.com", bn: "md.sonet.mia01@gmail.com" },
+  // Carousel / lightbox controls (v3 wiring — UI chrome, not page copy).
+  // "{n}" in carousel.slide is replaced with the slide number at render time.
+  "carousel.prev": { en: "Previous slide", bn: "আগের স্লাইড" },
+  "carousel.next": { en: "Next slide", bn: "পরের স্লাইড" },
+  "carousel.slide": { en: "Go to slide {n}", bn: "{n} নম্বর স্লাইডে যান" },
+  "gallery.close": { en: "Close image viewer", bn: "ছবি দেখা বন্ধ করুন" },
   // ---------------------------------------------------------------- privacy
   "privacy.metaTitle": {
     en: "Privacy policy — Md Sonet Mia",

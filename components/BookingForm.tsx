@@ -13,6 +13,7 @@ const sessionTypeKeys = [
   "aiPrompt",
   "aiContent",
   "aiVideo",
+  "creativeDiscussion",
   "other",
 ] as const;
 type SessionTypeKey = (typeof sessionTypeKeys)[number];
@@ -22,6 +23,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [type, setType] = useState<SessionTypeKey>("englishGuidance");
+  const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<{ name?: string; contact?: string }>({});
   const [sent, setSent] = useState(false);
@@ -30,6 +32,7 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     name: compact ? "name-compact" : "name",
     contact: compact ? "contact-compact" : "contact",
     type: compact ? "type-compact" : "type",
+    date: compact ? "date-compact" : "date",
     message: compact ? "message-compact" : "message",
   };
 
@@ -57,6 +60,9 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
       `${t("booking.whatsapp.contactLabel")} ${contact.trim()}`,
       `${t("booking.whatsapp.sessionLabel")} ${t(`booking.type.${type}`)}`,
     ];
+    if (date) {
+      lines.push(`${t("booking.form.dateLabel")}: ${date}`);
+    }
     if (message.trim()) {
       lines.push(`${t("booking.whatsapp.messageLabel")} ${message.trim()}`);
     }
@@ -145,6 +151,19 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
               </option>
             ))}
           </select>
+        </div>
+        <div>
+          <label htmlFor={ids.date} className="title-2 block">
+            {t("booking.form.dateLabel")}{" "}
+            <span className="caption-1">{t("booking.form.optional")}</span>
+          </label>
+          <input
+            id={ids.date}
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink"
+          />
         </div>
         <div>
           <label htmlFor={ids.message} className="title-2 block">
