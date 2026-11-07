@@ -9,11 +9,47 @@
   font-display: swap;
 }
 
+/* ==========================================================================
+   Theme tokens — keyed off the <html> data attributes set by the provider:
+   data-theme-variant ("warm-editorial" | "original")
+   data-color-mode   (resolved "light" | "dark")
+   data-theme        (legacy resolved "light" | "dark", kept as fallback)
+   data-text-size    ("standard" | "comfortable")
+   data-motion       ("standard" | "reduced")
+   No JavaScript theme logic lives in this file.
+   ========================================================================== */
+
 /* ---------- SONET palette: Swiss editorial, premium minimal ----------
    Deep Navy #172B3B · Warm Cream #F5F2EA · Pure White #FFFFFF
    Muted Gold #B58B5B · Charcoal #252525 · Secondary text #777777
    No gradients, no glassmorphism, no neon. */
+
+/* Warm Editorial light (the default theme) — also the :root fallback so
+   first paint before the provider script runs shows the default theme. */
 :root {
+  --bg: #f5f2ea;
+  --surface: #fdfcf9;
+  --surface-2: #fbf9f4;
+  --ink: #252525;
+  --body: #3f3b34;
+  --muted: #857a68;
+  --gold: #a97935;
+  --gold-hover: #8f6528;
+  --gold-soft: #f3ead9;
+  --border: #e5ddcb;
+  --ring: #a97935;
+  --shadow: rgba(60, 45, 20, 0.08);
+  --btn-bg: #252525;
+  --btn-bg-hover: #171716;
+  --btn-text: #f5f2ea;
+  --on-gold: #252525;
+  /* Serif brand face. --font-playfair is added by the provider (layout.tsx);
+     Georgia is the fallback until then. */
+  --font-brand: var(--font-playfair, Georgia), Georgia, "Times New Roman", serif;
+}
+
+/* Original light, explicit variant + mode. */
+[data-theme-variant="original"][data-color-mode="light"] {
   --bg: #f5f2ea;
   --surface: #ffffff;
   --surface-2: #ede8db;
@@ -29,9 +65,12 @@
   --btn-bg: #172b3b;
   --btn-bg-hover: #0f1e29;
   --btn-text: #f5f2ea;
+  --on-gold: #252525;
 }
 
-[data-theme="dark"] {
+/* Original dark (v4 design). Scoped to the original variant so it can
+   never override the Warm Editorial dark tokens. */
+[data-theme-variant="original"][data-color-mode="dark"] {
   --bg: #172b3b;
   --surface: #1d3648;
   --surface-2: #24405a;
@@ -47,12 +86,64 @@
   --btn-bg: #c9a06f;
   --btn-bg-hover: #d9b183;
   --btn-text: #172b3b;
+  --on-gold: #172b3b;
+}
+
+/* ---------- Warm Editorial light (default) ----------
+   Warm cream ground, soft ivory surfaces, deep charcoal type,
+   muted bronze / warm gold accents, subtle warm borders. */
+[data-theme-variant="warm-editorial"][data-color-mode="light"] {
+  --bg: #f5f2ea;
+  --surface: #fdfcf9;
+  --surface-2: #fbf9f4;
+  --ink: #252525;
+  --body: #3f3b34;
+  --muted: #857a68;
+  --gold: #a97935;
+  --gold-hover: #8f6528;
+  --gold-soft: #f3ead9;
+  --border: #e5ddcb;
+  --ring: #a97935;
+  --shadow: rgba(60, 45, 20, 0.08);
+  --btn-bg: #252525;
+  --btn-bg-hover: #171716;
+  --btn-text: #f5f2ea;
+  --on-gold: #252525;
+}
+
+/* ---------- Warm Editorial dark ----------
+   Deep charcoal-navy ground, surfaces a step lighter, readable cream
+   type, muted gold accents — same bronze/gold identity as light. */
+[data-theme-variant="warm-editorial"][data-color-mode="dark"] {
+  --bg: #1e2420;
+  --surface: #262d28;
+  --surface-2: #2e362f;
+  --ink: #f5f2ea;
+  --body: #d9d2c2;
+  --muted: #a9a294;
+  --gold: #c9a06f;
+  --gold-hover: #d9b183;
+  --gold-soft: #333b31;
+  --border: #3a443c;
+  --ring: #c9a06f;
+  --shadow: rgba(0, 0, 0, 0.45);
+  --btn-bg: #c9a06f;
+  --btn-bg-hover: #d9b183;
+  --btn-text: #1e2420;
+  --on-gold: #1e2420;
+}
+
+/* ---------- Text size: comfortable scales the rem base ----------
+   The site is rem-based, so headings stay proportional. */
+html[data-text-size="comfortable"] {
+  font-size: 112.5%;
 }
 
 /* ---------- Bengali language mode (SolaimanLipi) ---------- */
 html[lang="bn"] {
   --font-display: "SolaimanLipi", Georgia, "Times New Roman", serif;
   --font-sans: "SolaimanLipi", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-brand: "SolaimanLipi", Georgia, "Times New Roman", serif;
 }
 html[lang="bn"] body {
   font-family: "SolaimanLipi", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -76,8 +167,10 @@ html[lang="bn"] .font-sans {
   --color-gold-soft: var(--gold-soft);
   --color-border: var(--border);
   --color-ring: var(--ring);
+  --color-on-gold: var(--on-gold);
   --font-display: var(--font-manrope), system-ui, sans-serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-brand: var(--font-brand);
 }
 
 html {
@@ -216,6 +309,20 @@ p {
   width: 4rem;
   height: 2px;
   background: var(--gold);
+}
+
+/* Editorial section number ("01", "02", …) before the eyebrow label.
+   Rendered only where a page passes the `index` prop to <Section>. */
+.section-index {
+  color: var(--gold);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.75rem;
+}
+.section-index::after {
+  content: "—";
+  margin-left: 0.75rem;
+  font-weight: 400;
 }
 
 /* Hero H1 */
@@ -419,4 +526,114 @@ div[id] {
   .segmented-btn {
     transition: none;
   }
+}
+
+/* ---------- Reduced motion via the appearance setting ----------
+   Mirrors the prefers-reduced-motion block above, for users who choose
+   "reduced" in the theme panel regardless of OS preference. */
+html[data-motion="reduced"] {
+  scroll-behavior: auto;
+}
+html[data-motion="reduced"] .reveal,
+html[data-motion="reduced"] .menu-link {
+  opacity: 1;
+  transform: none;
+  transition: opacity 300ms ease;
+}
+html[data-motion="reduced"] .btn-primary,
+html[data-motion="reduced"] .btn-secondary,
+html[data-motion="reduced"] .card,
+html[data-motion="reduced"] .segmented-btn,
+html[data-motion="reduced"] .text-link {
+  transition: none;
+}
+html[data-motion="reduced"] body,
+html[data-motion="reduced"] section,
+html[data-motion="reduced"] footer,
+html[data-motion="reduced"] header,
+html[data-motion="reduced"] .chip,
+html[data-motion="reduced"] .icon-tile,
+html[data-motion="reduced"] input,
+html[data-motion="reduced"] select,
+html[data-motion="reduced"] textarea {
+  transition: none;
+}
+
+/* ==========================================================================
+   Warm Editorial — design language (applies only under
+   [data-theme-variant="warm-editorial"]; the Original theme is untouched).
+   No gradients, no glassmorphism, no neon.
+   ========================================================================== */
+
+/* 1. Floating rounded nav container: the sticky header goes transparent
+   and the nav itself becomes a cream pill, inset from the viewport edges. */
+html[data-theme-variant="warm-editorial"] header {
+  background: transparent;
+  border-bottom-color: transparent;
+  padding-inline: 0.75rem;
+}
+html[data-theme-variant="warm-editorial"] header nav {
+  margin-top: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px var(--shadow);
+}
+/* Serif brand wordmark in the pill nav. */
+html[data-theme-variant="warm-editorial"] header nav > a {
+  font-family: var(--font-brand);
+  letter-spacing: 0;
+}
+
+/* 2. Spacious hero: more vertical air, larger serif name, one gold accent
+   (a gold period after the name) and a softly framed portrait. */
+html[data-theme-variant="warm-editorial"] .hero-section > div {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+@media (min-width: 768px) {
+  html[data-theme-variant="warm-editorial"] .hero-section > div {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+html[data-theme-variant="warm-editorial"] .hero-title {
+  font-family: var(--font-brand);
+  font-size: 3.25rem;
+}
+@media (min-width: 768px) {
+  html[data-theme-variant="warm-editorial"] .hero-title {
+    font-size: 4.75rem;
+  }
+}
+html[data-theme-variant="warm-editorial"] .hero-title::after {
+  content: ".";
+  color: var(--gold);
+}
+html[data-theme-variant="warm-editorial"] .hero-portrait {
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 48px var(--shadow);
+}
+
+/* 3. Warm cream About band: `band` sections already use --surface-2,
+   which is soft ivory (#FBF9F4 / #2E362F) in Warm Editorial — no extra
+   rule needed. The editorial number gets a serif face here. */
+html[data-theme-variant="warm-editorial"] .section-index {
+  font-family: var(--font-brand);
+  font-size: 1.125rem;
+}
+
+/* 5. Elegant rounded content cards, clean project cards. */
+html[data-theme-variant="warm-editorial"] .card {
+  border-radius: 1.25rem;
+  box-shadow: 0 10px 30px var(--shadow);
+}
+html[data-theme-variant="warm-editorial"] .icon-tile {
+  border-radius: 0.75rem;
+}
+html[data-theme-variant="warm-editorial"] .project-cover {
+  border-radius: 1rem;
+}
+html[data-theme-variant="warm-editorial"] .project-cover > span:first-child {
+  font-family: var(--font-brand);
 }

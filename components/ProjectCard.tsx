@@ -18,7 +18,7 @@ export function StatusBadge({ status }: { status: Project["status"] }) {
     status === "Live"
       ? "bg-ink text-bg"
       : status === "In Development"
-        ? "bg-gold text-white"
+        ? "bg-gold text-on-gold"
         : "border border-border bg-surface-2 text-muted";
   return (
     <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${cls}`}>
@@ -40,7 +40,7 @@ export function ProjectCard({ project }: { project: Project }) {
         aria-label={`${project.title} — ${c.ui.viewProject}`}
         className="block"
       >
-        <div className="flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
+        <div className="project-cover flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
           <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
             {project.title.charAt(0)}
           </span>

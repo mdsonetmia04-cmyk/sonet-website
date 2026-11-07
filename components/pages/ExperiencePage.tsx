@@ -103,7 +103,7 @@ export function ExperiencePage() {
         </section>
 
         {/* Session cards */}
-        <Section id="sessions" label={e.label} heading={c.contact.bookingHeading} intro={c.contact.bookingIntro} band>
+        <Section id="sessions" index="01" label={e.label} heading={c.contact.bookingHeading} intro={c.contact.bookingIntro} band>
           <div className="grid gap-6 md:grid-cols-3">
             {e.sessions.map((s) => (
               <article key={s.title} className="card card-hover flex flex-col">
@@ -124,7 +124,7 @@ export function ExperiencePage() {
         </Section>
 
         {/* Acting / theatre */}
-        <Section id="acting" label={e.acting.label} heading={e.acting.heading} intro={e.acting.intro}>
+        <Section id="acting" index="02" label={e.acting.label} heading={e.acting.heading} intro={e.acting.intro}>
           <p className="title-1 mb-6">{e.acting.playTitle}</p>
           <div className="grid gap-6 md:grid-cols-3">
             {e.acting.cards.map((card) => (

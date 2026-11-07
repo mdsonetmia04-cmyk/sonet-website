@@ -92,7 +92,7 @@ export function PublicationsPage() {
         </section>
 
         {/* Featured channel + podcast */}
-        <Section id="channels" label={pub.label} heading={pub.featuredChannel.name} band>
+        <Section id="channels" index="01" label={pub.label} heading={pub.featuredChannel.name} band>
           <div className="grid gap-6 md:grid-cols-2">
             <article className="card">
               <span className="icon-tile">
@@ -141,7 +141,7 @@ export function PublicationsPage() {
         </Section>
 
         {/* Adobe Stock */}
-        <Section id="adobe-stock" label={pub.adobeStock.label} heading={pub.adobeStock.heading} intro={pub.adobeStock.intro}>
+        <Section id="adobe-stock" index="02" label={pub.adobeStock.label} heading={pub.adobeStock.heading} intro={pub.adobeStock.intro}>
           <p className="body-2 max-w-[720px] text-lg leading-relaxed">{pub.adobeStock.body}</p>
           <div className="mt-8 grid grid-cols-3 gap-4 max-w-[640px]">
             {pub.adobeStock.stats.map((s) => (
@@ -162,7 +162,7 @@ export function PublicationsPage() {
         </Section>
 
         {/* Gallery */}
-        <Section id="gallery" label={g.label} heading={g.heading} intro={g.intro} band>
+        <Section id="gallery" index="03" label={g.label} heading={g.heading} intro={g.intro} band>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {g.photos.map((photo) => (
               <figure key={photo.src} className="card !p-2">

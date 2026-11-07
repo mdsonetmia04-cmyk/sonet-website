@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Manrope, Inter } from "next/font/google";
+import { Manrope, Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { content } from "@/lib/content";
+import { AppearanceProvider } from "@/providers/AppearanceProvider";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
 const manrope = Manrope({
@@ -15,6 +16,15 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+// Serif branding face for the Warm Editorial theme (styling agent keys it
+// off data-theme-variant="warm-editorial"). Bangla stays SolaimanLipi.
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -63,9 +73,13 @@ const personJsonLd = {
   ],
 };
 
-// Runs before first paint: resolves the stored theme (or the OS preference)
-// and the stored language, so neither flashes on load.
-const themeScript = `(function(){try{var t=localStorage.getItem('sonet-theme');if(!t||t==='system'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}try{var l=localStorage.getItem('sonet-lang');if(l==='en'||l==='bn'){document.documentElement.setAttribute('lang',l);}}catch(e){}})();`;
+// Runs before first paint: resolves all five appearance preferences
+// (migrating the legacy `sonet-theme` / `sonet-lang` keys on first load),
+// resolves "system" color mode against the OS, and sets every <html>
+// attribute + lang — so there is no theme/language flash on load.
+// The runtime provider (AppearanceProvider) takes over live updates
+// afterwards, including following OS color-scheme changes.
+const themeScript = `(function(){function v(x,l){return l.indexOf(x)!==-1?x:null}function r(k){try{return localStorage.getItem(k)}catch(e){return null}}function w(k,x){try{localStorage.setItem(k,x)}catch(e){}}try{var theme=v(r('selectedTheme'),['warm-editorial','original'])||'warm-editorial';var mode=v(r('colorMode'),['system','light','dark']);if(!mode){var lm=v(r('sonet-theme'),['system','light','dark']);mode=lm||'system';if(lm)w('colorMode',lm)}var lang=v(r('language'),['en','bn']);if(!lang){var ll=v(r('sonet-lang'),['en','bn']);lang=ll||'en';if(ll)w('language',ll)}var size=v(r('textSize'),['standard','comfortable'])||'standard';var motion=v(r('motionPreference'),['standard','reduced']);var reduced=motion==='reduced'?true:motion==='standard'?false:window.matchMedia('(prefers-reduced-motion: reduce)').matches;var resolved=mode==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):mode;var el=document.documentElement;el.setAttribute('data-theme-variant',theme);el.setAttribute('data-color-mode',resolved);el.setAttribute('data-theme',resolved);el.setAttribute('data-text-size',size);el.setAttribute('data-motion',reduced?'reduced':'standard');el.setAttribute('lang',lang)}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -81,8 +95,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className={`${manrope.variable} ${inter.variable} antialiased`}>
-        <LanguageProvider>{children}</LanguageProvider>
+      <body className={`${manrope.variable} ${inter.variable} ${playfair.variable} antialiased`}>
+        <AppearanceProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </AppearanceProvider>
       </body>
     </html>
   );

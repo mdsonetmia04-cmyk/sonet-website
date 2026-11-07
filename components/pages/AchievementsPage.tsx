@@ -56,7 +56,7 @@ export function AchievementsPage() {
           </div>
         </section>
 
-        <Section id="achievement-photos" label={a.label} heading={c.ui.achievementsPhotosHeading} band>
+        <Section id="achievement-photos" index="01" label={a.label} heading={c.ui.achievementsPhotosHeading} band>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {a.carousel.map((img) => (
               <figure key={img.src} className="card !p-3">

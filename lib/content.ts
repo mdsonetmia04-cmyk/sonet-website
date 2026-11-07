@@ -378,6 +378,26 @@ export interface SiteContent {
     themeLight: string;
     themeDark: string;
     languageLabel: string;
+    bookSession: string;
+    appearanceSettings: string;
+    appearanceSubtitle: string;
+    appearanceClose: string;
+    themeSectionLabel: string;
+    themeWarmName: string;
+    themeWarmDesc: string;
+    themeOriginalName: string;
+    themeOriginalDesc: string;
+    themeDefaultBadge: string;
+    displayModeLabel: string;
+    websiteLanguageLabel: string;
+    advancedLabel: string;
+    textSizeLabel: string;
+    textSizeStandard: string;
+    textSizeComfortable: string;
+    motionLabel: string;
+    motionStandard: string;
+    motionReduced: string;
+    resetDefaults: string;
     exploreWork: string;
     featuredProjects: string;
     viewAllProjects: string;
@@ -1312,6 +1332,26 @@ export const content: SiteContent = {
     themeLight: "Light",
     themeDark: "Dark",
     languageLabel: "Language",
+    bookSession: "Book a Session",
+    appearanceSettings: "Appearance Settings",
+    appearanceSubtitle: "Customize your browsing experience.",
+    appearanceClose: "Close settings",
+    themeSectionLabel: "Choose Your Theme",
+    themeWarmName: "Warm Editorial",
+    themeWarmDesc: "Warm cream and gold — minimal and editorial.",
+    themeOriginalName: "Original Theme",
+    themeOriginalDesc: "The site's original look.",
+    themeDefaultBadge: "Default",
+    displayModeLabel: "Display Mode",
+    websiteLanguageLabel: "Website Language",
+    advancedLabel: "Advanced Appearance",
+    textSizeLabel: "Text Size",
+    textSizeStandard: "Standard",
+    textSizeComfortable: "Comfortable",
+    motionLabel: "Motion",
+    motionStandard: "Standard Motion",
+    motionReduced: "Reduced Motion",
+    resetDefaults: "Reset to Defaults",
     exploreWork: "Explore My Work",
     featuredProjects: "Featured Projects",
     viewAllProjects: "View all projects",

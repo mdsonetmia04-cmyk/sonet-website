@@ -99,14 +99,14 @@ export function ContactPage() {
         </section>
 
         {/* Session booking */}
-        <Section id="booking" label={contact.label} heading={contact.bookingHeading} intro={contact.bookingIntro} band>
+        <Section id="booking" index="01" label={contact.label} heading={contact.bookingHeading} intro={contact.bookingIntro} band>
           <div className="mx-auto max-w-[720px]">
             <BookingForm />
           </div>
         </Section>
 
         {/* Open to opportunities */}
-        <Section id="opportunities" label={c.careerInterests.label} heading={c.careerInterests.heading} intro={c.careerInterests.intro}>
+        <Section id="opportunities" index="02" label={c.careerInterests.label} heading={c.careerInterests.heading} intro={c.careerInterests.intro}>
           <div className="grid gap-6 md:grid-cols-3">
             <article className="card">
               <h3 className="heading-4">{c.ui.opportunitiesRoles}</h3>

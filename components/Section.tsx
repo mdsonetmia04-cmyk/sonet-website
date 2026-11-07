@@ -7,6 +7,7 @@ export function Section({
   heading,
   intro,
   band = false,
+  index,
   children,
 }: {
   id: string;
@@ -14,6 +15,8 @@ export function Section({
   heading: string;
   intro?: string;
   band?: boolean;
+  /** Optional editorial number, e.g. "01" — shown before the eyebrow label. */
+  index?: string;
   children: ReactNode;
 }) {
   return (
@@ -25,7 +28,14 @@ export function Section({
       <div className="mx-auto max-w-[1280px] px-6 md:px-8">
         <Reveal>
           <div className="gold-rule" aria-hidden="true" />
-          <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{label}</p>
+          <p className="caption-1 mt-4 uppercase tracking-[0.14em]">
+            {index ? (
+              <span className="section-index" aria-hidden="true">
+                {index}
+              </span>
+            ) : null}
+            {label}
+          </p>
           <h2 className="heading-2 mt-2">{heading}</h2>
           {intro ? <p className="body-2 mt-4 max-w-[680px]">{intro}</p> : null}
         </Reveal>

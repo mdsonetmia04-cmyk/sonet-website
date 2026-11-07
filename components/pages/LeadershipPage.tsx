@@ -114,7 +114,7 @@ export function LeadershipPage() {
         </section>
 
         {/* Volunteering photos */}
-        <Section id="volunteering-photos" label={l.label} heading={c.ui.leadershipPhotosHeading} band>
+        <Section id="volunteering-photos" index="01" label={l.label} heading={c.ui.leadershipPhotosHeading} band>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {l.photos.map((img) => (
               <figure key={img.src}>

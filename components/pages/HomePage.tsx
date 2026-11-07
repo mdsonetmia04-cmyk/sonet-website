@@ -22,7 +22,7 @@ export function HomePage() {
       <Nav />
       <main id="main">
         {/* ---------- Hero ---------- */}
-        <section className="bg-bg" aria-label={c.personal.name}>
+        <section className="hero-section bg-bg" aria-label={c.personal.name}>
           <div className="mx-auto grid max-w-[1280px] gap-12 px-6 py-14 md:px-8 md:py-20 lg:grid-cols-2 lg:items-center">
             <Reveal>
               <p className="caption-1 uppercase tracking-[0.14em] text-gold">
@@ -55,7 +55,7 @@ export function HomePage() {
                 height={1890}
                 priority
                 sizes="(max-width: 1024px) 100vw, 520px"
-                className="aspect-square w-full rounded-2xl border border-border object-cover"
+                className="hero-portrait aspect-square w-full rounded-2xl border border-border object-cover"
               />
             </Reveal>
           </div>
@@ -76,7 +76,7 @@ export function HomePage() {
         </section>
 
         {/* ---------- What I Do ---------- */}
-        <Section id="what-i-do" label={c.whatIDo.label} heading={c.whatIDo.heading} intro={c.whatIDo.intro}>
+        <Section id="what-i-do" label={c.whatIDo.label} heading={c.whatIDo.heading} intro={c.whatIDo.intro} index="01">
           <div className="grid gap-6 md:grid-cols-2">
             {c.whatIDo.items.map((item, i) => {
               const Icon = whatIDoIcons[i % whatIDoIcons.length];
@@ -99,6 +99,7 @@ export function HomePage() {
           label={c.projects.label}
           heading={c.ui.featuredProjects}
           intro={c.projects.intro}
+          index="02"
           band
         >
           <div className="grid gap-6 md:grid-cols-2">
@@ -120,6 +121,7 @@ export function HomePage() {
           label={c.careerInterests.label}
           heading={c.careerInterests.heading}
           intro={c.careerInterests.intro}
+          index="03"
         >
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {careerPreview.map((role) => (
@@ -148,7 +150,7 @@ export function HomePage() {
               <p className="body-2 mx-auto mt-4 max-w-[620px] !text-bg/80">
                 {c.contact.finalCtaText}
               </p>
-              <Link href="/contact" className="btn-primary button-md mt-8 !bg-gold !text-white hover:!bg-gold-hover">
+              <Link href="/contact" className="btn-primary button-md mt-8 !bg-gold !text-on-gold hover:!bg-gold-hover">
                 {c.contact.finalCtaLabel}
                 <ArrowRight size={18} aria-hidden="true" />
               </Link>

@@ -53,7 +53,7 @@ export function SkillsPage() {
             </div>
           </div>
         </section>
-        <Section id="ai-capabilities" label={s.label} heading={c.ui.skillsAiHeading} band>
+        <Section id="ai-capabilities" index="01" label={s.label} heading={c.ui.skillsAiHeading} band>
           <ul className="flex flex-wrap gap-2">
             {s.aiCapabilities.map((cap) => (
               <li key={cap} className="chip !px-3 !py-1.5 !text-sm">{cap}</li>

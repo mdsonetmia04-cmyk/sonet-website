@@ -84,7 +84,7 @@ export function EducationPage() {
         </section>
 
         {/* Research interests + higher-education goals */}
-        <Section id="research" label={ed.label} heading={c.ui.educationResearchHeading} band>
+        <Section id="research" index="01" label={ed.label} heading={c.ui.educationResearchHeading} band>
           <div className="grid gap-6 md:grid-cols-2">
             <article className="card">
               <span className="icon-tile">

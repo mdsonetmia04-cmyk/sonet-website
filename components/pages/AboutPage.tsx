@@ -68,7 +68,7 @@ export function AboutPage() {
         </section>
 
         {/* Languages — levels as words only, no percentages, no bars */}
-        <Section id="languages" label={c.ui.languagesHeading} heading={c.ui.languagesHeading} band>
+        <Section id="languages" index="01" label={c.ui.languagesHeading} heading={c.ui.languagesHeading} band>
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {c.skills.languages.map((l) => (
               <li key={l.name} className="card flex items-center justify-between !py-4">
@@ -80,7 +80,7 @@ export function AboutPage() {
         </Section>
 
         {/* Hobbies */}
-        <Section id="hobbies" label={c.hobbies.label} heading={c.hobbies.heading} intro={c.hobbies.intro}>
+        <Section id="hobbies" index="02" label={c.hobbies.label} heading={c.hobbies.heading} intro={c.hobbies.intro}>
           <div className="grid gap-6 md:grid-cols-2">
             {c.hobbies.images.map((img) => (
               <figure key={img.src} className="card !p-3">

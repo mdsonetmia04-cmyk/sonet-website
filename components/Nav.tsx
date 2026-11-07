@@ -3,101 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Download, Menu, X, Sun, Moon, Monitor } from "lucide-react";
-import { useLang } from "@/i18n/LanguageContext";
-import type { Lang } from "@/i18n/strings";
+import { CalendarCheck, Download, Menu, X } from "lucide-react";
 import { useContent } from "@/lib/useContent";
-
-type ThemeChoice = "system" | "light" | "dark";
-
-function applyTheme(choice: ThemeChoice) {
-  const resolved =
-    choice === "system"
-      ? window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light"
-      : choice;
-  document.documentElement.setAttribute("data-theme", resolved);
-}
-
-const themeOptions: { value: ThemeChoice; labelKey: "themeSystem" | "themeLight" | "themeDark"; icon: typeof Sun }[] = [
-  { value: "system", labelKey: "themeSystem", icon: Monitor },
-  { value: "light", labelKey: "themeLight", icon: Sun },
-  { value: "dark", labelKey: "themeDark", icon: Moon },
-];
-
-function ThemeSwitcher({
-  theme,
-  onChange,
-}: {
-  theme: ThemeChoice;
-  onChange: (choice: ThemeChoice) => void;
-}) {
-  const c = useContent();
-  return (
-    <div role="group" aria-label={c.ui.themeLabel} className="segmented">
-      {themeOptions.map((opt) => {
-        const Icon = opt.icon;
-        return (
-          <button
-            key={opt.value}
-            type="button"
-            aria-pressed={theme === opt.value}
-            aria-label={c.ui[opt.labelKey]}
-            title={c.ui[opt.labelKey]}
-            onClick={() => onChange(opt.value)}
-            className={`segmented-btn ${theme === opt.value ? "is-active" : ""}`}
-          >
-            <span className="seg-icon" aria-hidden="true">
-              <Icon size={16} />
-            </span>
-            <span className="hidden md:inline">{c.ui[opt.labelKey]}</span>
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-function LanguageToggle() {
-  const c = useContent();
-  const { lang, setLang } = useLang();
-  const options: { value: Lang; label: string }[] = [
-    { value: "en", label: "EN" },
-    { value: "bn", label: "বাংলা" },
-  ];
-  return (
-    <div role="group" aria-label={c.ui.languageLabel} className="segmented">
-      {options.map((opt) => (
-        <button
-          key={opt.value}
-          type="button"
-          aria-pressed={lang === opt.value}
-          aria-label={`${c.ui.languageLabel}: ${opt.label}`}
-          onClick={() => setLang(opt.value)}
-          className={`segmented-btn ${lang === opt.value ? "is-active" : ""}`}
-        >
-          {opt.label}
-        </button>
-      ))}
-    </div>
-  );
-}
+import { SettingsButton } from "./appearance/SettingsButton";
 
 export function Nav() {
   const c = useContent();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState<ThemeChoice>("system");
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("sonet-theme") as ThemeChoice | null;
-      if (stored) setTheme(stored);
-    } catch {
-      /* storage unavailable */
-    }
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -105,16 +18,6 @@ export function Nav() {
       document.body.style.overflow = "";
     };
   }, [open ]);
-
-  function onThemeChange(choice: ThemeChoice) {
-    setTheme(choice);
-    try {
-      localStorage.setItem("sonet-theme", choice);
-    } catch {
-      /* storage unavailable */
-    }
-    applyTheme(choice);
-  }
 
   function isActive(href: string) {
     if (href === "/") return pathname === "/";
@@ -161,20 +64,23 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <div className="hidden sm:block">
-              <LanguageToggle />
-            </div>
-            <div className="hidden md:block">
-              <ThemeSwitcher theme={theme} onChange={onThemeChange} />
-            </div>
-            <a
-              href="/cv/Md-Sonet-Mia-CV.pdf"
-              download
-              className="btn-primary button-sm hidden sm:inline-flex"
-            >
-              <Download size={16} aria-hidden="true" />
-              {c.ui.downloadCv}
-            </a>
+            <span className="hidden sm:inline-flex">
+              <Link href="/contact#booking" className="btn-primary button-sm">
+                <CalendarCheck size={16} aria-hidden="true" />
+                {c.ui.bookSession}
+              </Link>
+            </span>
+            <span className="hidden lg:inline-flex">
+              <a
+                href="/cv/Md-Sonet-Mia-CV.pdf"
+                download
+                className="btn-secondary button-sm"
+              >
+                <Download size={16} aria-hidden="true" />
+                {c.ui.downloadCv}
+              </a>
+            </span>
+            <SettingsButton onOpen={() => setOpen(false)} />
             <button
               type="button"
               aria-label={open ? c.ui.closeMenu : c.ui.openMenu}
@@ -213,21 +119,24 @@ export function Nav() {
               </li>
             ))}
             <li className="menu-link mt-4" style={{ transitionDelay: "400ms" }}>
+              <Link
+                href="/contact#booking"
+                onClick={() => setOpen(false)}
+                className="btn-primary button-md w-full"
+              >
+                <CalendarCheck size={16} aria-hidden="true" />
+                {c.ui.bookSession}
+              </Link>
+            </li>
+            <li className="menu-link mt-3" style={{ transitionDelay: "440ms" }}>
               <a
                 href="/cv/Md-Sonet-Mia-CV.pdf"
                 download
-                className="btn-primary button-md"
+                className="btn-secondary button-md w-full"
               >
                 <Download size={16} aria-hidden="true" />
                 {c.ui.downloadCv}
               </a>
-            </li>
-            <li
-              className="menu-link mt-6 flex flex-wrap items-center gap-3"
-              style={{ transitionDelay: "440ms" }}
-            >
-              <LanguageToggle />
-              <ThemeSwitcher theme={theme} onChange={onThemeChange} />
             </li>
           </ul>
         </div>
