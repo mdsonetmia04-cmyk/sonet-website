@@ -25,9 +25,12 @@ export function HomePage() {
         <section className="hero-section bg-bg" aria-label={c.personal.name}>
           <div className="mx-auto grid max-w-[1280px] gap-12 px-6 py-14 md:px-8 md:py-20 lg:grid-cols-2 lg:items-center">
             <Reveal>
-              <p className="caption-1 uppercase tracking-[0.14em] text-gold">
-                {c.hero.eyebrow}
-              </p>
+              <div className="flex items-center gap-4">
+                <p className="caption-1 uppercase tracking-[0.14em] text-gold">
+                  {c.hero.eyebrow}
+                </p>
+                <span aria-hidden="true" className="hero-eyebrow-rule" />
+              </div>
               <h1 className="hero-title mt-4">{c.hero.headline}</h1>
               <p className="body-2 mt-6 text-lg leading-relaxed">{c.hero.quote1}</p>
               <p className="body-2 mt-4 text-lg leading-relaxed">{c.hero.quote2}</p>
@@ -48,15 +51,18 @@ export function HomePage() {
               <p className="caption-1 mt-6">{c.hero.proofLine}</p>
             </Reveal>
             <Reveal className="mx-auto w-full max-w-[520px]">
-              <Image
-                src={c.personal.portraitImage}
-                alt={c.personal.portraitAlt}
-                width={1312}
-                height={1199}
-                priority
-                sizes="(max-width: 1024px) 100vw, 520px"
-                className="hero-portrait aspect-square w-full rounded-2xl border border-border object-cover"
-              />
+              <div className="hero-portrait-wrap relative overflow-hidden border border-border">
+                <div aria-hidden="true" className="hero-portrait-circle" />
+                <Image
+                  src={c.personal.portraitImage}
+                  alt={c.personal.portraitAlt}
+                  width={1312}
+                  height={1199}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 520px"
+                  className="hero-portrait relative z-10 aspect-square w-full object-cover"
+                />
+              </div>
             </Reveal>
           </div>
         </section>

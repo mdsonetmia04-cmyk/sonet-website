@@ -32,10 +32,10 @@ export function Nav() {
       >
         {c.ui.skipToContent}
       </a>
-      <header className="sticky top-0 z-50 border-b border-border bg-surface">
+      <header className="sticky top-3 z-50 px-4 md:px-6">
         <nav
           aria-label={c.ui.navLabel}
-          className="mx-auto flex w-full max-w-[1280px] items-center justify-between gap-3 px-4 py-3 md:px-8"
+          className="mx-auto flex w-full max-w-[1400px] items-center justify-between gap-3 rounded-full border border-border bg-surface px-4 py-2.5 shadow-[0_10px_30px_var(--shadow)] md:px-6"
         >
           <Link
             href="/"
@@ -45,7 +45,7 @@ export function Nav() {
             {c.ui.brand}
           </Link>
 
-          <ul className="hidden items-center gap-5 xl:flex">
+          <ul className="hidden items-center gap-4 xl:flex">
             {c.nav.map((item) => (
               <li key={item.id}>
                 <Link
@@ -70,7 +70,7 @@ export function Nav() {
                 {c.ui.bookSession}
               </Link>
             </span>
-            <span className="hidden lg:inline-flex">
+            <span className="hidden 2xl:inline-flex">
               <a
                 href="/cv/Md-Sonet-Mia-CV.pdf"
                 download

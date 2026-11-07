@@ -353,6 +353,7 @@ div[id] {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  white-space: nowrap;
   background: var(--btn-bg);
   color: var(--btn-text);
   border-radius: 9999px;
@@ -371,6 +372,7 @@ div[id] {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  white-space: nowrap;
   background: transparent;
   border: 1px solid var(--border);
   color: var(--ink);
@@ -616,6 +618,29 @@ html[data-theme-variant="warm-editorial"] .hero-title::after {
 html[data-theme-variant="warm-editorial"] .hero-portrait {
   border-radius: 1.25rem;
   box-shadow: 0 20px 48px var(--shadow);
+}
+
+/* Hero portrait card: warm panel + gold circle behind the cut-out portrait */
+.hero-portrait-wrap {
+  background: var(--surface-2);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 48px var(--shadow);
+}
+.hero-portrait-circle {
+  position: absolute;
+  width: 68%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--gold) 22%, transparent);
+  right: -14%;
+  bottom: -18%;
+}
+/* Short gold rule after the hero eyebrow, as on the home design */
+.hero-eyebrow-rule {
+  width: 7rem;
+  height: 2px;
+  flex-shrink: 0;
+  background: var(--gold);
 }
 
 /* 3. Warm cream About band: `band` sections already use --surface-2,
