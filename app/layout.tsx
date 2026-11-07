@@ -1,49 +1,66 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Manrope } from "next/font/google";
+import { Manrope, Inter } from "next/font/google";
 import "./globals.css";
-import { strings } from "@/i18n/strings";
+import { content } from "@/lib/content";
 import { LanguageProvider } from "@/i18n/LanguageContext";
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-});
 
 const manrope = Manrope({
   variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 // Metadata stays English: it is SEO/social metadata, not on-page UI copy.
-// The on-page strings (including meta.*) live in i18n/strings.ts.
-// Social-share image: the hero portrait, defined once and shared by the
-// Open Graph and Twitter cards (one metadata image, not a page placement).
+// On-page strings live in lib/content.ts / i18n/bn.ts.
+const siteUrl = "https://sonet-website.vercel.app";
 const ogImage = "/images/hero-portrait.jpg";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mdsonetmia.vercel.app"),
-  title: strings["meta.title"].en,
-  description: strings["meta.description"].en,
-  keywords: strings["meta.keywords"].en.split(", "),
+  metadataBase: new URL(siteUrl),
+  title: content.seo.title,
+  description: content.seo.description,
+  keywords: content.seo.keywords.split(", "),
   authors: [{ name: "Md. Sonet Mia" }],
+  alternates: { canonical: siteUrl },
   openGraph: {
-    title: strings["meta.title"].en,
-    description: strings["meta.ogDescription"].en,
+    title: content.seo.title,
+    description: content.seo.description,
     type: "website",
     locale: "en_US",
-    images: [{ url: ogImage, width: 1885, height: 1890, alt: strings["meta.ogImageAlt"].en }],
+    url: siteUrl,
+    siteName: "SONET.",
+    images: [{ url: ogImage, width: 1885, height: 1890, alt: content.seo.ogImageAlt }],
   },
   twitter: {
     card: "summary_large_image",
-    title: strings["meta.title"].en,
-    description: strings["meta.ogDescription"].en,
+    title: content.seo.title,
+    description: content.seo.description,
     images: [ogImage],
   },
   icons: { icon: "/favicon.svg" },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Md. Sonet Mia",
+  url: siteUrl,
+  jobTitle: "Educator",
+  description: content.seo.description,
+  address: { "@type": "PostalAddress", addressLocality: "Tangail", addressCountry: "BD" },
+  sameAs: [
+    "https://facebook.com/mdsont.mia.777",
+    "https://www.youtube.com/@SweetCGILab",
+    "https://github.com/mdsonetmia04-cmyk",
+  ],
 };
 
 // Runs before first paint: resolves the stored theme (or the OS preference)
@@ -59,8 +76,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
       </head>
-      <body className={`${playfair.variable} ${manrope.variable} antialiased grain`}>
+      <body className={`${manrope.variable} ${inter.variable} antialiased`}>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>

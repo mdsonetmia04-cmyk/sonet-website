@@ -3,7 +3,6 @@ import { Reveal } from "./Reveal";
 
 export function Section({
   id,
-  num,
   label,
   heading,
   intro,
@@ -11,7 +10,6 @@ export function Section({
   children,
 }: {
   id: string;
-  num: string;
   label: string;
   heading: string;
   intro?: string;
@@ -24,22 +22,37 @@ export function Section({
       aria-label={label}
       className={`${band ? "bg-surface-2" : "bg-bg"} py-16 md:py-24`}
     >
-      <div className="mx-auto max-w-[1200px] px-6 md:px-8">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-8">
         <Reveal>
-          <div className="flex items-start gap-4">
-            <span className="section-num tabular pt-1" aria-hidden="true">
-              {num}
-            </span>
-            <div>
-              <div className="gold-rule" aria-hidden="true" />
-              <p className="caption-1 mt-4">{label}</p>
-              <h2 className="heading-2 mt-2">{heading}</h2>
-              {intro ? <p className="body-2 mt-4 max-w-[680px]">{intro}</p> : null}
-            </div>
-          </div>
+          <div className="gold-rule" aria-hidden="true" />
+          <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{label}</p>
+          <h2 className="heading-2 mt-2">{heading}</h2>
+          {intro ? <p className="body-2 mt-4 max-w-[680px]">{intro}</p> : null}
         </Reveal>
         <div className="mt-12">{children}</div>
       </div>
     </section>
+  );
+}
+
+/** Page header used at the top of inner pages (label + H1 + intro). */
+export function PageHeader({
+  label,
+  heading,
+  intro,
+}: {
+  label: string;
+  heading: string;
+  intro?: string;
+}) {
+  return (
+    <div className="border-b border-border bg-surface">
+      <div className="mx-auto max-w-[1280px] px-6 py-14 md:px-8 md:py-20">
+        <div className="gold-rule" aria-hidden="true" />
+        <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{label}</p>
+        <h1 className="heading-1 mt-2">{heading}</h1>
+        {intro ? <p className="body-2 mt-4 max-w-[680px] text-lg">{intro}</p> : null}
+      </div>
+    </div>
   );
 }

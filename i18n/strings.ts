@@ -958,7 +958,7 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "footer.youtube": { en: "YouTube", bn: "YouTube" },
   "footer.facebook": { en: "Facebook", bn: "Facebook" },
   "footer.whatsapp": { en: "WhatsApp", bn: "WhatsApp" },
-  "footer.copyright": { en: "Made with ♥ by Md. Sonet Mia © 2026", bn: "♥ দিয়ে তৈরি — Md. Sonet Mia © 2026" },
+  "footer.copyright": { en: "© 2026 Md. Sonet Mia. All rights reserved.", bn: "© 2026 Md. Sonet Mia। সর্বস্বত্ব সংরক্ষিত।" },
   "footer.privacy": { en: "Privacy policy", bn: "গোপনীয়তা নীতি" },
   "footer.terms": { en: "Terms", bn: "শর্তাবলি" },
 
@@ -1006,8 +1006,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "আপনার থিম পছন্দ (হালকা, গাঢ় বা সিস্টেম) ও ভাষা পছন্দ (ইংরেজি বা বাংলা) শুধু আপনার নিজের ব্রাউজারেই সংরক্ষিত থাকে।",
   },
   "privacy.para5": {
-    en: "Questions about this policy can be sent to md.Sonet.mia2@gmail.com.",
-    bn: "এই নীতি সম্পর্কে প্রশ্ন md.Sonet.mia2@gmail.com-এ পাঠানো যাবে।",
+    en: "Questions about this policy can be sent to md.sonet.mia01@gmail.com.",
+    bn: "এই নীতি সম্পর্কে প্রশ্ন md.sonet.mia01@gmail.com-এ পাঠানো যাবে।",
   },
 
   // ---------------------------------------------------------------- terms
@@ -1030,8 +1030,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "অন্যান্য সাইট ও সেবার লিংক সুবিধার জন্য দেওয়া হয়েছে। সেই বাইরের সাইটগুলোর কনটেন্ট বা উপলভ্যতার জন্য সনেট দায়ী নন।",
   },
   "terms.para4": {
-    en: "Questions about these terms can be sent to md.Sonet.mia2@gmail.com.",
-    bn: "এই শর্তাবলি সম্পর্কে প্রশ্ন md.Sonet.mia2@gmail.com-এ পাঠানো যাবে।",
+    en: "Questions about these terms can be sent to md.sonet.mia01@gmail.com.",
+    bn: "এই শর্তাবলি সম্পর্কে প্রশ্ন md.sonet.mia01@gmail.com-এ পাঠানো যাবে।",
   },
 
   // ---------------------------------------------------------------- misc (404)

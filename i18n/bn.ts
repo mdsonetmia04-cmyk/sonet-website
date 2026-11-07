@@ -1,0 +1,954 @@
+// ============================================================================
+// SONET — সম্পূর্ণ বাংলা অভিধান (Bangla dictionary)
+// File: i18n/bn.ts
+// SHAPE: `bn` is typed as SiteContent — exactly the same shape as `content`
+// in lib/content.ts, field for field, in the same order. The implementation
+// agent renders a page by picking `content` (lang "en") or `bn` (lang "bn")
+// and reading the same paths — no key lookups, no guessing.
+// Conventions (same as content.ts):
+//   - Proper names, brand names, URLs, emails, phone numbers, file paths
+//     and numbers stay EXACTLY as in the English file (Western digits).
+//   - Bangla copy is natural, human Bangla — tight, everyday language, the
+//     way Sonet speaks to his audience. Not machine-translationese.
+//   - `placeholder: true` fields are copied unchanged from the English file:
+//     the owner must fill / confirm them before they go live.
+//   - Bangla renders in Solaiman Lipi (bundled at public/fonts/
+//     SolaimanLipi.woff). Do NOT switch to Noto Sans Bengali.
+//   - No emoji anywhere.
+// ============================================================================
+
+import type { SiteContent } from "../lib/content";
+
+export const bn: SiteContent = {
+  personal: {
+    name: "Md. Sonet Mia",
+    shortName: "সনেট",
+    tagline: "শিক্ষক। নেতা। উদ্ভাবক।",
+    location: "টাঙ্গাইল, বাংলাদেশ",
+    nationality: "বাংলাদেশি",
+    born: "12 জানুয়ারি 2000",
+    faith: "ইসলাম (সুন্নি)",
+    portraitImage: "/images/hero-portrait.jpg",
+    portraitAlt: "Md. Sonet Mia-র প্রতিকৃতি",
+    formalImage: "/images/about-formal.jpg",
+    formalImageAlt: "স্যুট পরা Md. Sonet Mia",
+  },
+
+  seo: {
+    title: "Md. Sonet Mia | শিক্ষক, কমিউনিটি নেতা ও ডিজিটাল উদ্ভাবক",
+    description:
+      "Md. Sonet Mia-র পেশাদার পোর্টফোলিও দেখুন — বাংলাদেশে শিক্ষা, শিক্ষাদানের অভিজ্ঞতা, কমিউনিটি নেতৃত্ব, ডিজিটাল উদ্ভাবন, প্রজেক্ট ও পেশাদার অর্জন।",
+    keywords:
+      "Md Sonet Mia, English teacher Tangail, AI creator Bangladesh, Sweet Smart Calendar, PromptEx, Sweet CGI Lab, SiteIncome Lab",
+    ogImageAlt: "Md. Sonet Mia-র প্রতিকৃতি",
+  },
+
+  nav: [
+    { id: "home", label: "হোম", href: "/" },
+    { id: "about", label: "আমার সম্পর্কে", href: "/about" },
+    { id: "experience", label: "অভিজ্ঞতা", href: "/experience" },
+    { id: "education", label: "শিক্ষা", href: "/education" },
+    { id: "leadership", label: "নেতৃত্ব", href: "/leadership" },
+    { id: "projects", label: "প্রজেক্ট", href: "/projects" },
+    { id: "achievements", label: "অর্জন", href: "/achievements" },
+    { id: "certifications", label: "সার্টিফিকেশন", href: "/certifications" },
+    { id: "publications", label: "প্রকাশনা", href: "/publications" },
+    { id: "contact", label: "যোগাযোগ", href: "/contact" },
+  ],
+  footerNav: [
+    { id: "about", label: "আমার সম্পর্কে", href: "/about" },
+    { id: "projects", label: "প্রজেক্ট", href: "/projects" },
+    { id: "skills", label: "দক্ষতা", href: "/skills" },
+    { id: "contact", label: "যোগাযোগ", href: "/contact" },
+  ],
+
+  hero: {
+    eyebrow: "শিক্ষক। নেতা। উদ্ভাবক।",
+    headline: "Md. Sonet Mia",
+    quote1:
+      "আমি বাংলাদেশের একজন বহুমুখী পেশাজীবী — ইংরেজি ভাষা ও সাহিত্যে একাডেমিক পটভূমি নিয়ে শিক্ষা, কমিউনিটি সম্পৃক্ততা, নেতৃত্ব ও ডিজিটাল উদ্ভাবনে কাজ করছি।",
+    quote2:
+      "অর্থবহ শেখার সুযোগ তৈরি করা, কমিউনিটিকে ক্ষমতায়িত করা, আর প্রযুক্তি কীভাবে শিক্ষাকে আরও সহজলভ্য করতে পারে তা নিয়ে ভাবতে আমি ভালোবাসি।",
+    primaryCta: "যোগাযোগ করুন",
+    primaryCtaHref: "/contact",
+    secondaryCta: "আমার প্রজেক্টগুলো দেখুন",
+    secondaryCtaHref: "/projects",
+    proofLine: "2+ বছর ধরে পড়াচ্ছি, প্রতিদিন 50–70 জন শিক্ষার্থী।",
+  },
+
+  snapshotStats: [
+    { figure: "2+", label: "বছরের শিক্ষাদানের অভিজ্ঞতা" },
+    { figure: "50–70", label: "প্রতিদিন পড়ানো শিক্ষার্থী" },
+    { figure: "13+", label: "সার্টিফিকেশন" },
+    { figure: "10+", label: "কমিউনিটি অনুষ্ঠান" },
+  ],
+
+  whatIDo: {
+    label: "আমি যা করি",
+    heading: "শিক্ষা, কমিউনিটি ও ডিজিটাল উদ্ভাবন",
+    intro:
+      "চারটি কাজের ক্ষেত্র — সবগুলোর লক্ষ্য একটাই: শেখা যেন আরও বেশি মানুষের কাছে পৌঁছায়।",
+    items: [
+      {
+        title: "শিক্ষা ও শিক্ষাদান",
+        description:
+          "ইংরেজি ভাষা শিক্ষাদান, পাঠ পরিকল্পনা, শিক্ষামূলক কনটেন্ট তৈরি ও শিক্ষার্থী মূল্যায়ন।",
+      },
+      {
+        title: "নেতৃত্ব ও কমিউনিটি উন্নয়ন",
+        description:
+          "যুব সম্পৃক্ততা, স্বেচ্ছাসেবা, অনুষ্ঠান সমন্বয় ও কমিউনিটি উদ্যোগ।",
+      },
+      {
+        title: "প্রযুক্তি ও ডিজিটাল উদ্ভাবন",
+        description:
+          "এআই টুল, প্রম্পট ইঞ্জিনিয়ারিং, অটোমেশন ও ডিজিটাল শেখার সমাধান।",
+      },
+      {
+        title: "উদ্যোক্তা ও কনটেন্ট তৈরি",
+        description:
+          "ডিজিটাল পণ্য, শিক্ষামূলক উদ্যোগ, কনটেন্ট তৈরি ও প্রজেক্ট উন্নয়ন।",
+      },
+    ],
+  },
+
+  about: {
+    label: "আমার সম্পর্কে",
+    heading: "এই স্বপ্নের পেছনের গল্প",
+    bio: "আমি Md. Sonet Mia, বাংলাদেশের একজন বহুমুখী পেশাজীবী — ইংরেজি ভাষা ও সাহিত্যে একাডেমিক পটভূমি আমার। শিক্ষা, শিক্ষাদান, কমিউনিটি উন্নয়ন, নেতৃত্ব ও ডিজিটাল উদ্ভাবন — এসবই আমার পেশাদার আগ্রহের ক্ষেত্র। শিক্ষাদান ও কমিউনিটি সম্পৃক্ততার মধ্য দিয়ে সবার জন্য শেখার সুযোগ তৈরি করা আর অর্থবহ সামাজিক উন্নয়নে কাজ করার আগ্রহ আমার তৈরি হয়েছে। কৃত্রিম বুদ্ধিমত্তা ও ডিজিটাল প্রযুক্তি কীভাবে শিক্ষা, সৃজনশীলতা ও জ্ঞানের সুযোগ বাড়াতে পারে, তা নিয়েও আমি ভাবি। শিক্ষা, আন্তর্জাতিক উন্নয়ন ও কমিউনিটিকেন্দ্রিক কাজে অবদান রাখতে চাই, আর আজীবন শিক্ষার্থী হিসেবে নিজেকে গড়ে তুলতে চাই।",
+    mission:
+      "আমার লক্ষ্য — শিক্ষা, নেতৃত্ব, কমিউনিটি সম্পৃক্ততা ও প্রযুক্তির মধ্য দিয়ে আরও অন্তর্ভুক্তিমূলক ও সহজলভ্য শেখার পরিবেশ গড়ে তোলায় অবদান রাখা।",
+    paragraphs: [
+      "ছোটবেলা থেকেই ভাষার সৌন্দর্য আর গল্পের শক্তি আমাকে মুগ্ধ করে। টাঙ্গাইলে বড় হতে হতে কৌতূহল আমাকে সাহিত্য, শিক্ষাদান আর প্রযুক্তির জগতে নিয়ে গেছে।",
+      "ইংরেজি স্নাতক হিসেবে ভাষার প্রতি ভালোবাসাকে আধুনিক ডিজিটাল টুলের সঙ্গে মিলিয়ে শিক্ষামূলক কনটেন্ট তৈরি করি, এআই দিয়ে সৃজনশীল কাজ করি, আর নতুন প্রজন্মের শিক্ষার্থী ও চিন্তকদের গাইড করি।",
+      "ইসলামে (সুন্নি) আমার বিশ্বাস আর সমাজসেবার প্রতি আমার অঙ্গীকার আমার প্রতিটি কাজকে গড়ে তোলে — স্বেচ্ছাসেবা থেকে শুরু করে মানুষের উপকারে আসে এমন অ্যাপ তৈরি পর্যন্ত।",
+    ],
+    details: [
+      { label: "পুরো নাম", value: "Md. Sonet Mia" },
+      { label: "জন্ম", value: "12 জানুয়ারি 2000" },
+      { label: "জাতীয়তা", value: "বাংলাদেশি" },
+      { label: "ঠিকানা", value: "টাঙ্গাইল, বাংলাদেশ" },
+    ],
+    values: [
+      "প্রতিটি শিক্ষার্থীর জন্য অন্তর্ভুক্তিমূলক শেখার সুযোগ",
+      "সমাজসেবা ও সামাজিক উন্নয়ন",
+      "আজীবন শেখা",
+      "শিক্ষায় প্রযুক্তির সৎ ও বাস্তবসম্মত ব্যবহার",
+    ],
+    vision:
+      "আরও অন্তর্ভুক্তিমূলক ও সহজলভ্য শেখার পরিবেশ — যেখানে শিক্ষা, নেতৃত্ব, কমিউনিটি সম্পৃক্ততা ও প্রযুক্তি একসঙ্গে কাজ করে।",
+    reflectionQuote:
+      "প্রতিটি অর্জন আল্লাহর রহমত আর আমার বাবা-মা ও বোনের সহযোগিতার ফল।",
+  },
+
+  education: {
+    label: "শিক্ষা",
+    heading: "একাডেমিক যাত্রা",
+    intro: "ভাষা, যোগাযোগ ও আজীবন শেখার প্রতি ভালোবাসা।",
+    degree: {
+      degree: "BA (Honours) in English",
+      institution: "Sheikh Fazilatunnesa Mujib University",
+      date: "2024 সালে সম্পন্ন",
+      detail:
+        "ইংরেজি সাহিত্য, ভাষাবিজ্ঞান ও যোগাযোগের গভীর অধ্যয়ন — শিক্ষাদান, লেখালেখি ও সৃজনশীল কাজের শক্ত ভিত্তি গড়ে দিয়েছে।",
+      cgpa: "3.38 out of 4.00",
+      coursesCompleted: "40+",
+    },
+    ielts: {
+      title: "IELTS সম্পন্ন",
+      subtitle: "আন্তর্জাতিক ইংরেজি দক্ষতা",
+      date: "2025 সালে সম্পন্ন",
+      body: "IELTS পরীক্ষায় সফলভাবে উত্তীর্ণ হয়েছি — চারটি মডিউলেই শক্তিশালী ইংরেজি দক্ষতার প্রমাণ।",
+      resultLabel: "ফলাফল",
+      resultValue: "Overall Band 6.0",
+      nextLabel: "পরবর্তী লক্ষ্য",
+      nextValue: "7.5",
+    },
+    mediumOfInstruction: "ইংরেজি",
+    stats: [
+      { figure: "4+", label: "বছরের পড়াশোনা" },
+      { figure: "40+", label: "কোর্স সম্পন্ন" },
+      { figure: "3", label: "ভাষা" },
+      { figure: "5+", label: "সার্টিফিকেশন" },
+    ],
+    researchInterests: [
+      "ইংরেজি ভাষা শিক্ষা",
+      "অন্তর্ভুক্তিমূলক শিক্ষা",
+      "শিক্ষা ও সামাজিক উন্নয়ন",
+      "যুব ক্ষমতায়ন",
+      "ডিজিটাল শেখা",
+    ],
+    higherEducationGoals: [
+      "শিক্ষায় এমএ (MA in Education)",
+      "TESOL / ফলিত ভাষাবিজ্ঞান",
+      "আন্তর্জাতিক উন্নয়ন",
+      "শিক্ষাগত নেতৃত্ব",
+      "Erasmus Mundus",
+    ],
+    timelineNote:
+      "এর আগের পড়াশোনা সম্পর্কে মূল সাইটে কিছু বলা নেই। স্কুলের নাম ও সাল শুধু তখনই যোগ করা যাবে, যখন মালিক নিজে তা নিশ্চিত করবেন।",
+  },
+
+  experience: {
+    label: "অভিজ্ঞতা",
+    heading: "মানসম্মত ইংরেজি শিক্ষা, যা শিক্ষার্থীদের আত্মবিশ্বাসী করে তোলে",
+    intro: "2+ বছর ধরে পড়াচ্ছি, প্রতিদিন 50–70 জন শিক্ষার্থী, প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল।",
+    title: "ইংরেজি ভাষা শিক্ষক",
+    yearsExperience: "2+ বছর",
+    studentsPerDay: "প্রতিদিন 50–70 জন শিক্ষার্থী",
+    materialsPerMonth: "প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল",
+    responsibilities: [
+      "ইংরেজি ভাষা শেখানো",
+      "পাঠ পরিকল্পনা",
+      "শ্রেণিকক্ষ পরিচালনা",
+      "শিক্ষার্থী মূল্যায়ন",
+      "শিক্ষা উপকরণ তৈরি",
+      "শিক্ষার্থীদের সম্পৃক্ত করা",
+    ],
+    roles: [
+      {
+        title: "সহকারী শিক্ষক (ইংরেজি ভাষা ও গ্রামার)",
+        organisation: "Sobuz Kuri Laboratory School & College",
+        dates: "2022–2023",
+        location: null,
+        responsibilities: [
+          "ইংরেজি ভাষা শেখানো",
+          "পাঠ পরিকল্পনা",
+          "শ্রেণিকক্ষ পরিচালনা",
+          "শিক্ষার্থী মূল্যায়ন",
+          "শিক্ষা উপকরণ তৈরি",
+          "শিক্ষার্থীদের সম্পৃক্ত করা",
+        ],
+      },
+      {
+        title: "সহকারী শিক্ষক (ইংরেজি ভাষা ও গ্রামার)",
+        organisation: "Prativa Preparatory School & College",
+        dates: "2023–2024",
+        location: null,
+        responsibilities: [
+          "ইংরেজি ভাষা শেখানো",
+          "পাঠ পরিকল্পনা",
+          "শ্রেণিকক্ষ পরিচালনা",
+          "শিক্ষার্থী মূল্যায়ন",
+          "শিক্ষা উপকরণ তৈরি",
+          "শিক্ষার্থীদের সম্পৃক্ত করা",
+        ],
+      },
+    ],
+    services: [
+      "ইংরেজি গ্রামার কোচিং",
+      "স্পোকেন ইংরেজি উন্নয়ন",
+      "লেখার দক্ষতা উন্নয়ন",
+      "শিক্ষার্থী মেন্টরিং",
+    ],
+    sessions: [
+      {
+        title: "গ্রামার মাস্টারি সেশন",
+        durationMinutes: 60,
+        durationLabel: "60 মিনিট",
+        price: "মূল্যের জন্য যোগাযোগ করুন",
+        description: "ইংরেজি গ্রামারের নিয়ম, সাধারণ ভুল ও উন্নত ব্যবহার নিয়ে গভীর আলোচনা।",
+      },
+      {
+        title: "স্পোকেন ইংরেজি কোচিং",
+        durationMinutes: 45,
+        durationLabel: "45 মিনিট",
+        price: "মূল্যের জন্য যোগাযোগ করুন",
+        description: "গাইডেড প্র্যাকটিস ও ফিডব্যাকের মধ্য দিয়ে স্পোকেন ইংরেজিতে আত্মবিশ্বাস গড়ে তুলুন।",
+      },
+      {
+        title: "পরীক্ষার প্রস্তুতি গাইডলাইন",
+        durationMinutes: 90,
+        durationLabel: "90 মিনিট",
+        price: "মূল্যের জন্য যোগাযোগ করুন",
+        description: "টিপস, প্র্যাকটিস ও রিভিউসহ ইংরেজি পরীক্ষার কৌশলগত প্রস্তুতি।",
+      },
+    ],
+    stats: [
+      { figure: "2", label: "স্কুল" },
+      { figure: "200+", label: "শিক্ষার্থী" },
+      { figure: "500+", label: "সেশন" },
+      { figure: "2+", label: "বছর" },
+    ],
+    teachingImages: [
+      { src: "/images/teaching-english.jpg", width: 1920, height: 1279, alt: "মাইক্রোফোন হাতে দলকে পড়াচ্ছেন Md. Sonet Mia" },
+      { src: "/images/teaching-presenting.jpg", width: 1279, height: 1920, alt: "মঞ্চে মাইক্রোফোন হাতে উপস্থাপনা করছেন Md. Sonet Mia" },
+      { src: "/images/teaching-speaking.jpg", width: 1359, height: 1369, alt: "বসে মাইক্রোফোনে কথা বলছেন Md. Sonet Mia" },
+    ],
+    acting: {
+      label: "অভিনয় ও থিয়েটার",
+      heading: "মঞ্চে",
+      intro: "অভিনয়ের মধ্য দিয়ে ক্লাসিক সাহিত্যকে প্রাণবন্ত করে তোলা।",
+      playTitle: "The Merchant of Venice",
+      cards: [
+        {
+          title: "The Merchant of Venice",
+          description:
+            "উইলিয়াম শেকসপিয়রের আইকনিক ট্র্যাজেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
+        },
+        {
+          title: "মঞ্চ পরিবেশনা",
+          description:
+            "ক্লাসিক ইংরেজি সাহিত্যকে অভিব্যক্তিপূর্ণ নাটকীয় গল্প বলার সঙ্গে মিলিয়ে এক মনোমুগ্ধকর চরিত্র উপস্থাপন।",
+        },
+        {
+          title: "নাটক ও অভিব্যক্তি",
+          description:
+            "থিয়েটারকে ক্লাসিক সাহিত্যকে প্রাণবন্ত করে দর্শকের সঙ্গে যুক্ত হওয়ার মাধ্যম হিসেবে ব্যবহারের প্রতি আগ্রহী।",
+        },
+      ],
+      images: [
+        { src: "/images/merchant-venice-1.jpg", width: 1920, height: 1279, alt: "The Merchant of Venice-এ অভিনয় করছেন Md Sonet Mia", caption: "The Merchant of Venice, মঞ্চে।" },
+        { src: "/images/merchant-venice-2.jpg", width: 1158, height: 651, alt: "The Merchant of Venice অভিনয়ের একটি দৃশ্য", caption: null },
+      ],
+    },
+  },
+
+  leadership: {
+    label: "নেতৃত্ব",
+    heading: "সমাজের সেবায়",
+    intro: "সমাজসেবা, শিক্ষা ও যুব ক্ষমতায়নের মধ্য দিয়ে বাস্তব পরিবর্তন আনা।",
+    joinCta: "আমার স্বেচ্ছাসেবক নেটওয়ার্কে যোগ দিন",
+    joinCtaHref: "/contact",
+    items: [
+      {
+        title: "চিফ সার্জেন্ট অ্যাট আর্মস",
+        organisation: "Rotaract Club",
+        role: "চিফ সার্জেন্ট অ্যাট আর্মস",
+        date: null,
+        description:
+          "রোটার্যাক্ট ক্লাবে নেতৃত্বের ভূমিকা — মূল সাইটের অর্জন গ্যালারিতে দেখানো হয়েছে।",
+        image: "/images/chief-sergeant.jpg",
+        imageAlt: "চিফ সার্জেন্ট অ্যাট আর্মস",
+        placeholder: true,
+        placeholderNote:
+          "Organisation link is inferred from the Rotaract gallery photos and the role caption on the original site; the owner must confirm the club name and the dates before this goes live.",
+      },
+      {
+        title: "Volunteers for Bangladesh",
+        organisation: "Volunteers for Bangladesh",
+        role: null,
+        date: null,
+        description:
+          "Volunteers for Bangladesh-এর সঙ্গে কমিউনিটি স্বেচ্ছাসেবা। পদ ও সাল মালিক নিশ্চিত করবেন।",
+        image: null,
+        imageAlt: null,
+        placeholder: true,
+        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
+      },
+      {
+        title: "Medhabikash Library",
+        organisation: "Medhabikash Library",
+        role: null,
+        date: null,
+        description:
+          "Medhabikash Library-এর সঙ্গে কমিউনিটি কাজ। পদ ও সাল মালিক নিশ্চিত করবেন।",
+        image: null,
+        imageAlt: null,
+        placeholder: true,
+        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
+      },
+    ],
+    activities: [
+      { title: "কমিউনিটি শিক্ষা", description: "সুবিধাবঞ্চিত শিশুদের পড়ানো ও গ্রামীণ এলাকায় শিক্ষা সচেতনতা ছড়িয়ে দেওয়া।" },
+      { title: "যুব নেতৃত্ব", description: "তরুণদের মেন্টরিং আর কমিউনিটি গড়ে তোলার অনুষ্ঠান ও ওয়ার্কশপ আয়োজন।" },
+      { title: "সামাজিক প্রচারণা", description: "শিক্ষা, স্বাস্থ্য ও পরিবেশ বিষয়ে সচেতনতা প্রচারণার নেতৃত্ব।" },
+      { title: "দুর্যোগ ত্রাণ", description: "প্রাকৃতিক দুর্যোগের সময় ত্রাণ কাজে স্বেচ্ছাসেবা ও সহায়তা বিতরণ।" },
+      { title: "বই বিতরণ", description: "সুবিধাবঞ্চিত কমিউনিটিতে শিক্ষা উপকরণ ও বই পৌঁছে দেওয়া।" },
+      { title: "সাংস্কৃতিক সংরক্ষণ", description: "কমিউনিটি অনুষ্ঠানের মধ্য দিয়ে বাংলাদেশি সংস্কৃতি, ভাষা ও ঐতিহ্যের প্রচার।" },
+    ],
+    photos: [
+      { src: "/images/volunteer-kids-1.jpg", width: 1008, height: 756, alt: "শিশুদের সঙ্গে স্বেচ্ছাসেবা" },
+      { src: "/images/volunteer-kids-2.jpg", width: 1920, height: 1440, alt: "শিশুদের সঙ্গে কমিউনিটি আউটরিচ" },
+      { src: "/images/presentation-group.jpg", width: 720, height: 480, alt: "দলগত উপস্থাপনা" },
+      { src: "/images/cultural-dress.jpg", width: 1920, height: 864, alt: "সাংস্কৃতিক সম্পৃক্ততা" },
+    ],
+    stats: [
+      { figure: "117+", label: "সামাজিক কার্যক্রম" },
+      { figure: "500+", label: "জীবনে প্রভাব" },
+      { figure: "12+", label: "সার্টিফায়েড ট্রেনিং সম্পন্ন" },
+      { figure: "13+", label: "সংস্থা" },
+    ],
+    scope: [
+      { figure: "4", label: "আন্তর্জাতিক" },
+      { figure: "6", label: "জাতীয়" },
+      { figure: "3", label: "স্থানীয়" },
+    ],
+  },
+
+  skills: {
+    label: "দক্ষতা",
+    heading: "টুল ও প্রযুক্তি",
+    intro: "দক্ষতাগুলো ট্যাগ হিসেবে দেখানো হয়েছে। শতাংশের বার নেই; স্তর শুধু শব্দে বলা হয়েছে।",
+    categories: [
+      {
+        category: "শিক্ষা",
+        tags: ["ইংরেজি ভাষা শেখানো", "পাঠ পরিকল্পনা", "শ্রেণিকক্ষ পরিচালনা", "শিক্ষার্থী মূল্যায়ন", "শিক্ষা উপকরণ তৈরি", "শিক্ষার্থী মেন্টরিং", "সৃজনশীল লেখা মেন্টরিং", "কবিতা লেখার ওয়ার্কশপ", "গল্প লেখার গাইডলাইন"],
+      },
+      {
+        category: "যোগাযোগ",
+        tags: ["স্পোকেন ইংরেজি", "পাবলিক স্পিকিং", "বিতর্ক", "উপস্থাপনা", "লেখালেখি"],
+      },
+      {
+        category: "নেতৃত্ব",
+        tags: ["যুব নেতৃত্ব", "কমিউনিটি সম্পৃক্ততা", "স্বেচ্ছাসেবক সমন্বয়", "অনুষ্ঠান আয়োজন", "মেন্টরিং"],
+      },
+      {
+        category: "ডিজিটাল",
+        tags: ["Microsoft Word", "Excel", "PowerPoint", "Photoshop", "ইন্টারনেট রিসার্চ", "ইমেইল ব্যবস্থাপনা"],
+      },
+      {
+        category: "এআই ও প্রযুক্তি",
+        tags: ["এআই টুল (ChatGPT, Gemini, DeepSeek +)", "প্রম্পট লেখা", "কনটেন্ট তৈরি", "ভিডিও জেনারেশন", "সৃজনশীল কৌশল", "এআই ছবি তৈরি", "এআই ভিডিও জেনারেশন"],
+      },
+      {
+        category: "উদ্যোক্তা",
+        tags: ["মাইক্রোস্টক কনটেন্ট তৈরি", "ওয়েবসাইট মনিটাইজেশন", "কনটেন্ট কৌশল", "ডিজিটাল পণ্যের আইডিয়া"],
+      },
+    ],
+    digitalTools: [
+      "Microsoft Word",
+      "Excel",
+      "PowerPoint",
+      "Photoshop",
+      "ইন্টারনেট রিসার্চ",
+      "ইমেইল ব্যবস্থাপনা",
+      "এআই টুল (ChatGPT, Gemini, DeepSeek +)",
+    ],
+    languages: [
+      { name: "বাংলা", level: "মাতৃভাষা" },
+      { name: "ইংরেজি", level: "উন্নত" },
+      { name: "হিন্দি", level: "সাবলীল" },
+      { name: "আরবি", level: "পড়া" },
+      { name: "উর্দু", level: "পড়া" },
+      { name: "কোরিয়ান", level: "পড়া" },
+    ],
+    stats: [
+      { figure: "15+", label: "টুলে দক্ষতা" },
+      { figure: "8+", label: "এআই প্ল্যাটফর্ম" },
+    ],
+    aiCapabilities: ["প্রম্পট লেখা", "কনটেন্ট তৈরি", "ভিডিও জেনারেশন", "সৃজনশীল কৌশল"],
+    aiCourses: [
+      { title: "AI Prompt Masterclass", description: "ChatGPT, Gemini ও অন্যান্য এআই টুলের জন্য কার্যকর প্রম্পট লেখা শিখুন।" },
+      { title: "AI Content Strategy", description: "সর্বোচ্চ রিচ ও এনগেজমেন্টের জন্য এআই-চালিত কনটেন্ট কৌশল তৈরি করুন।" },
+      { title: "AI Video Workshop", description: "এআই-চালিত ব্রেইনস্টর্মিং কৌশলের সাহায্যে সৃজনশীল ভিডিও ধারণা তৈরি করুন।" },
+    ],
+    apps: [
+      { name: "Sweet Calculator", purpose: "দৈনন্দিন হিসাবের জন্য পরিষ্কার, সহজ ক্যালকুলেটর।" },
+      { name: "Sweet AI", purpose: "শেখা ও প্রোডাক্টিভিটির জন্য এআই-চালিত সহকারী।" },
+      { name: "Sweet Note", purpose: "দ্রুত আইডিয়া লিখে রাখার জন্য মিনিমাল নোট অ্যাপ।" },
+      { name: "Sweet Traffic Hero", purpose: "ট্রাফিক নিরাপত্তা সচেতনতার শিক্ষামূলক টুল।" },
+      { name: "Sweet Learning English", purpose: "ইন্টার‌্যাক্টিভ ইংরেজি শেখার সঙ্গী।" },
+      { name: "Sweet Spoken English", purpose: "গাইডেড এক্সারসাইজের সঙ্গে স্পোকেন ইংরেজি প্র্যাকটিস করুন।" },
+      { name: "Sweet Volunteering", purpose: "স্বেচ্ছাসেবী কার্যক্রম ট্র্যাক ও পরিচালনা করুন।" },
+      { name: "SDG Tracker", purpose: "টেকসই উন্নয়ন লক্ষ্য (SDG)-এর অগ্রগতি পর্যবেক্ষণ করুন।" },
+      { name: "All in One", purpose: "বহুমুখী প্রোডাক্টিভিটি স্যুট।" },
+      { name: "Sweet Problem Solver", purpose: "স্মার্ট সমস্যা সমাধানকারী সহকারী।" },
+    ],
+  },
+
+  projects: {
+    label: "প্রজেক্ট",
+    heading: "যেসব কাজ ইতিমধ্যে লাইভ",
+    intro: "আসল মানুষের জন্য তৈরি প্রজেক্ট: শিক্ষার্থী, স্রষ্টা ও পাঠক। কনসেপ্টকে কনসেপ্ট হিসেবেই দেখানো হয়েছে; শুধু লাইভ কাজেরই লিংক দেওয়া আছে।",
+    items: [
+      {
+        id: "microstock-journey",
+        title: "Microstock Journey With Sonet",
+        shortDescription:
+          "একটি শিক্ষামূলক উদ্যোগ — শিক্ষার্থীদের স্টক কনটেন্ট তৈরি ও আপলোডের সঠিক মৌসুম খুঁজে পেতে সাহায্য করে; এআই-চালিত ডিজিটাল অ্যাসেট তৈরি, মেটাডেটা অপটিমাইজেশন ও স্টক মার্কেটপ্লেসের কাজ শেখানো হয়।",
+        category: "শিক্ষা",
+        role: "প্রতিষ্ঠাতা ও শিক্ষক",
+        objectives: [
+          "সঠিক মৌসুমে স্টক কনটেন্ট তৈরি ও আপলোড করতে শেখানো",
+          "এআই-চালিত ডিজিটাল অ্যাসেট তৈরি ও মেটাডেটা অপটিমাইজেশন শেখানো",
+          "স্টক মার্কেটপ্লেসের কাজের ধাপ শেখানো",
+        ],
+        tools: ["Sweet Smart Calendar", "এআই টুল", "Adobe Stock"],
+        status: "Live",
+        results: [
+          { figure: "53", label: "অনুমোদিত শিক্ষার্থী" },
+          { figure: "216", label: "দ্বিভাষিক টপিক" },
+        ],
+        url: "https://sweet-smart-calendar.vercel.app",
+        urlLabel: "Sweet Smart Calendar দেখুন",
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["মাইক্রোস্টক", "শিক্ষাদান", "ওয়েব অ্যাপ"],
+      },
+      {
+        id: "promptex",
+        title: "AI Microstock Metadata Generator Pro",
+        shortDescription:
+          "PromptEx: বিনামূল্যের মাইক্রোস্টক মেটাডেটা ও ইমেজ-টু-প্রম্পট টুল — আপনার নিজের API কি দিয়ে চলে।",
+        category: "এআই টুল",
+        role: "স্রষ্টা",
+        objectives: [
+          "বিনামূল্যে মাইক্রোস্টক মেটাডেটা (টাইটেল, কিওয়ার্ড, বর্ণনা) তৈরি করা",
+          "ছবি থেকে প্রম্পট তৈরি করা",
+          "প্রত্যেক ব্যবহারকারী নিজের API কি ব্যবহার করতে পারবেন",
+        ],
+        tools: ["PromptEx", "Gemini", "Groq", "OpenRouter", "Together", "Mistral", "HuggingFace"],
+        status: "Live",
+        results: [{ figure: "ফ্রি", label: "ব্যবহার সম্পূর্ণ ফ্রি, আপনার নিজের API কি" }],
+        url: "https://promptex-nine.vercel.app",
+        urlLabel: "PromptEx দেখুন",
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["এআই টুল", "মেটাডেটা", "ফ্রি"],
+      },
+      {
+        id: "sonet-english-academy",
+        title: "Sonet English Academy",
+        shortDescription:
+          "ইংরেজি ভাষা শেখার একটি পরিকল্পিত উদ্যোগ। বিস্তারিত মালিক নিশ্চিত করবেন।",
+        category: "শিক্ষা",
+        role: "প্রতিষ্ঠাতা",
+        objectives: [],
+        tools: [],
+        status: "Concept",
+        results: [],
+        url: null,
+        urlLabel: null,
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["ইংরেজি", "শিক্ষাদান"],
+        placeholder: true,
+        placeholderNote:
+          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
+      },
+      {
+        id: "jobmatch-bangladesh",
+        title: "JobMatch Bangladesh",
+        shortDescription:
+          "বাংলাদেশের জন্য একটি পরিকল্পিত চাকরি-মেলানো উদ্যোগ। বিস্তারিত মালিক নিশ্চিত করবেন।",
+        category: "চাকরি",
+        role: "প্রতিষ্ঠাতা",
+        objectives: [],
+        tools: [],
+        status: "Concept",
+        results: [],
+        url: null,
+        urlLabel: null,
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["চাকরি", "বাংলাদেশ"],
+        placeholder: true,
+        placeholderNote:
+          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
+      },
+      {
+        id: "skillverse-by-sonet",
+        title: "SkillVerse By Sonet",
+        shortDescription:
+          "দক্ষতা ও শেখার জন্য একটি YouTube চ্যানেল। চ্যানেলের কোনো URL নথিভুক্ত নেই; এখানে কোনো লিংক দেওয়া হয়নি।",
+        category: "YouTube",
+        role: "স্রষ্টা",
+        objectives: [],
+        tools: [],
+        status: "Concept",
+        results: [],
+        url: null,
+        urlLabel: null,
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["YouTube", "শেখা"],
+        placeholder: true,
+        placeholderNote:
+          "Featured YouTube channel named in the master prompt. No URL, subscriber count or video list is verified; never invent a YouTube URL for it. Owner to supply the real link.",
+      },
+      {
+        id: "sweet-cgi-lab",
+        title: "Sweet CGI Lab",
+        shortDescription:
+          "একটি YouTube Shorts চ্যানেল — অসম্ভব আইডিয়াগুলো এখানে বাস্তবসম্মত CGI-তে রূপ নেয়, ছোট ছোট তৃপ্তিদায়ক ক্লিপে।",
+        category: "YouTube Shorts",
+        role: "স্রষ্টা",
+        objectives: [
+          "অসম্ভব আইডিয়াকে বাস্তবসম্মত CGI শর্ট ক্লিপে রূপ দেওয়া",
+          "যুক্তরাষ্ট্রের দর্শকের জন্য তৃপ্তিদায়ক শর্ট-ফর্ম ভিডিও প্রকাশ করা",
+        ],
+        tools: ["CGI ভিডিও", "YouTube Shorts"],
+        status: "Live",
+        results: [
+          { figure: "72", label: "সাবস্ক্রাইবার" },
+          { figure: "98,000+", label: "ভিউ" },
+        ],
+        url: "https://www.youtube.com/@SweetCGILab",
+        urlLabel: "YouTube-এ Sweet CGI Lab দেখুন",
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["YouTube Shorts", "CGI", "ভিডিও"],
+      },
+      {
+        id: "siteincome-lab",
+        title: "SiteIncome Lab",
+        shortDescription:
+          "ওয়েবসাইট মনিটাইজেশন নিয়ে একটি ব্লগ — নিজের সাইট থেকে আয় করতে চান এমন নতুনদের জন্য লেখা।",
+        category: "ব্লগ",
+        role: "লেখক",
+        objectives: [
+          "নতুনদের শেখানো — নিজের সাইট থেকে কীভাবে আয় করা যায়",
+          "ওয়েবসাইট মনিটাইজেশন সহজ ভাষায় বোঝানো",
+        ],
+        tools: ["Blogger", "Adsterra"],
+        status: "Live",
+        results: [{ figure: "18", label: "পোস্ট লাইভ" }],
+        url: "https://siteincomelab.blogspot.com",
+        urlLabel: "SiteIncome Lab দেখুন",
+        coverImage: null,
+        coverImageAlt: null,
+        tags: ["ব্লগ", "মনিটাইজেশন", "লেখালেখি"],
+      },
+    ],
+  },
+
+  achievements: {
+    label: "অর্জন",
+    heading: "স্বীকৃতি ও অগ্রগতি",
+    intro: "নিরবচ্ছিন্ন শেখা, সেবা ও উৎকর্ষ।",
+    items: [
+      { title: "রাইজিং স্টার অ্যাওয়ার্ড", description: "অসাধারণ অগ্রগতি ও অবদানের স্বীকৃতি।", date: null, image: null, imageAlt: null },
+      { title: "সেরা স্বেচ্ছাসেবক পুরস্কার", description: "অসাধারণ সমাজসেবা ও নিষ্ঠার জন্য সম্মানিত।", date: null, image: null, imageAlt: null },
+      { title: "বিতর্ক প্রতিযোগিতার সার্টিফিকেট", description: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।", date: null, image: null, imageAlt: null },
+      { title: "দাবা চ্যাম্পিয়নশিপ সার্টিফিকেট", description: "কৌশলগত দাবা টুর্নামেন্টে অর্জন।", date: null, image: null, imageAlt: null },
+      { title: "17+ অনলাইন কোর্স সার্টিফিকেশন", description: "বিভিন্ন ডিজিটাল বিষয়ে নিরবচ্ছিন্ন শেখা।", date: null, image: null, imageAlt: null },
+      { title: "6+ ট্রেনিং সম্পন্ন", description: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।", date: null, image: null, imageAlt: null },
+    ],
+    stats: [
+      { figure: "5+", label: "পুরস্কার" },
+      { figure: "17+", label: "সার্টিফিকেশন" },
+      { figure: "6+", label: "প্রশিক্ষণ" },
+      { figure: "30+", label: "অনুষ্ঠান" },
+    ],
+    carousel: [
+      { src: "/images/chief-sergeant.jpg", width: 960, height: 943, caption: "চিফ সার্জেন্ট অ্যাট আর্মস", sub: "নেতৃত্বের ভূমিকা" },
+      { src: "/images/event-group.jpg", width: 720, height: 450, caption: "যুব অনুষ্ঠান", sub: "যুব অনুষ্ঠান" },
+      { src: "/images/event-volunteer.jpg", width: 720, height: 434, caption: "স্বেচ্ছাসেবী অনুষ্ঠান", sub: "সমাজসেবা" },
+      { src: "/images/training-portrait.jpg", width: 723, height: 569, caption: "ক্যাপাসিটি বিল্ডিং ট্রেনিং", sub: "পেশাদার প্রশিক্ষণ" },
+      { src: "/images/speaking-mic.jpg", width: 932, height: 950, caption: "পাবলিক স্পিকিং", sub: "পাবলিক স্পিকিং" },
+    ],
+  },
+
+  certifications: {
+    label: "সার্টিফিকেশন",
+    heading: "সার্টিফিকেশন",
+    intro: "যাচাই করা সার্টিফিকেট আগে। খালি স্লটগুলো মালিক পূরণ করবেন; সেগুলোকে অর্জিত সার্টিফিকেট হিসেবে দেখানো যাবে না।",
+    filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
+    filters: ["সব", "ভাষা", "শিক্ষাদান", "নেতৃত্ব", "ডিজিটাল ও এআই", "অন্যান্য"],
+    items: [
+      {
+        title: "IELTS Academic",
+        issuer: null,
+        date: "2025 সালে সম্পন্ন",
+        detail: "ইন্টারন্যাশনাল ইংলিশ ল্যাঙ্গুয়েজ টেস্টিং সিস্টেম, একাডেমিক মডিউল।",
+        credential: "Overall Band 6.0",
+        category: "Language",
+        kind: "real",
+      },
+      {
+        title: "অনলাইন কোর্স সার্টিফিকেশন",
+        issuer: null,
+        date: null,
+        detail: "মূল সাইটে উল্লেখ অনুযায়ী বিভিন্ন ডিজিটাল বিষয়ে 17+ অনলাইন কোর্স সার্টিফিকেশন। প্রতিটি কোর্সের নাম নথিভুক্ত নেই।",
+        credential: "17+ সার্টিফিকেট",
+        category: "Digital & AI",
+        kind: "aggregate",
+      },
+      {
+        title: "পেশাদার উন্নয়ন প্রশিক্ষণ",
+        issuer: null,
+        date: null,
+        detail: "মূল সাইটে উল্লেখ অনুযায়ী নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে 6+ ট্রেনিং সম্পন্ন। প্রতিটি ট্রেনিংয়ের নাম নথিভুক্ত নেই।",
+        credential: "6+ ট্রেনিং",
+        category: "Leadership",
+        kind: "aggregate",
+      },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
+    ],
+  },
+
+  publications: {
+    label: "প্রকাশনা",
+    heading: "অনুপ্রেরণার শব্দ",
+    intro: "লেখার মধ্য দিয়ে মানুষের আবেগ ও অনুপ্রেরণা খোঁজা।",
+    body: "লেখা আমার আজীবনের সঙ্গী। কবিতা থেকে অনুপ্রেরণামূলক বই — শব্দ দিয়ে আমি মানুষের সঙ্গে যুক্ত হই, অনুপ্রাণিত করি, আর সারা বিশ্বের পাঠকদের মনে পরিবর্তনের সূচনা করি।",
+    writingServices: ["সৃজনশীল লেখা মেন্টরিং", "কবিতা লেখার ওয়ার্কশপ", "গল্প লেখার গাইডলাইন"],
+    stats: [
+      { figure: "5", label: "বই" },
+      { figure: "3", label: "প্রকাশিত" },
+      { figure: "4", label: "ধরন" },
+    ],
+    booksHeading: "আমার বই",
+    books: [
+      { title: "A Story of Two Hearts", kind: "গল্পের বই", description: null, coverImage: "/images/book-two-hearts.jpg", coverImageAlt: "A Story of Two Hearts বই", coverNote: null },
+      { title: "Smritimoy Kabya", kind: "যৌথ কবিতার বই (প্রকাশিত)", description: null, coverImage: "/images/book-smritimoy-kabya.jpg", coverImageAlt: "Smritimoy Kabya বইয়ের প্রচ্ছদ", coverNote: null },
+      { title: "বিসর্জন", kind: "Bortoi.com-এ প্রকাশিত", description: null, coverImage: "/images/book-bishorjon.jpg", coverImageAlt: "বিসর্জন বই", coverNote: "প্রচ্ছদ মাত্র 310x163: শুধু ছোট থাম্বনেইল হিসেবে দেখান, কখনো বড় করে নয়।" },
+      { title: "One More Step", kind: "অনুপ্রেরণামূলক ইবুক", description: null, coverImage: null, coverImageAlt: null, coverNote: "প্রচ্ছদের ছবি নথিভুক্ত নেই: শুধু লেখা হিসেবে দেখান।" },
+      { title: "Why?", kind: "অনুপ্রেরণামূলক ইংরেজি বই", description: null, coverImage: null, coverImageAlt: null, coverNote: "প্রচ্ছদের ছবি নথিভুক্ত নেই: শুধু লেখা হিসেবে দেখান।" },
+    ],
+    featuredChannel: {
+      name: "SkillVerse By Sonet",
+      description: "দক্ষতা ও শেখার জন্য ফিচার করা YouTube চ্যানেল।",
+      topics: ["ইংরেজি গ্রামার", "অনুপ্রেরণা", "লাইফ হ্যাক", "বই পর্যালোচনা"],
+      url: null,
+      placeholderNote: "No channel URL is on record. Do not invent or guess one; show the channel name only until the owner supplies the link.",
+    },
+    podcast: {
+      name: "Think and Spark",
+      description: "একটি ফেসলেস YouTube পডকাস্ট — বিশ্বজুড়ে শ্রোতাদের শিক্ষিত ও অনুপ্রাণিত করে।",
+      body: "Think and Spark শ্রোতাদের জন্য তৈরি: পরিষ্কার আইডিয়া, সৎ আলোচনা, আর একই দিনে ব্যবহার করা যায় এমন শিক্ষা।",
+      topics: ["ইংরেজি গ্রামার", "অনুপ্রেরণা", "লাইফ হ্যাক", "বই পর্যালোচনা"],
+      images: [
+        { src: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: "Think and Spark পডকাস্টের জন্য মঞ্চে বক্তৃতা দিচ্ছেন Md Sonet Mia" },
+        { src: "/images/capacity-building.jpg", width: 1655, height: 1228, alt: "ক্যাপাসিটি বিল্ডিং ট্রেনিং সেশন" },
+        { src: "/images/teamwork.jpg", width: 1920, height: 1279, alt: "টিমওয়ার্ক ও সহযোগিতা" },
+      ],
+    },
+    adobeStock: {
+      label: "Adobe Stock",
+      heading: "স্টক কনটেন্ট ক্রিয়েটর",
+      intro: "বিশ্ববাজারের জন্য ভিজ্যুয়াল কনটেন্ট তৈরি করছি।",
+      body: "Adobe Stock কন্ট্রিবিউটর হিসেবে আমি বিশ্বজুড়ে ক্রেতাদের জন্য ছবি ও ভিডিও তৈরি করি।",
+      guides: [
+        { title: "এআই ছবি তৈরির গাইডলাইন", description: "এআই টুল দিয়ে স্টক-উপযোগী ছবি তৈরি করা, আর আপলোডের আগে কী যাচাই করবেন।" },
+        { title: "এআই ভিডিও জেনারেশনের গাইডলাইন", description: "ক্রেতারা আসলে যা খোঁজেন, তেমন ছোট স্টক ক্লিপ পরিকল্পনা করা।" },
+        { title: "স্টক কনটেন্ট কৌশল", description: "অনুমানের বদলে মৌসুম ও চাহিদা দেখে টপিক বেছে নেওয়া।" },
+      ],
+      stats: [
+        { figure: "1,143", label: "মোট ডাউনলোড" },
+        { figure: "$1,122.44", label: "মোট আয়" },
+        { figure: "সক্রিয় কন্ট্রিবিউটর", label: "অবস্থা" },
+      ],
+    },
+  },
+
+  gallery: {
+    label: "গ্যালারি",
+    heading: "ধারণ করা মুহূর্ত",
+    intro: "আমার অভিজ্ঞতা, অনুষ্ঠান ও স্মৃতির ভিজ্যুয়াল যাত্রা।",
+    stats: [
+      { figure: "20+", label: "ছবি" },
+      { figure: "15+", label: "অনুষ্ঠান" },
+      { figure: "∞", label: "স্মৃতি" },
+    ],
+    photos: [
+      { src: "/images/gallery-01.jpg", width: 1280, height: 960, alt: "স্কুলে পড়াচ্ছেন", caption: "স্কুলে পড়াচ্ছেন" },
+      { src: "/images/gallery-02.jpg", width: 1593, height: 972, alt: "রোটার্যাক্ট ক্লাবের মিটিং", caption: "রোটার্যাক্ট ক্লাবের মিটিং" },
+      { src: "/images/gallery-03.jpg", width: 1280, height: 960, alt: "ঐতিহ্যবাহী স্থান পরিদর্শন", caption: "ঐতিহ্যবাহী স্থান পরিদর্শন" },
+      { src: "/images/gallery-04.jpg", width: 1920, height: 1148, alt: "পুরস্কার বিতরণী অনুষ্ঠান", caption: "পুরস্কার বিতরণী অনুষ্ঠান" },
+      { src: "/images/gallery-05.jpg", width: 1002, height: 736, alt: "ট্রফি হাতে দলগত ছবি", caption: "ট্রফি হাতে দলগত ছবি" },
+      { src: "/images/gallery-06.jpg", width: 720, height: 912, alt: "বই হাতে", caption: "বই হাতে" },
+      { src: "/images/gallery-07.jpg", width: 720, height: 525, alt: "অনুষ্ঠানের দলগত ছবি", caption: "অনুষ্ঠানের দলগত ছবি" },
+      { src: "/images/gallery-08.jpg", width: 1920, height: 1088, alt: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ", caption: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ" },
+      { src: "/images/gallery-09.jpg", width: 930, height: 689, alt: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান", caption: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান" },
+      { src: "/images/gallery-10.jpg", width: 1920, height: 1080, alt: "A Story of Two Hearts বই", caption: "A Story of Two Hearts বই" },
+      { src: "/images/gallery-11.jpg", width: 1527, height: 1279, alt: "অনুষ্ঠানে বক্তৃতা", caption: "অনুষ্ঠানে বক্তৃতা" },
+      { src: "/images/gallery-12.jpg", width: 1101, height: 647, alt: "ওয়ার্কশপ সেশন", caption: "ওয়ার্কশপ সেশন" },
+      { src: "/images/gallery-13.jpg", width: 934, height: 672, alt: "রোটার্যাক্ট সার্টিফিকেট অনুষ্ঠান", caption: "রোটার্যাক্ট সার্টিফিকেট অনুষ্ঠান" },
+      { src: "/images/gallery-14.jpg", width: 1280, height: 852, alt: "কমিউনিটি মেলা", caption: "কমিউনিটি মেলা" },
+      { src: "/images/gallery-15.jpg", width: 719, height: 531, alt: "ওয়ার্কশপে দলগত ছবি", caption: "ওয়ার্কশপে দলগত ছবি" },
+      { src: "/images/gallery-16.jpg", width: 705, height: 778, alt: "খাদ্য বিতরণ অনুষ্ঠান", caption: "খাদ্য বিতরণ অনুষ্ঠান" },
+      { src: "/images/gallery-17.jpg", width: 720, height: 609, alt: "শিশুদের সঙ্গে ফ্যান বিতরণ", caption: "শিশুদের সঙ্গে ফ্যান বিতরণ" },
+      { src: "/images/gallery-18.jpg", width: 1920, height: 1440, alt: "বন্ধুদের সঙ্গে আনুষ্ঠানিক আড্ডা", caption: "বন্ধুদের সঙ্গে আনুষ্ঠানিক আড্ডা" },
+      { src: "/images/gallery-19.jpg", width: 1920, height: 1440, alt: "লাইব্রেরিতে মিটিং", caption: "লাইব্রেরিতে মিটিং" },
+      { src: "/images/gallery-20.jpg", width: 720, height: 700, alt: "বৃক্ষরোপণ কর্মসূচি", caption: "বৃক্ষরোপণ কর্মসূচি" },
+    ],
+    albumLinkLabel: "পুরো অ্যালবামটি Facebook-এ দেখুন",
+    albumUrl: "https://www.facebook.com/media/set/?set=a.694677762083396&type=3",
+  },
+
+  hobbies: {
+    label: "শখ ও খেলাধুলা",
+    heading: "ক্লাসরুমের বাইরে",
+    intro: "সৃজনশীল কাজ থেকে প্রতিযোগিতামূলক খেলা — আবেগ ও অগ্রগতির মুহূর্ত।",
+    sports: [
+      { title: "ফুটবল খেলোয়াড়", description: "বিশ্ববিদ্যালয় ও স্থানীয় ফুটবল ম্যাচে সক্রিয় দলীয় খেলোয়াড়।" },
+      { title: "ব্যাডমিন্টন খেলোয়াড়", description: "প্রতিযোগিতামূলক ও বিনোদনমূলক ব্যাডমিন্টন উপভোগ করেন।" },
+      { title: "দাবা চ্যাম্পিয়ন", description: "কৌশলগত দাবা টুর্নামেন্টে চ্যাম্পিয়নশিপ সার্টিফিকেট।" },
+      { title: "বিতর্ক চ্যাম্পিয়ন", description: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।" },
+    ],
+    images: [
+      { src: "/images/football-team.jpg", width: 1024, height: 576, alt: "ফুটবল দলের সঙ্গে Md Sonet Mia", caption: "বিশ্ববিদ্যালয় দলের সঙ্গে ফুটবল।" },
+      { src: "/images/speaking-podium.jpg", width: 1229, height: 864, alt: "বিতর্ক অনুষ্ঠানে পোডিয়ামে বক্তৃতা দিচ্ছেন Md Sonet Mia", caption: "বিতর্ক ও পাবলিক স্পিকিং।" },
+    ],
+    activitiesHeading: "যেসব কাজ ভালোবাসি",
+    activities: ["বই পড়া", "বাগান করা", "ক্যালিগ্রাফি", "হাতে তৈরি ফুলের শিল্প", "প্রযুক্তি অন্বেষণ"],
+    plantsHeading: "আমার ঘরের গাছপালা",
+    plants: ["বেলি", "হাসনাহেনা", "নাগচম্পা", "গোলাপ", "অলকানন্দা"],
+  },
+
+  careerInterests: {
+    label: "সুযোগের জন্য উন্মুক্ত",
+    heading: "সুযোগের জন্য উন্মুক্ত",
+    intro: "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+    roles: [
+      "ইংরেজি ভাষা শিক্ষক",
+      "শিক্ষা কর্মসূচি সহকারী",
+      "কর্মসূচি সমন্বয়কারী",
+      "কমিউনিটি উন্নয়ন কর্মকর্তা",
+      "প্রশিক্ষণ ও সুবিধা প্রদান কর্মকর্তা",
+      "যুব উন্নয়ন পেশাজীবী",
+      "শিক্ষা প্রকল্প সহকারী",
+    ],
+    sectors: [
+      "শিক্ষাপ্রতিষ্ঠান",
+      "এনজিও ও আন্তর্জাতিক এনজিও",
+      "আন্তর্জাতিক উন্নয়ন সংস্থা",
+      "শিক্ষা প্রযুক্তি",
+      "যুব উন্নয়ন সংস্থা",
+    ],
+    higherEducation: [
+      "শিক্ষায় এমএ (MA in Education)",
+      "TESOL / ফলিত ভাষাবিজ্ঞান",
+      "আন্তর্জাতিক উন্নয়ন",
+      "শিক্ষাগত নেতৃত্ব",
+      "Erasmus Mundus",
+    ],
+  },
+
+  contact: {
+    label: "যোগাযোগ",
+    heading: "যোগাযোগ করুন",
+    intro: "সনেটের কাছে পৌঁছানোর দ্রুততম উপায় WhatsApp। ইমেইলও চলবে।",
+    description:
+      "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+    finalCtaHeading: "আসুন যুক্ত হই, অর্থবহ পরিবর্তন তৈরি করি।",
+    finalCtaText:
+      "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+    finalCtaLabel: "যোগাযোগ করুন",
+    email: "md.sonet.mia01@gmail.com",
+    whatsappDisplay: "WhatsApp 01797953059",
+    whatsappUrl: "https://wa.me/8801797953059",
+    socials: [
+      { label: "Facebook", url: "https://facebook.com/mdsont.mia.777", handle: "facebook.com/mdsont.mia.777" },
+      { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
+      { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
+      { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
+      { label: "LinkedIn", url: null, handle: null, placeholder: true },
+    ],
+    bookingHeading: "চলুন একসঙ্গে কাজ করি",
+    bookingIntro: "কীসে সাহায্য দরকার, সনেটকে জানান।",
+    bookingHelper:
+      "পাঠালে WhatsApp খুলবে, আপনার অনুরোধ পাঠানোর জন্য প্রস্তুত থাকবে। এই সাইটে কোনো পেমেন্ট নেওয়া হয় না।",
+    sessionTypes: [
+      "ইংরেজি গাইডলাইন সেশন",
+      "লেখার পরামর্শ",
+      "এআই প্রম্পট মাস্টারক্লাস",
+      "এআই কনটেন্ট কৌশল",
+      "এআই ভিডিও ওয়ার্কশপ",
+      "সৃজনশীল আলোচনা",
+      "অন্য কিছু",
+    ],
+  },
+
+  footer: {
+    bio: "টাঙ্গাইল, বাংলাদেশের লেখক, শিক্ষক, এআই ক্রিয়েটর ও ডিজিটাল চিন্তক।",
+    copyright: "© 2026 Md. Sonet Mia। সর্বস্বত্ব সংরক্ষিত।",
+    quickLinksHeading: "দ্রুত লিংক",
+    contactHeading: "যোগাযোগ",
+  },
+
+  notFound: {
+    heading: "পাতাটি পাওয়া যায়নি",
+    body: "এই পাতাটি নেই, বা সরিয়ে নেওয়া হয়েছে। হোম পাতায় বাকি সবকিছু আছে।",
+    backLabel: "হোম পাতায় ফিরুন",
+    backHref: "/",
+  },
+
+  ui: {
+    brand: "SONET.",
+    downloadCv: "সিভি ডাউনলোড করুন",
+    skipToContent: "মূল কনটেন্টে যান",
+    navLabel: "প্রধান নেভিগেশন",
+    menuLabel: "মেনু",
+    openMenu: "মেনু খুলুন",
+    closeMenu: "মেনু বন্ধ করুন",
+    themeLabel: "থিম",
+    themeSystem: "সিস্টেম",
+    themeLight: "হালকা",
+    themeDark: "গাঢ়",
+    languageLabel: "ভাষা",
+    exploreWork: "আমার কাজ দেখুন",
+    featuredProjects: "নির্বাচিত প্রজেক্ট",
+    viewAllProjects: "সব প্রজেক্ট দেখুন",
+    viewProject: "প্রজেক্ট দেখুন",
+    backToProjects: "সব প্রজেক্টে ফিরুন",
+    backToHome: "হোমে ফিরুন",
+    statusLive: "লাইভ",
+    statusInDevelopment: "চলমান",
+    statusConcept: "ধারণা",
+    conceptNote: "ধারণা — বিস্তারিত মালিক নিশ্চিত করবেন।",
+    objectives: "লক্ষ্য",
+    tools: "টুল ও প্রযুক্তি",
+    role: "ভূমিকা",
+    results: "ফলাফল",
+    visitSite: "সাইট দেখুন",
+    filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
+    filterAll: "সব",
+    comingSoonCert: "শীঘ্রই আসছে — মালিক এই সার্টিফিকেটটি যোগ করবেন।",
+    aggregateNote: "মূল সাইটের সংখ্যা — প্রতিটি নাম নথিভুক্ত নেই।",
+    placeholderNote: "বিস্তারিত মালিক নিশ্চিত করবেন।",
+    linkedInPlaceholder: "LinkedIn প্রোফাইল — লিংক যোগ করা হবে।",
+    languagesHeading: "ভাষা",
+    digitalToolsHeading: "ডিজিটাল টুল",
+    formName: "নাম",
+    formNamePlaceholder: "আপনার নাম",
+    formEmail: "ইমেইল",
+    formEmailPlaceholder: "you@example.com",
+    formSubject: "বিষয়",
+    formSubjectPlaceholder: "বার্তার বিষয়",
+    formMessage: "বার্তা",
+    formMessagePlaceholder: "আপনার বার্তা লিখুন…",
+    formSubmit: "WhatsApp-এ পাঠান",
+    formWhatsAppNote: "আপনার বার্তা WhatsApp-এ খুলবে, সেখান থেকে সনেটকে পাঠাবেন।",
+    formSending: "যাচাই করা হচ্ছে…",
+    formErrorName: "অনুগ্রহ করে আপনার নাম দিন (কমপক্ষে ২ অক্ষর)।",
+    formErrorEmail: "অনুগ্রহ করে একটি সঠিক ইমেইল ঠিকানা দিন।",
+    formErrorSubject: "অনুগ্রহ করে একটি বিষয় লিখুন।",
+    formErrorMessage: "অনুগ্রহ করে একটি বার্তা লিখুন।",
+    formErrorGeneric: "কিছু একটা ভুল হয়েছে। অনুগ্রহ করে আবার চেষ্টা করুন।",
+    formSuccessTitle: "WhatsApp খুলতে প্রস্তুত",
+    formSuccessBody: "আপনার বার্তা WhatsApp-এ তৈরি আছে। সেন্ড চাপলেই সনেটের কাছে পৌঁছে যাবে।",
+    formSendAnother: "আরেকটি বার্তা পাঠান",
+    bookingContact: "ইমেইল বা ফোন",
+    bookingContactPlaceholder: "you@example.com অথবা 01XXXXXXXXX",
+    bookingType: "সেশনের ধরন",
+    bookingDate: "পছন্দের তারিখ",
+    bookingOptional: "ঐচ্ছিক",
+    bookingSubmit: "WhatsApp-এ অনুরোধ পাঠান",
+    bookingSuccessTitle: "WhatsApp খুলতে প্রস্তুত",
+    bookingSuccessBody: "আপনার সেশন অনুরোধ WhatsApp-এ তৈরি আছে। সেন্ড চাপলেই সনেটের কাছে পৌঁছে যাবে।",
+    contactInfoHeading: "যোগাযোগের তথ্য",
+    privacyLink: "গোপনীয়তা নীতি",
+    termsLink: "শর্তাবলি",
+    educationCgpa: "সিজিপিএ",
+    educationCourses: "সম্পন্ন কোর্স",
+    educationMedium: "শিক্ষার মাধ্যম",
+    educationResearchHeading: "গবেষণা ও লক্ষ্য",
+    educationResearchInterests: "গবেষণার আগ্রহ",
+    educationHigherGoals: "উচ্চশিক্ষার লক্ষ্য",
+    experienceResponsibilities: "দায়িত্বসমূহ",
+    experienceServices: "সেবাসমূহ",
+    aboutValues: "মূল্যবোধ",
+    aboutVision: "ভিশন",
+    leadershipRoles: "নেতৃত্বের ভূমিকা",
+    leadershipCommunity: "কমিউনিটি সম্পৃক্ততা",
+    leadershipVolunteering: "স্বেচ্ছাসেবা",
+    leadershipYouth: "যুব উন্নয়ন",
+    leadershipEvents: "অনুষ্ঠান সমন্বয়",
+    leadershipSocial: "সামাজিক উদ্যোগ",
+    leadershipPhotosHeading: "ছবিতে স্বেচ্ছাসেবা",
+    skillsAiHeading: "এআই সক্ষমতা",
+    categoryLabel: "ক্যাটাগরি",
+    achievementsPhotosHeading: "ছবিতে স্বীকৃতি",
+    opportunitiesRoles: "ভূমিকা",
+    opportunitiesSectors: "খাত",
+    opportunitiesHigherEd: "উচ্চশিক্ষা",
+  },
+};

@@ -1,88 +1,106 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Icon } from "./icons";
+import { CheckCircle2, MessageCircle } from "lucide-react";
+import { useContent } from "@/lib/useContent";
 import { useLang } from "@/i18n/LanguageContext";
 
-// Session-type keys; labels come from i18n booking.type.* and double as the
-// <select> values, so the WhatsApp message can name the type in the site
-// language too.
-const sessionTypeKeys = [
-  "englishGuidance",
-  "writingConsultation",
-  "aiPrompt",
-  "aiContent",
-  "aiVideo",
-  "creativeDiscussion",
-  "other",
-] as const;
-type SessionTypeKey = (typeof sessionTypeKeys)[number];
-
-export function BookingForm({ compact = false }: { compact?: boolean }) {
-  const { t } = useLang();
+/**
+ * Session-booking form. As with the contact form, there is no email
+ * service: the request is validated server-side (app/api/contact) and
+ * returned as a WhatsApp deep link, which the visitor opens to send
+ * the request to Sonet. No payment is taken on this site.
+ */
+export function BookingForm() {
+  const c = useContent();
+  const { lang } = useLang();
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [type, setType] = useState<SessionTypeKey>("englishGuidance");
+  const [type, setType] = useState(0);
   const [date, setDate] = useState("");
   const [message, setMessage] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; contact?: string }>({});
-  const [sent, setSent] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot — leave empty
+  const [errors, setErrors] = useState<{ name?: string; contact?: string; message?: string; generic?: string }>({});
+  const [sending, setSending] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
 
-  const ids = {
-    name: compact ? "name-compact" : "name",
-    contact: compact ? "contact-compact" : "contact",
-    type: compact ? "type-compact" : "type",
-    date: compact ? "date-compact" : "date",
-    message: compact ? "message-compact" : "message",
-  };
+  const sessionTypes = c.contact.sessionTypes;
 
-  function validate() {
-    const next: { name?: string; contact?: string } = {};
-    if (name.trim().length < 2) next.name = t("booking.form.errorName");
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    setErrors({});
+    const next: typeof errors = {};
+    if (name.trim().length < 2) next.name = c.ui.formErrorName;
     const value = contact.trim();
     const looksEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     const looksPhone = /^[+0-9][0-9\s-]{7,}$/.test(value);
-    if (!looksEmail && !looksPhone) {
-      next.contact = t("booking.form.errorContact");
+    if (!looksEmail && !looksPhone) next.contact = c.ui.formErrorEmail;
+    if (message.trim().length > 2000) next.message = c.ui.formErrorMessage;
+    if (Object.keys(next).length > 0) {
+      setErrors(next);
+      return;
     }
-    setErrors(next);
-    return Object.keys(next).length === 0;
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          kind: "booking",
+          name: name.trim(),
+          contact: value,
+          sessionType: sessionTypes[type],
+          date: date || undefined,
+          message: message.trim() || undefined,
+          website,
+          lang,
+        }),
+      });
+      const data = (await res.json()) as { whatsappUrl?: string };
+      if (!res.ok || !data.whatsappUrl) {
+        setErrors({ generic: c.ui.formErrorGeneric });
+        return;
+      }
+      setWhatsappUrl(data.whatsappUrl);
+      window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
+    } catch {
+      setErrors({ generic: c.ui.formErrorGeneric });
+    } finally {
+      setSending(false);
+    }
   }
 
-  function onSubmit(e: FormEvent) {
-    e.preventDefault();
-    if (!validate()) return;
-    // WhatsApp message follows the site language.
-    const lines = [
-      t("booking.whatsapp.greeting"),
-      "",
-      `${t("booking.whatsapp.nameLabel")} ${name.trim()}`,
-      `${t("booking.whatsapp.contactLabel")} ${contact.trim()}`,
-      `${t("booking.whatsapp.sessionLabel")} ${t(`booking.type.${type}`)}`,
-    ];
-    if (date) {
-      lines.push(`${t("booking.form.dateLabel")}: ${date}`);
-    }
-    if (message.trim()) {
-      lines.push(`${t("booking.whatsapp.messageLabel")} ${message.trim()}`);
-    }
-    const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/8801797953059?text=${text}`, "_blank", "noopener,noreferrer");
-    setSent(true);
-  }
-
-  if (sent) {
+  if (whatsappUrl) {
     return (
       <div className="card" role="status">
         <div className="flex items-start gap-4">
           <span className="icon-tile">
-            <Icon name="check" size={24} />
+            <CheckCircle2 size={24} aria-hidden="true" />
           </span>
           <div>
-            <p className="title-1">{t("booking.form.successTitle")}</p>
-            <p className="body-4 mt-2">{t("booking.form.successBody")}</p>
-            <button type="button" className="text-link button-sm mt-4" onClick={() => setSent(false)}>
-              {t("booking.form.sendAnother")}
+            <p className="title-1">{c.ui.bookingSuccessTitle}</p>
+            <p className="body-4 mt-2">{c.ui.bookingSuccessBody}</p>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary button-sm mt-4"
+            >
+              <MessageCircle size={16} aria-hidden="true" />
+              {c.ui.bookingSubmit}
+            </a>
+            <button
+              type="button"
+              className="text-link button-sm mt-4 block"
+              onClick={() => {
+                setWhatsappUrl(null);
+                setName("");
+                setContact("");
+                setMessage("");
+                setDate("");
+              }}
+            >
+              {c.ui.formSendAnother}
             </button>
           </div>
         </div>
@@ -90,99 +108,121 @@ export function BookingForm({ compact = false }: { compact?: boolean }) {
     );
   }
 
+  const inputClass =
+    "mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink placeholder:text-muted";
+
   return (
     <form onSubmit={onSubmit} noValidate className="card">
       <div className="flex flex-col gap-4">
         <div>
-          <label htmlFor={ids.name} className="title-2 block">
-            {t("booking.form.nameLabel")}
+          <label htmlFor="booking-name" className="title-2 block">
+            {c.ui.formName}
           </label>
           <input
-            id={ids.name}
+            id="booking-name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             autoComplete="name"
+            maxLength={100}
             aria-invalid={errors.name ? true : undefined}
-            aria-describedby={errors.name ? `${ids.name}-error` : undefined}
-            className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink placeholder:text-muted"
-            placeholder={t("booking.form.namePlaceholder")}
+            aria-describedby={errors.name ? "booking-name-error" : undefined}
+            className={inputClass}
+            placeholder={c.ui.formNamePlaceholder}
           />
           {errors.name ? (
-            <p id={`${ids.name}-error`} role="alert" className="body-4 mt-2 text-gold">
+            <p id="booking-name-error" role="alert" className="body-4 mt-2 text-gold">
               {errors.name}
             </p>
           ) : null}
         </div>
         <div>
-          <label htmlFor={ids.contact} className="title-2 block">
-            {t("booking.form.contactLabel")}
+          <label htmlFor="booking-contact" className="title-2 block">
+            {c.ui.bookingContact}
           </label>
           <input
-            id={ids.contact}
+            id="booking-contact"
             type="text"
             value={contact}
             onChange={(e) => setContact(e.target.value)}
             autoComplete="email"
+            maxLength={254}
             aria-invalid={errors.contact ? true : undefined}
-            aria-describedby={errors.contact ? `${ids.contact}-error` : undefined}
-            className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink placeholder:text-muted"
-            placeholder={t("booking.form.contactPlaceholder")}
+            aria-describedby={errors.contact ? "booking-contact-error" : undefined}
+            className={inputClass}
+            placeholder={c.ui.bookingContactPlaceholder}
           />
           {errors.contact ? (
-            <p id={`${ids.contact}-error`} role="alert" className="body-4 mt-2 text-gold">
+            <p id="booking-contact-error" role="alert" className="body-4 mt-2 text-gold">
               {errors.contact}
             </p>
           ) : null}
         </div>
         <div>
-          <label htmlFor={ids.type} className="title-2 block">
-            {t("booking.form.typeLabel")}
+          <label htmlFor="booking-type" className="title-2 block">
+            {c.ui.bookingType}
           </label>
           <select
-            id={ids.type}
+            id="booking-type"
             value={type}
-            onChange={(e) => setType(e.target.value as SessionTypeKey)}
-            className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink"
+            onChange={(e) => setType(Number(e.target.value))}
+            className={inputClass}
           >
-            {sessionTypeKeys.map((key) => (
-              <option key={key} value={key}>
-                {t(`booking.type.${key}`)}
+            {sessionTypes.map((label, i) => (
+              <option key={label} value={i}>
+                {label}
               </option>
             ))}
           </select>
         </div>
         <div>
-          <label htmlFor={ids.date} className="title-2 block">
-            {t("booking.form.dateLabel")}{" "}
-            <span className="caption-1">{t("booking.form.optional")}</span>
+          <label htmlFor="booking-date" className="title-2 block">
+            {c.ui.bookingDate} <span className="caption-1">{c.ui.bookingOptional}</span>
           </label>
           <input
-            id={ids.date}
+            id="booking-date"
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="mt-2 min-h-[44px] w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink"
+            className={inputClass}
           />
         </div>
         <div>
-          <label htmlFor={ids.message} className="title-2 block">
-            {t("booking.form.messageLabel")}{" "}
-            <span className="caption-1">{t("booking.form.optional")}</span>
+          <label htmlFor="booking-message" className="title-2 block">
+            {c.ui.formMessage} <span className="caption-1">{c.ui.bookingOptional}</span>
           </label>
           <textarea
-            id={ids.message}
+            id="booking-message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             rows={4}
+            maxLength={2000}
             className="mt-2 w-full rounded-lg border border-border bg-bg px-4 py-2 text-base text-ink placeholder:text-muted"
-            placeholder={t("booking.form.messagePlaceholder")}
+            placeholder={c.ui.formMessagePlaceholder}
           />
         </div>
-        <button type="submit" className="btn-primary button-md mt-2">
-          {t("booking.form.submit")}
+        {/* Honeypot: hidden from sighted users and screen readers. */}
+        <div aria-hidden="true" className="absolute -left-[9999px] h-0 overflow-hidden">
+          <label htmlFor="booking-website">Website</label>
+          <input
+            id="booking-website"
+            type="text"
+            value={website}
+            onChange={(e) => setWebsite(e.target.value)}
+            autoComplete="off"
+            tabIndex={-1}
+          />
+        </div>
+        {errors.generic ? (
+          <p role="alert" className="body-4 text-gold">
+            {errors.generic}
+          </p>
+        ) : null}
+        <button type="submit" className="btn-primary button-md mt-2" disabled={sending}>
+          <MessageCircle size={18} aria-hidden="true" />
+          {sending ? c.ui.formSending : c.ui.bookingSubmit}
         </button>
-        <p className="caption-1">{t("booking.form.helper")}</p>
+        <p className="caption-1">{c.contact.bookingHelper}</p>
       </div>
     </form>
   );
