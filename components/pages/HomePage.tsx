@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download, MapPin, GraduationCap, HeartHandshake, Cpu, Rocket } from "lucide-react";
+import { ArrowRight, Download, MapPin, GraduationCap, Camera, HeartHandshake, Cpu, Rocket } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -10,7 +10,7 @@ import { Section } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 import { ProjectCard } from "@/components/ProjectCard";
 
-const whatIDoIcons = [GraduationCap, HeartHandshake, Cpu, Rocket];
+const whatIDoIcons = [GraduationCap, Camera, HeartHandshake, Cpu, Rocket];
 
 export function HomePage() {
   const c = useContent();

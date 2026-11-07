@@ -535,41 +535,46 @@ export const content: SiteContent = {
     primaryCtaHref: "/contact",
     secondaryCta: "See my projects",
     secondaryCtaHref: "/projects",
-    proofLine: "Teaching 2+ years, 50 to 70 students a day.",
+    proofLine: "Teaching 3+ years, mentoring teams of 1–5.",
   },
 
   snapshotStats: [
-    { figure: "2+", label: "Years Teaching Experience" },
-    { figure: "50–70", label: "Students Taught Daily" },
-    { figure: "13+", label: "Certifications" },
-    { figure: "10+", label: "Community Events" },
+    { figure: "3+", label: "Years Teaching Experience" },
+    { figure: "1–5", label: "Team Mentorship" },
+    { figure: "17+", label: "Certifications" },
+    { figure: "74+", label: "Community Events" },
   ],
 
   whatIDo: {
     label: "What I do",
     heading: "Education, community and digital innovation",
     intro:
-      "Four areas of work, all connected by one aim: learning that reaches more people.",
+      "Five areas of work, connected by one purpose: creating opportunities through education, technology and creativity.",
     items: [
       {
         title: "Education & Teaching",
         description:
-          "English Language Teaching, Lesson Planning, Educational Content Development and Student Assessment.",
+          "English Language Teaching, Lesson Planning, Curriculum Development, Educational Content and Student Assessment.",
+      },
+      {
+        title: "Microstock Mentoring",
+        description:
+          "Microstock Training, Adobe Stock & Shutterstock, AI Image Generation, Vector Design, Metadata SEO and Contributor Mentorship.",
       },
       {
         title: "Leadership & Community Development",
         description:
-          "Youth Engagement, Volunteering, Event Coordination and Community Initiatives.",
+          "Youth Engagement, Community Leadership, Volunteer Coordination, Event Management and Community Initiatives.",
       },
       {
         title: "Technology & Digital Innovation",
         description:
-          "AI Tools, Prompt Engineering, Automation and Digital Learning Solutions.",
+          "Artificial Intelligence, Prompt Engineering, Workflow Automation, No-code Development and Digital Learning Solutions.",
       },
       {
         title: "Entrepreneurship & Content Creation",
         description:
-          "Digital Products, Educational Initiatives, Content Creation and Project Development.",
+          "Digital Product Development, Educational Entrepreneurship, Content Creation, Digital Publishing and Project Development.",
       },
     ],
   },
@@ -654,10 +659,10 @@ export const content: SiteContent = {
   experience: {
     label: "Experience",
     heading: "Quality English teaching that empowers students",
-    intro: "2+ years teaching, 50 to 70 students a day, 15+ lecture materials a month.",
+    intro: "3+ years teaching, teams of 1–5 mentored, 15+ lecture materials a month.",
     title: "English Language Educator",
-    yearsExperience: "2+ years",
-    studentsPerDay: "50–70 students a day",
+    yearsExperience: "3+ years",
+    studentsPerDay: "Teams of 1–5 mentored",
     materialsPerMonth: "15+ lecture materials a month",
     responsibilities: [
       "English language instruction",
