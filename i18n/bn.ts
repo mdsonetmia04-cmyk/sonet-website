@@ -28,7 +28,7 @@ export const bn: SiteContent = {
     nationality: "বাংলাদেশি",
     born: "12 জানুয়ারি 2000",
     faith: "ইসলাম (সুন্নি)",
-    portraitImage: "/images/hero-portrait.jpg",
+    portraitImage: "/images/hero-portrait.webp",
     portraitAlt: "Md. Sonet Mia-র প্রতিকৃতি",
     formalImage: "/images/about-formal.jpg",
     formalImageAlt: "স্যুট পরা Md. Sonet Mia",

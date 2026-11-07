@@ -490,7 +490,7 @@ export const content: SiteContent = {
     nationality: "Bangladeshi",
     born: "12 January 2000",
     faith: "Islam (Sunni)",
-    portraitImage: "/images/hero-portrait.jpg",
+    portraitImage: "/images/hero-portrait.webp",
     portraitAlt: "Portrait of Md. Sonet Mia",
     formalImage: "/images/about-formal.jpg",
     formalImageAlt: "Md. Sonet Mia in a suit",

@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: siteUrl,
     siteName: "SONET.",
-    images: [{ url: ogImage, width: 1885, height: 1890, alt: content.seo.ogImageAlt }],
+    images: [{ url: ogImage, width: 1200, height: 1200, alt: content.seo.ogImageAlt }],
   },
   twitter: {
     card: "summary_large_image",

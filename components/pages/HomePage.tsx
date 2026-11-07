@@ -51,8 +51,8 @@ export function HomePage() {
               <Image
                 src={c.personal.portraitImage}
                 alt={c.personal.portraitAlt}
-                width={1885}
-                height={1890}
+                width={1312}
+                height={1199}
                 priority
                 sizes="(max-width: 1024px) 100vw, 520px"
                 className="hero-portrait aspect-square w-full rounded-2xl border border-border object-cover"
