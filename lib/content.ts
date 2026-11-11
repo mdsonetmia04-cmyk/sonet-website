@@ -253,7 +253,7 @@ export interface SiteContent {
     joinCta: string;
     joinCtaHref: string;
     items: LeadershipItem[];
-    activities: { title: string; description: string }[];
+    activities: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number }[];
     photos: { src: string; width: number; height: number; alt: string }[];
     stats: Stat[];
     scope: Stat[];
@@ -798,8 +798,8 @@ export const content: SiteContent = {
         date: null,
         description:
           "Community volunteering with Volunteers for Bangladesh. Position and dates to be confirmed by the owner.",
-        image: null,
-        imageAlt: null,
+        image: "/images/event-volunteer.jpg",
+        imageAlt: "Volunteering with a large group at a tree-planting event",
         placeholder: true,
         placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
@@ -810,17 +810,17 @@ export const content: SiteContent = {
         date: null,
         description:
           "Community work with Medhabikash Library. Position and dates to be confirmed by the owner.",
-        image: null,
-        imageAlt: null,
+        image: "/images/gallery-19.jpg",
+        imageAlt: "Seated at a table in a library, in front of bookshelves full of books",
         placeholder: true,
         placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
     ],
     activities: [
-      { title: "Community Education", description: "Teaching underprivileged children and spreading educational awareness in rural areas." },
-      { title: "Youth Leadership", description: "Mentoring young people and organizing community-building events and workshops." },
+      { title: "Community Education", description: "Teaching underprivileged children and spreading educational awareness in rural areas.", image: "/images/gallery-01.jpg", imageAlt: "Teaching a classroom of children", imageWidth: 1280, imageHeight: 960 },
+      { title: "Youth Leadership", description: "Mentoring young people and organizing community-building events and workshops.", image: "/images/speaking-stage.jpg", imageAlt: "Speaking on stage with a microphone", imageWidth: 1920, imageHeight: 1279 },
       { title: "Social Campaigns", description: "Leading awareness campaigns on education, health, and environmental issues." },
-      { title: "Disaster Relief", description: "Volunteering in relief efforts and distributing aid during natural disasters." },
+      { title: "Disaster Relief", description: "Volunteering in relief efforts and distributing aid during natural disasters.", image: "/images/gallery-16.jpg", imageAlt: "Distributing food packets to children during a relief effort", imageWidth: 705, imageHeight: 778 },
       { title: "Book Distribution", description: "Providing educational materials and books to underserved communities." },
       { title: "Cultural Preservation", description: "Promoting Bangladeshi culture, language, and heritage through community events." },
     ],

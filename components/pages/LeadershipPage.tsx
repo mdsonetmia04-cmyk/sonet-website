@@ -22,7 +22,7 @@ export function LeadershipPage() {
   const l = c.leadership;
   // Each subsection surfaces activities from the content layer.
   // Volunteering carries two activities (Disaster Relief, Book Distribution).
-  const subsections: { title: string; icon: typeof Users; activities: { title: string; description: string }[] }[] = [
+  const subsections: { title: string; icon: typeof Users; activities: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number }[] }[] = [
     { title: c.ui.leadershipCommunity, icon: Users, activities: [l.activities[0]] },
     { title: c.ui.leadershipYouth, icon: HeartHandshake, activities: [l.activities[1]] },
     { title: c.ui.leadershipVolunteering, icon: HandHeart, activities: [l.activities[3], l.activities[4]] },
@@ -92,6 +92,17 @@ export function LeadershipPage() {
                     <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{section.title}</p>
                     {section.activities.map((activity) => (
                       <div key={activity.title} className="mt-3">
+                        {activity.image ? (
+                          <Image
+                            src={activity.image}
+                            alt={activity.imageAlt ?? activity.title}
+                            width={activity.imageWidth ?? 960}
+                            height={activity.imageHeight ?? 600}
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="mb-3 aspect-[16/10] w-full rounded-lg object-cover"
+                          />
+                        ) : null}
                         <h3 className="heading-4">{activity.title}</h3>
                         <p className="body-3 mt-1">{activity.description}</p>
                       </div>
