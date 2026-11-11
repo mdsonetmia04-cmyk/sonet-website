@@ -9,10 +9,11 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Publications page: 5 books (covers where real ones exist, text-only
- * otherwise — the 310x163 Bishorjon cover renders as a small thumb
- * only), SkillVerse By Sonet as featured channel (no URL invented),
- * Think and Spark podcast, Adobe Stock, and the 20-photo gallery.
+ * Publications page: 5 books (all with covers now — the 310x163
+ * Bishorjon cover renders as a small thumb only), SkillVerse By
+ * Sonet as featured channel (no URL invented), Think and Spark
+ * podcast, Adobe Stock, and the 20-photo gallery. Book cards are
+ * all the same size: fixed 2:3 cover area, equal-height rows.
  */
 export function PublicationsPage() {
   const c = useContent();
@@ -47,9 +48,9 @@ export function PublicationsPage() {
             {/* Books */}
             <div className="mt-16">
               <h2 className="heading-3">{pub.booksHeading}</h2>
-              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="mt-8 grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {pub.books.map((book) => (
-                  <article key={book.title} className="card card-hover">
+                  <article key={book.title} className="card card-hover flex h-full flex-col">
                     {book.coverImage ? (
                       book.coverImage === "/images/book-bishorjon.jpg" ? (
                         <Image
@@ -68,11 +69,11 @@ export function PublicationsPage() {
                           height={book.coverImage.endsWith(".png") ? 372 : 1080}
                           loading="lazy"
                           sizes="(max-width: 768px) 100vw, 33vw"
-                          className="w-full rounded-lg border border-border object-cover"
+                          className="aspect-[2/3] w-full rounded-lg border border-border object-cover"
                         />
                       )
                     ) : (
-                      <div className="flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
+                      <div className="flex aspect-[2/3] flex-col justify-between rounded-lg bg-ink p-5">
                         <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
                           {book.title.charAt(0)}
                         </span>
