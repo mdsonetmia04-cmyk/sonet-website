@@ -465,6 +465,7 @@ export interface SiteContent {
     leadershipYouth: string;
     leadershipEvents: string;
     leadershipSocial: string;
+    leadershipRecognition: string;
     leadershipPhotosHeading: string;
     skillsAiHeading: string;
     categoryLabel: string;
@@ -486,7 +487,7 @@ export const content: SiteContent = {
     faith: "Islam (Sunni)",
     portraitImage: "/images/hero-portrait.webp",
     portraitAlt: "Portrait of Md. Sonet Mia",
-    formalImage: "/images/about-formal.jpg",
+    formalImage: "/images/sonet-formal-portrait-black-suit.png",
     formalImageAlt: "Md. Sonet Mia in a suit",
   },
 
@@ -785,8 +786,8 @@ export const content: SiteContent = {
         role: null,
         date: null,
         description: "Community volunteering with Volunteers for Bangladesh.",
-        image: "/images/event-volunteer.jpg",
-        imageAlt: "Volunteering with a large group at a tree-planting event",
+        image: "/images/volunteers-for-bangladesh-group.jpg",
+        imageAlt: "Volunteers for Bangladesh group photo in front of the organisation banner",
       },
       {
         title: "Medhabikash Library",
@@ -804,7 +805,12 @@ export const content: SiteContent = {
       { title: "Social Campaigns", description: "Leading awareness campaigns on education, health, and environmental issues." },
       { title: "Disaster Relief", description: "Volunteering in relief efforts and distributing aid during natural disasters.", image: "/images/gallery-16.jpg", imageAlt: "Distributing food packets to children during a relief effort", imageWidth: 705, imageHeight: 778 },
       { title: "Book Distribution", description: "Providing educational materials and books to underserved communities." },
-      { title: "Cultural Preservation", description: "Promoting Bangladeshi culture, language, and heritage through community events." },
+      { title: "Cultural Preservation", description: "Promoting Bangladeshi culture, language, and heritage through community events.", image: "/images/theatre-merchant-of-venice-group.jpg", imageAlt: "Theatre group on stage for The Merchant of Venice", imageWidth: 720, imageHeight: 480 },
+      { title: "Capacity Building & Training", description: "Training young people through USAID's Youth for Change capacity-building programme in Jamalpur District, 2023.", image: "/images/usaid-capacity-building-presenting.jpg", imageAlt: "Presenting at a USAID Youth for Change capacity-building training", imageWidth: 2048, imageHeight: 1365 },
+      { title: "Public Speaking & Anchoring", description: "Speaking at seminars, workshops and community events as a host and presenter.", image: "/images/sonet-speaking-mic-closeup.jpg", imageAlt: "Speaking into a microphone in a suit", imageWidth: 1085, imageHeight: 1074 },
+      { title: "Awards & Recognition", description: "Receiving the Rising Star Award for community leadership and youth work.", image: "/images/sonet-rising-star-award.jpg", imageAlt: "Receiving the Rising Star Award", imageWidth: 934, imageHeight: 672 },
+      { title: "Fair Price Vegetable Market", description: "Selling vegetables at fair prices in Dhanbari Upazila.", image: "/images/sonet-fair-price-vegetable-sale-group.jpg", imageAlt: "Selling vegetables at fair prices with a community group", imageWidth: 1280, imageHeight: 852 },
+      { title: "Tree Plantation", description: "Planting trees and distributing saplings with young volunteers.", image: "/images/sonet-planting-sapling.jpg", imageAlt: "Planting a tree sapling", imageWidth: 311, imageHeight: 414 },
     ],
     photos: [
       { src: "/images/volunteer-kids-1.jpg", width: 1008, height: 756, alt: "Volunteering with children" },
@@ -1210,7 +1216,7 @@ export const content: SiteContent = {
       { src: "/images/gallery-10.jpg", width: 1920, height: 1080, alt: "A Story of Two Hearts book", caption: "A Story of Two Hearts book" },
       { src: "/images/gallery-11.jpg", width: 1527, height: 1279, alt: "Speaking at event", caption: "Speaking at event" },
       { src: "/images/gallery-12.jpg", width: 1101, height: 647, alt: "Workshop session", caption: "Workshop session" },
-      { src: "/images/gallery-13.jpg", width: 934, height: 672, alt: "Rotaract certificate ceremony", caption: "Rotaract certificate ceremony" },
+      { src: "/images/gallery-13.jpg", width: 934, height: 672, alt: "Receiving the Rising Star Award", caption: "Rising Star Award" },
       { src: "/images/gallery-14.jpg", width: 1280, height: 852, alt: "Community fair market", caption: "Community fair market" },
       { src: "/images/gallery-15.jpg", width: 719, height: 531, alt: "Group photo at workshop", caption: "Group photo at workshop" },
       { src: "/images/gallery-16.jpg", width: 705, height: 778, alt: "Food distribution event", caption: "Food distribution event" },
@@ -1419,6 +1425,7 @@ export const content: SiteContent = {
     leadershipYouth: "Youth Development",
     leadershipEvents: "Event Coordination",
     leadershipSocial: "Social Initiatives",
+    leadershipRecognition: "Recognition",
     leadershipPhotosHeading: "Volunteering in photos",
     skillsAiHeading: "AI capabilities",
     categoryLabel: "Category",

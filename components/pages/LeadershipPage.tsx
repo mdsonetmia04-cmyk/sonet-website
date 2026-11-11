@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Users, HeartHandshake, Megaphone, HandHeart, Globe } from "lucide-react";
+import { ArrowRight, Users, HeartHandshake, Megaphone, HandHeart, Globe, Trophy } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -11,21 +11,26 @@ import { Reveal } from "@/components/Reveal";
 
 /**
  * Leadership page. The three leadership entries show confirmed
- * information only. The five remaining subsections surface all six
- * community activities from the content layer (Volunteering carries two).
+ * information only. The six subsections surface all eleven
+ * community activities from the content layer: Youth carries
+ * Capacity Building, Events carries Public Speaking, Volunteering
+ * carries the Fair Price Vegetable Market, Social carries Tree
+ * Plantation, and Recognition carries Awards & Recognition.
  */
 
 export function LeadershipPage() {
   const c = useContent();
   const l = c.leadership;
   // Each subsection surfaces activities from the content layer.
-  // Volunteering carries two activities (Disaster Relief, Book Distribution).
+  // Volunteering carries three activities (Disaster Relief, Book Distribution,
+  // Fair Price Vegetable Market); Youth, Events and Social carry two each.
   const subsections: { title: string; icon: typeof Users; activities: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number }[] }[] = [
     { title: c.ui.leadershipCommunity, icon: Users, activities: [l.activities[0]] },
-    { title: c.ui.leadershipYouth, icon: HeartHandshake, activities: [l.activities[1]] },
-    { title: c.ui.leadershipVolunteering, icon: HandHeart, activities: [l.activities[3], l.activities[4]] },
-    { title: c.ui.leadershipEvents, icon: Megaphone, activities: [l.activities[2]] },
-    { title: c.ui.leadershipSocial, icon: Globe, activities: [l.activities[5]] },
+    { title: c.ui.leadershipYouth, icon: HeartHandshake, activities: [l.activities[1], l.activities[6]] },
+    { title: c.ui.leadershipVolunteering, icon: HandHeart, activities: [l.activities[3], l.activities[4], l.activities[9]] },
+    { title: c.ui.leadershipEvents, icon: Megaphone, activities: [l.activities[2], l.activities[7]] },
+    { title: c.ui.leadershipSocial, icon: Globe, activities: [l.activities[5], l.activities[10]] },
+    { title: c.ui.leadershipRecognition, icon: Trophy, activities: [l.activities[8]] },
   ];
 
   return (
