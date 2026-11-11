@@ -56,9 +56,9 @@ export function LeadershipPage() {
             {/* Leadership roles */}
             <div className="mt-14">
               <h2 className="heading-3">{c.ui.leadershipRoles}</h2>
-              <div className="mt-6 grid gap-6 md:grid-cols-3">
+              <div className="mt-6 grid auto-rows-fr gap-6 md:grid-cols-3">
                 {l.items.map((item) => (
-                  <article key={item.title} className="card card-hover">
+                  <article key={item.title} className="card card-hover flex h-full flex-col">
                     {item.image ? (
                       <Image
                         src={item.image}
@@ -67,7 +67,7 @@ export function LeadershipPage() {
                         height={943}
                         loading="lazy"
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="w-full rounded-lg object-cover"
+                        className="aspect-[4/3] w-full rounded-lg object-cover"
                       />
                     ) : null}
                     <h3 className="heading-4 mt-5">{item.title}</h3>
@@ -81,11 +81,11 @@ export function LeadershipPage() {
             </div>
 
             {/* The other five subsections, each with its activities */}
-            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-14 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
               {subsections.map((section) => {
                 const Icon = section.icon;
                 return (
-                  <article key={section.title} className="card card-hover">
+                  <article key={section.title} className="card card-hover flex h-full flex-col">
                     <span className="icon-tile">
                       <Icon size={24} aria-hidden="true" />
                     </span>
@@ -136,7 +136,7 @@ export function LeadershipPage() {
                   height={img.height}
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 25vw"
-                  className="w-full rounded-xl border border-border object-cover"
+                  className="aspect-[4/3] w-full rounded-xl border border-border object-cover"
                 />
               </figure>
             ))}

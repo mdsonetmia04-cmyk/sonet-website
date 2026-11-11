@@ -487,7 +487,7 @@ export const content: SiteContent = {
     faith: "Islam (Sunni)",
     portraitImage: "/images/hero-portrait.webp",
     portraitAlt: "Portrait of Md. Sonet Mia",
-    formalImage: "/images/sonet-formal-portrait-black-suit.png",
+    formalImage: "/images/sonet-about-portrait-cutout.png",
     formalImageAlt: "Md. Sonet Mia in a suit",
   },
 

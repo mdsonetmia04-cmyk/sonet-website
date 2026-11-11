@@ -30,7 +30,7 @@ export const bn: SiteContent = {
     faith: "ইসলাম (সুন্নি)",
     portraitImage: "/images/hero-portrait.webp",
     portraitAlt: "Md. Sonet Mia-র প্রতিকৃতি",
-    formalImage: "/images/sonet-formal-portrait-black-suit.png",
+    formalImage: "/images/sonet-about-portrait-cutout.png",
     formalImageAlt: "স্যুট পরা Md. Sonet Mia",
   },
 
