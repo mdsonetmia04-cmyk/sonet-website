@@ -11,26 +11,29 @@ import { Reveal } from "@/components/Reveal";
 
 /**
  * Leadership page. The three leadership entries show confirmed
- * information only. The six subsections surface all eleven
- * community activities from the content layer: Youth carries
- * Capacity Building, Events carries Public Speaking, Volunteering
- * carries the Fair Price Vegetable Market, Social carries Tree
- * Plantation, and Recognition carries Awards & Recognition.
+ * information only. Every community activity gets its own card
+ * (11 cards, all the same size); Awards & Recognition and Public
+ * Speaking & Anchoring come first. Each card keeps the small
+ * category label of its old grouping.
  */
 
 export function LeadershipPage() {
   const c = useContent();
   const l = c.leadership;
-  // Each subsection surfaces activities from the content layer.
-  // Volunteering carries three activities (Disaster Relief, Book Distribution,
-  // Fair Price Vegetable Market); Youth, Events and Social carry two each.
-  const subsections: { title: string; icon: typeof Users; activities: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number }[] }[] = [
-    { title: c.ui.leadershipCommunity, icon: Users, activities: [l.activities[0]] },
-    { title: c.ui.leadershipYouth, icon: HeartHandshake, activities: [l.activities[1], l.activities[6]] },
-    { title: c.ui.leadershipVolunteering, icon: HandHeart, activities: [l.activities[3], l.activities[4], l.activities[9]] },
-    { title: c.ui.leadershipEvents, icon: Megaphone, activities: [l.activities[2], l.activities[7]] },
-    { title: c.ui.leadershipSocial, icon: Globe, activities: [l.activities[5], l.activities[10]] },
-    { title: c.ui.leadershipRecognition, icon: Trophy, activities: [l.activities[8]] },
+  // One card per activity (11 cards, all the same size).
+  // Awards & Recognition and Public Speaking & Anchoring come first.
+  const cards: { label: string; icon: typeof Users; activity: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number } }[] = [
+    { label: c.ui.leadershipRecognition, icon: Trophy, activity: l.activities[8] },
+    { label: c.ui.leadershipEvents, icon: Megaphone, activity: l.activities[7] },
+    { label: c.ui.leadershipYouth, icon: HeartHandshake, activity: l.activities[1] },
+    { label: c.ui.leadershipYouth, icon: HeartHandshake, activity: l.activities[6] },
+    { label: c.ui.leadershipCommunity, icon: Users, activity: l.activities[0] },
+    { label: c.ui.leadershipEvents, icon: Megaphone, activity: l.activities[2] },
+    { label: c.ui.leadershipVolunteering, icon: HandHeart, activity: l.activities[3] },
+    { label: c.ui.leadershipVolunteering, icon: HandHeart, activity: l.activities[4] },
+    { label: c.ui.leadershipVolunteering, icon: HandHeart, activity: l.activities[9] },
+    { label: c.ui.leadershipSocial, icon: Globe, activity: l.activities[5] },
+    { label: c.ui.leadershipSocial, icon: Globe, activity: l.activities[10] },
   ];
 
   return (
@@ -80,33 +83,30 @@ export function LeadershipPage() {
               </div>
             </div>
 
-            {/* The other five subsections, each with its activities */}
+            {/* One card per activity, all the same size */}
             <div className="mt-14 grid auto-rows-fr gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {subsections.map((section) => {
-                const Icon = section.icon;
+              {cards.map((card) => {
+                const Icon = card.icon;
+                const activity = card.activity;
                 return (
-                  <article key={section.title} className="card card-hover flex h-full flex-col">
+                  <article key={activity.title} className="card card-hover flex h-full flex-col">
                     <span className="icon-tile">
                       <Icon size={24} aria-hidden="true" />
                     </span>
-                    <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{section.title}</p>
-                    {section.activities.map((activity) => (
-                      <div key={activity.title} className="mt-3">
-                        {activity.image ? (
-                          <Image
-                            src={activity.image}
-                            alt={activity.imageAlt ?? activity.title}
-                            width={activity.imageWidth ?? 960}
-                            height={activity.imageHeight ?? 600}
-                            loading="lazy"
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                            className="mb-3 aspect-[16/10] w-full rounded-lg object-cover"
-                          />
-                        ) : null}
-                        <h3 className="heading-4">{activity.title}</h3>
-                        <p className="body-3 mt-1">{activity.description}</p>
-                      </div>
-                    ))}
+                    <p className="caption-1 mt-4 uppercase tracking-[0.14em]">{card.label}</p>
+                    {activity.image ? (
+                      <Image
+                        src={activity.image}
+                        alt={activity.imageAlt ?? activity.title}
+                        width={activity.imageWidth ?? 960}
+                        height={activity.imageHeight ?? 600}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="mb-3 mt-3 aspect-[16/10] w-full rounded-lg object-cover"
+                      />
+                    ) : null}
+                    <h3 className="heading-4">{activity.title}</h3>
+                    <p className="body-3 mt-1">{activity.description}</p>
                   </article>
                 );
               })}
