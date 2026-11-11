@@ -618,12 +618,15 @@ export const bn: SiteContent = {
     heading: "স্বীকৃতি ও অগ্রগতি",
     intro: "নিরবচ্ছিন্ন শেখা, সেবা ও উৎকর্ষ।",
     items: [
-      { title: "রাইজিং স্টার অ্যাওয়ার্ড", description: "অসাধারণ অগ্রগতি ও অবদানের স্বীকৃতি।", date: null, image: null, imageAlt: null },
-      { title: "সেরা স্বেচ্ছাসেবক পুরস্কার", description: "অসাধারণ সমাজসেবা ও নিষ্ঠার জন্য সম্মানিত।", date: null, image: null, imageAlt: null },
+      { title: "রাইজিং স্টার অ্যাওয়ার্ড", description: "জামালপুর রোটার্যাক্ট ক্লাবের পক্ষ থেকে অসাধারণ অগ্রগতি ও অবদানের স্বীকৃতি।", date: "2023", image: "/images/sonet-rising-star-award.jpg", imageAlt: "রাইজিং স্টার অ্যাওয়ার্ড গ্রহণ করছেন" },
+      { title: "চিফ সার্জেন্ট অ্যাট আর্মস অ্যাওয়ার্ড", description: "জামালপুর রোটার্যাক্ট ক্লাবের পক্ষ থেকে পুরস্কৃত।", date: "2022", image: "/images/chief-sergeant.jpg", imageAlt: "চিফ সার্জেন্ট অ্যাট আর্মস স্যাশ" },
+      { title: "সেরা স্বেচ্ছাসেবক পুরস্কার", description: "Volunteers for Bangladesh-এর পক্ষ থেকে অসাধারণ সমাজসেবা ও নিষ্ঠার জন্য সম্মানিত।", date: "2024", image: "/images/medal-ceremony-honoring.jpg", imageAlt: "অনুষ্ঠানে মেডেল গ্রহণ করছেন" },
+      { title: "লিডারশিপ অ্যাওয়ার্ড", description: "নেতৃত্বের স্বীকৃতি।", date: null, image: null, imageAlt: null },
+      { title: "ইন্টারন্যাশনাল ল থিংকার্স সোসাইটি", description: "ইন্টারন্যাশনাল ল থিংকার্স সোসাইটির সঙ্গে যুক্ত।", date: null, image: null, imageAlt: null },
       { title: "বিতর্ক প্রতিযোগিতার সার্টিফিকেট", description: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।", date: null, image: null, imageAlt: null },
       { title: "দাবা চ্যাম্পিয়নশিপ সার্টিফিকেট", description: "কৌশলগত দাবা টুর্নামেন্টে অর্জন।", date: null, image: null, imageAlt: null },
       { title: "17+ অনলাইন কোর্স সার্টিফিকেশন", description: "বিভিন্ন ডিজিটাল বিষয়ে নিরবচ্ছিন্ন শেখা।", date: null, image: null, imageAlt: null },
-      { title: "6+ ট্রেনিং সম্পন্ন", description: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।", date: null, image: null, imageAlt: null },
+      { title: "6+ ট্রেনিং সম্পন্ন", description: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।", date: null, image: "/images/usaid-capacity-building-group-chart.jpg", imageAlt: "USAID Youth for Change সক্ষমতা বৃদ্ধি প্রশিক্ষণের দল" },
     ],
     stats: [
       { figure: "5+", label: "পুরস্কার" },

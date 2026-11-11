@@ -9,9 +9,11 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Achievements as an elegant timeline. All dates are null in the
- * content layer (no verified dates exist) — no date is shown rather
- * than an invented one.
+ * Achievements as an elegant timeline. Dates are shown only where
+ * the owner provided them (Rising Star 2023, Chief Sergeant at
+ * Arms 2022, Best Volunteer 2024) — no date is invented.
+ * Timeline photos render where a real photo exists; the gallery
+ * cards are all the same size.
  */
 export function AchievementsPage() {
   const c = useContent();
@@ -48,6 +50,17 @@ export function AchievementsPage() {
                     </span>
                     <h2 className="heading-4 mt-4">{item.title}</h2>
                     {item.date ? <p className="caption-1 mt-1">{item.date}</p> : null}
+                    {item.image ? (
+                      <Image
+                        src={item.image}
+                        alt={item.imageAlt ?? item.title}
+                        width={960}
+                        height={600}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 640px"
+                        className="mb-2 mt-4 aspect-[16/10] w-full max-w-[640px] rounded-lg border border-border object-cover"
+                      />
+                    ) : null}
                     <p className="body-2 mt-2 max-w-[640px]">{item.description}</p>
                   </Reveal>
                 </li>
@@ -57,9 +70,9 @@ export function AchievementsPage() {
         </section>
 
         <Section id="achievement-photos" index="01" label={a.label} heading={c.ui.achievementsPhotosHeading} band>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {a.carousel.map((img) => (
-              <figure key={img.src} className="card !p-3">
+              <figure key={img.src} className="card flex h-full flex-col !p-3">
                 <Image
                   src={img.src}
                   alt={img.caption}
@@ -67,7 +80,7 @@ export function AchievementsPage() {
                   height={img.height}
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="w-full rounded-lg object-cover"
+                  className="aspect-[4/3] w-full rounded-lg object-cover"
                 />
                 <figcaption className="px-2 py-3">
                   <span className="title-2 block">{img.caption}</span>

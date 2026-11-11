@@ -1075,12 +1075,15 @@ export const content: SiteContent = {
     heading: "Recognition and growth",
     intro: "Continuous learning, service, and excellence.",
     items: [
-      { title: "Rising Star Award", description: "Recognized for outstanding growth and contribution.", date: null, image: null, imageAlt: null },
-      { title: "Best Volunteer Award", description: "Honored for exceptional community service and dedication.", date: null, image: null, imageAlt: null },
+      { title: "Rising Star Award", description: "Recognized for outstanding growth and contribution by the Rotaract Club of Jamalpur.", date: "2023", image: "/images/sonet-rising-star-award.jpg", imageAlt: "Receiving the Rising Star Award" },
+      { title: "Chief Sergeant at Arms Award", description: "Awarded by the Rotaract Club of Jamalpur.", date: "2022", image: "/images/chief-sergeant.jpg", imageAlt: "Chief Sergeant at Arms sash" },
+      { title: "Best Volunteer Award", description: "Honored for exceptional community service and dedication by Volunteers for Bangladesh.", date: "2024", image: "/images/medal-ceremony-honoring.jpg", imageAlt: "Receiving a medal at a ceremony" },
+      { title: "Leadership Award", description: "Recognized for leadership.", date: null, image: null, imageAlt: null },
+      { title: "International Law Thinkers Society", description: "Involved with the International Law Thinkers Society.", date: null, image: null, imageAlt: null },
       { title: "Debate Competition Certificates", description: "Multiple recognitions in competitive debate events.", date: null, image: null, imageAlt: null },
       { title: "Chess Championship Certificates", description: "Achievements in strategic chess tournaments.", date: null, image: null, imageAlt: null },
       { title: "17+ Online Course Certifications", description: "Continuous learning across diverse digital disciplines.", date: null, image: null, imageAlt: null },
-      { title: "6+ Training Completed", description: "Professional development training in leadership, capacity building, and youth empowerment.", date: null, image: null, imageAlt: null },
+      { title: "6+ Training Completed", description: "Professional development training in leadership, capacity building, and youth empowerment.", date: null, image: "/images/usaid-capacity-building-group-chart.jpg", imageAlt: "USAID Youth for Change capacity-building group" },
     ],
     stats: [
       { figure: "5+", label: "Awards" },
