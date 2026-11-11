@@ -1155,7 +1155,7 @@ export const content: SiteContent = {
     books: [
       { title: "A Story of Two Hearts", kind: "Story Book", description: null, coverImage: "/images/book-two-hearts.jpg", coverImageAlt: "A Story of Two Hearts book", coverNote: null },
       { title: "Smritimoy Kabya", kind: "Joint Poetry Book (Published)", description: null, coverImage: "/images/book-smritimoy-kabya.jpg", coverImageAlt: "Smritimoy Kabya book cover", coverNote: null },
-      { title: "বিসর্জন", kind: "Published on Bortoi.com", description: null, coverImage: "/images/book-bishorjon.jpg", coverImageAlt: "বিসর্জন book", coverNote: "Cover is only 310x163: render as a small thumbnail, never full-bleed." },
+      { title: "বিসর্জন", kind: "Published on Bortoi.com", description: null, coverImage: "/images/book-bishorjon-cover.jpg", coverImageAlt: "বিসর্জন book cover", coverNote: null },
       { title: "One More Step", kind: "Motivational eBook", description: null, coverImage: "/images/book-one-more-step.jpg", coverImageAlt: "One More Step book cover", coverNote: null },
       { title: "Why?", kind: "Motivational English Book", description: null, coverImage: "/images/book-why.jpg", coverImageAlt: "Why? book cover", coverNote: null },
     ],

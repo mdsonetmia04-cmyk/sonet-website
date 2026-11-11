@@ -698,7 +698,7 @@ export const bn: SiteContent = {
     books: [
       { title: "A Story of Two Hearts", kind: "গল্পের বই", description: null, coverImage: "/images/book-two-hearts.jpg", coverImageAlt: "A Story of Two Hearts বই", coverNote: null },
       { title: "Smritimoy Kabya", kind: "যৌথ কবিতার বই (প্রকাশিত)", description: null, coverImage: "/images/book-smritimoy-kabya.jpg", coverImageAlt: "Smritimoy Kabya বইয়ের প্রচ্ছদ", coverNote: null },
-      { title: "বিসর্জন", kind: "Bortoi.com-এ প্রকাশিত", description: null, coverImage: "/images/book-bishorjon.jpg", coverImageAlt: "বিসর্জন বই", coverNote: "প্রচ্ছদ মাত্র 310x163: শুধু ছোট থাম্বনেইল হিসেবে দেখান, কখনো বড় করে নয়।" },
+      { title: "বিসর্জন", kind: "Bortoi.com-এ প্রকাশিত", description: null, coverImage: "/images/book-bishorjon-cover.jpg", coverImageAlt: "বিসর্জন বইয়ের প্রচ্ছদ", coverNote: null },
       { title: "One More Step", kind: "অনুপ্রেরণামূলক ইবুক", description: null, coverImage: "/images/book-one-more-step.jpg", coverImageAlt: "One More Step বইয়ের প্রচ্ছদ", coverNote: null },
       { title: "Why?", kind: "অনুপ্রেরণামূলক ইংরেজি বই", description: null, coverImage: "/images/book-why.jpg", coverImageAlt: "Why? বইয়ের প্রচ্ছদ", coverNote: null },
     ],

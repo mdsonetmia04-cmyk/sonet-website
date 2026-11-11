@@ -9,11 +9,11 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Publications page: 5 books (all with covers now — the 310x163
- * Bishorjon cover renders as a small thumb only), SkillVerse By
- * Sonet as featured channel (no URL invented), Think and Spark
- * podcast, Adobe Stock, and the 20-photo gallery. Book cards are
- * all the same size: fixed 2:3 cover area, equal-height rows.
+ * Publications page: 5 books (all with full-size covers now),
+ * SkillVerse By Sonet as featured channel (no URL invented),
+ * Think and Spark podcast, Adobe Stock, and the 20-photo gallery.
+ * Book cards are all the same size: fixed 2:3 cover area,
+ * equal-height rows.
  */
 export function PublicationsPage() {
   const c = useContent();
@@ -52,26 +52,15 @@ export function PublicationsPage() {
                 {pub.books.map((book) => (
                   <article key={book.title} className="card card-hover flex h-full flex-col">
                     {book.coverImage ? (
-                      book.coverImage === "/images/book-bishorjon.jpg" ? (
-                        <Image
-                          src={book.coverImage}
-                          alt={book.coverImageAlt ?? book.title}
-                          width={310}
-                          height={163}
-                          loading="lazy"
-                          className="w-full max-w-[310px] rounded-lg border border-border object-cover"
-                        />
-                      ) : (
-                        <Image
-                          src={book.coverImage}
-                          alt={book.coverImageAlt ?? book.title}
-                          width={book.coverImage.endsWith(".png") ? 260 : 1920}
-                          height={book.coverImage.endsWith(".png") ? 372 : 1080}
-                          loading="lazy"
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                          className="aspect-[2/3] w-full rounded-lg border border-border object-cover"
-                        />
-                      )
+                      <Image
+                        src={book.coverImage}
+                        alt={book.coverImageAlt ?? book.title}
+                        width={book.coverImage.endsWith(".png") ? 260 : 1920}
+                        height={book.coverImage.endsWith(".png") ? 372 : 1080}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="aspect-[2/3] w-full rounded-lg border border-border object-cover"
+                      />
                     ) : (
                       <div className="flex aspect-[2/3] flex-col justify-between rounded-lg bg-ink p-5">
                         <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
