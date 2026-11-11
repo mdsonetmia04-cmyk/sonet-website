@@ -105,8 +105,15 @@ export function PublicationsPage() {
                   <li key={t} className="chip">{t}</li>
                 ))}
               </ul>
-              {pub.featuredChannel.placeholderNote ? (
-                <p className="caption-1 mt-4 border-t border-border pt-3">{c.ui.placeholderNote}</p>
+              {pub.featuredChannel.url ? (
+                <a
+                  href={pub.featuredChannel.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex items-center gap-1.5 font-semibold text-gold hover:underline"
+                >
+                  {c.ui.visitSite}
+                </a>
               ) : null}
             </article>
             <article className="card">

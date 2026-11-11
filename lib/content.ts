@@ -221,7 +221,6 @@ export interface SiteContent {
     stats: Stat[];
     researchInterests: string[];
     higherEducationGoals: string[];
-    timelineNote: string;
   };
   experience: {
     label: string;
@@ -301,7 +300,6 @@ export interface SiteContent {
       description: string;
       topics: string[];
       url: string | null;
-      placeholderNote: string | null;
     };
     podcast: {
       name: string;
@@ -411,7 +409,6 @@ export interface SiteContent {
     statusLive: string;
     statusInDevelopment: string;
     statusConcept: string;
-    conceptNote: string;
     objectives: string;
     tools: string;
     role: string;
@@ -420,9 +417,6 @@ export interface SiteContent {
     filterLabel: string;
     filterAll: string;
     comingSoonCert: string;
-    aggregateNote: string;
-    placeholderNote: string;
-    linkedInPlaceholder: string;
     languagesHeading: string;
     digitalToolsHeading: string;
     formName: string;
@@ -652,8 +646,6 @@ export const content: SiteContent = {
       "Educational Leadership",
       "Erasmus Mundus",
     ],
-    timelineNote:
-      "Earlier schooling is not stated on the original site. Add it here only when the owner confirms the school names and years.",
   },
 
   experience: {
@@ -783,37 +775,27 @@ export const content: SiteContent = {
         organisation: "Rotaract Club",
         role: "Chief Sergeant at Arms",
         date: null,
-        description:
-          "A leadership role in the Rotaract Club, shown in the original site's achievements gallery.",
+        description: "Chief Sergeant at Arms of the Rotaract Club.",
         image: "/images/chief-sergeant.jpg",
         imageAlt: "Chief Sergeant at Arms",
-        placeholder: true,
-        placeholderNote:
-          "Organisation link is inferred from the Rotaract gallery photos and the role caption on the original site; the owner must confirm the club name and the dates before this goes live.",
       },
       {
         title: "Volunteers for Bangladesh",
         organisation: "Volunteers for Bangladesh",
         role: null,
         date: null,
-        description:
-          "Community volunteering with Volunteers for Bangladesh. Position and dates to be confirmed by the owner.",
+        description: "Community volunteering with Volunteers for Bangladesh.",
         image: "/images/event-volunteer.jpg",
         imageAlt: "Volunteering with a large group at a tree-planting event",
-        placeholder: true,
-        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
       {
         title: "Medhabikash Library",
         organisation: "Medhabikash Library",
         role: null,
         date: null,
-        description:
-          "Community work with Medhabikash Library. Position and dates to be confirmed by the owner.",
+        description: "Community work with Medhabikash Library.",
         image: "/images/gallery-19.jpg",
         imageAlt: "Seated at a table in a library, in front of bookshelves full of books",
-        placeholder: true,
-        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
     ],
     activities: [
@@ -990,8 +972,7 @@ export const content: SiteContent = {
       {
         id: "sonet-english-academy",
         title: "Sonet English Academy",
-        shortDescription:
-          "A planned English language learning initiative. Details to be confirmed by the owner.",
+        shortDescription: "A planned English language learning initiative.",
         category: "Education",
         role: "Founder",
         objectives: [],
@@ -1003,15 +984,11 @@ export const content: SiteContent = {
         coverImage: "/images/project-sonet-english-academy.webp",
         coverImageAlt: "Sonet English Academy — Learn English for Real Progress",
         tags: ["English", "Teaching"],
-        placeholder: true,
-        placeholderNote:
-          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
       },
       {
         id: "jobmatch-bangladesh",
         title: "JobMatch Bangladesh",
-        shortDescription:
-          "A planned job-matching initiative for Bangladesh. Details to be confirmed by the owner.",
+        shortDescription: "A planned job-matching initiative for Bangladesh.",
         category: "Employment",
         role: "Founder",
         objectives: [],
@@ -1023,9 +1000,6 @@ export const content: SiteContent = {
         coverImage: "/images/project-jobmatch-bangladesh.webp",
         coverImageAlt: "JobMatch Bangladesh — Jobs Matched to Your CV",
         tags: ["Jobs", "Bangladesh"],
-        placeholder: true,
-        placeholderNote:
-          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
       },
       {
         id: "skillverse-by-sonet",
@@ -1120,7 +1094,7 @@ export const content: SiteContent = {
   certifications: {
     label: "Certifications",
     heading: "Certifications",
-    intro: "Verified certificates first. Empty slots are for the owner to fill; they must not be shown as earned certificates.",
+    intro: "Verified certificates first. More certificates coming soon.",
     filterLabel: "Filter by category",
     filters: ["All", "Language", "Teaching", "Leadership", "Digital & AI", "Other"],
     items: [
@@ -1137,7 +1111,7 @@ export const content: SiteContent = {
         title: "Online course certifications",
         issuer: null,
         date: null,
-        detail: "17+ online course certifications across diverse digital disciplines, as listed on the original site. Individual course names are not on record.",
+        detail: "17+ online course certifications across diverse digital disciplines.",
         credential: "17+ certificates",
         category: "Digital & AI",
         kind: "aggregate",
@@ -1146,7 +1120,7 @@ export const content: SiteContent = {
         title: "Professional development training",
         issuer: null,
         date: null,
-        detail: "6+ trainings completed in leadership, capacity building, and youth empowerment, as listed on the original site. Individual training names are not on record.",
+        detail: "6+ trainings completed in leadership, capacity building, and youth empowerment.",
         credential: "6+ trainings",
         category: "Leadership",
         kind: "aggregate",
@@ -1176,15 +1150,14 @@ export const content: SiteContent = {
       { title: "A Story of Two Hearts", kind: "Story Book", description: null, coverImage: "/images/book-two-hearts.jpg", coverImageAlt: "A Story of Two Hearts book", coverNote: null },
       { title: "Smritimoy Kabya", kind: "Joint Poetry Book (Published)", description: null, coverImage: "/images/book-smritimoy-kabya.jpg", coverImageAlt: "Smritimoy Kabya book cover", coverNote: null },
       { title: "বিসর্জন", kind: "Published on Bortoi.com", description: null, coverImage: "/images/book-bishorjon.jpg", coverImageAlt: "বিসর্জন book", coverNote: "Cover is only 310x163: render as a small thumbnail, never full-bleed." },
-      { title: "One More Step", kind: "Motivational eBook", description: null, coverImage: null, coverImageAlt: null, coverNote: "No cover image on record: text-only entry." },
-      { title: "Why?", kind: "Motivational English Book", description: null, coverImage: null, coverImageAlt: null, coverNote: "No cover image on record: text-only entry." },
+      { title: "One More Step", kind: "Motivational eBook", description: null, coverImage: null, coverImageAlt: null, coverNote: null },
+      { title: "Why?", kind: "Motivational English Book", description: null, coverImage: null, coverImageAlt: null, coverNote: null },
     ],
     featuredChannel: {
       name: "SkillVerse By Sonet",
       description: "Featured YouTube channel for skills and learning.",
       topics: ["English Grammar", "Motivation", "Life Hacks", "Book Reviews"],
-      url: null,
-      placeholderNote: "No channel URL is on record. Do not invent or guess one; show the channel name only until the owner supplies the link.",
+      url: "https://www.youtube.com/@SkillVersebySonet",
     },
     podcast: {
       name: "Think and Spark",
@@ -1317,7 +1290,6 @@ export const content: SiteContent = {
       { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
       { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
       { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
-      { label: "LinkedIn", url: null, handle: null, placeholder: true },
     ],
     bookingHeading: "Let's work together",
     bookingIntro: "Tell Sonet what you need help with.",
@@ -1391,7 +1363,7 @@ export const content: SiteContent = {
     statusLive: "Live",
     statusInDevelopment: "In Development",
     statusConcept: "Concept",
-    conceptNote: "Concept — details to be confirmed by the owner.",
+    comingSoonCert: "Coming soon",
     objectives: "Objectives",
     tools: "Tools & Technologies",
     role: "Role",
@@ -1399,10 +1371,6 @@ export const content: SiteContent = {
     visitSite: "Visit site",
     filterLabel: "Filter by category",
     filterAll: "All",
-    comingSoonCert: "Coming soon — the owner will add this certificate.",
-    aggregateNote: "Count from the original site — individual names are not on record.",
-    placeholderNote: "Details to be confirmed by the owner.",
-    linkedInPlaceholder: "LinkedIn profile — link to be added.",
     languagesHeading: "Languages",
     digitalToolsHeading: "Digital Tools",
     formName: "Name",

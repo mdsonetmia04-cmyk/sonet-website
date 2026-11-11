@@ -78,8 +78,6 @@ export function EducationPage() {
                 </div>
               ))}
             </div>
-
-            <p className="caption-1 mt-10 max-w-[680px]">{ed.timelineNote}</p>
           </div>
         </section>
 

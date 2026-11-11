@@ -10,11 +10,9 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Leadership page. The three leadership entries are flagged placeholder
- * in the content layer (positions/dates unverified) — they render with
- * an explicit "details to be confirmed" note, never as verified facts.
- * The five remaining subsections surface all six community activities
- * from the content layer (Volunteering carries two).
+ * Leadership page. The three leadership entries show confirmed
+ * information only. The five remaining subsections surface all six
+ * community activities from the content layer (Volunteering carries two).
  */
 
 export function LeadershipPage() {
@@ -72,9 +70,6 @@ export function LeadershipPage() {
                     {item.role ? <p className="caption-1 mt-1">{item.role}</p> : null}
                     {item.date ? <p className="caption-1">{item.date}</p> : null}
                     <p className="body-3 mt-3">{item.description}</p>
-                    {item.placeholder ? (
-                      <p className="caption-1 mt-4 border-t border-border pt-3">{c.ui.placeholderNote}</p>
-                    ) : null}
                   </article>
                 ))}
               </div>

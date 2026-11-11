@@ -76,9 +76,6 @@ export function CertificationsPage() {
                     <h2 className="heading-4 mt-5">{item.title}</h2>
                     {item.date ? <p className="caption-1 mt-1">{item.date}</p> : null}
                     <p className="body-3 mt-3">{item.detail}</p>
-                    {item.kind === "aggregate" ? (
-                      <p className="caption-1 mt-3 border-t border-border pt-3">{c.ui.aggregateNote}</p>
-                    ) : null}
                     {item.credential ? (
                       <p className="mt-4">
                         <span className="chip">{item.credential}</span>

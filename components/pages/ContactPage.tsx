@@ -78,15 +78,7 @@ export function ContactPage() {
                         <span className="title-2 break-all">{s.handle ?? s.label}</span>
                       </a>
                     </li>
-                  ) : (
-                    <li key={s.label} className="flex items-center gap-3 text-muted">
-                      <span className="icon-tile !h-11 !w-11">{socialIcon(s.label)}</span>
-                      <span>
-                        <span className="title-2 block text-muted">{s.label}</span>
-                        <span className="caption-1">{c.ui.linkedInPlaceholder}</span>
-                      </span>
-                    </li>
-                  )
+                  ) : null
                 )}
               </ul>
             </div>

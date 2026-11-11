@@ -77,9 +77,6 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
             <p className="body-2 mt-4 max-w-[720px] text-lg leading-relaxed">
               {project.shortDescription}
             </p>
-            {project.placeholder ? (
-              <p className="caption-1 mt-4 border-l-2 border-gold pl-4">{c.ui.conceptNote}</p>
-            ) : null}
             {project.url ? (
               <a
                 href={project.url}
@@ -149,18 +146,16 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
                   <dt className="caption-1">{c.ui.role}</dt>
                   <dd className="title-1 mt-1">{project.role}</dd>
                 </div>
+              {project.tools.length > 0 ? (
                 <div>
                   <dt className="caption-1">{c.ui.tools}</dt>
                   <dd className="mt-2 flex flex-wrap gap-2">
-                    {project.tools.length > 0 ? (
-                      project.tools.map((t) => (
-                        <span key={t} className="chip">{t}</span>
-                      ))
-                    ) : (
-                      <span className="body-4 text-muted">{c.ui.conceptNote}</span>
-                    )}
+                    {project.tools.map((t) => (
+                      <span key={t} className="chip">{t}</span>
+                    ))}
                   </dd>
                 </div>
+              ) : null}
                 <div>
                   <dt className="caption-1">{c.ui.categoryLabel}</dt>
                   <dd className="title-1 mt-1">{project.category}</dd>

@@ -190,8 +190,6 @@ export const bn: SiteContent = {
       "শিক্ষাগত নেতৃত্ব",
       "Erasmus Mundus",
     ],
-    timelineNote:
-      "এর আগের পড়াশোনা সম্পর্কে মূল সাইটে কিছু বলা নেই। স্কুলের নাম ও সাল শুধু তখনই যোগ করা যাবে, যখন মালিক নিজে তা নিশ্চিত করবেন।",
   },
 
   experience: {
@@ -321,37 +319,27 @@ export const bn: SiteContent = {
         organisation: "Rotaract Club",
         role: "চিফ সার্জেন্ট অ্যাট আর্মস",
         date: null,
-        description:
-          "রোটার্যাক্ট ক্লাবে নেতৃত্বের ভূমিকা — মূল সাইটের অর্জন গ্যালারিতে দেখানো হয়েছে।",
+        description: "রোটার্যাক্ট ক্লাবের চিফ সার্জেন্ট অ্যাট আর্মস।",
         image: "/images/chief-sergeant.jpg",
         imageAlt: "চিফ সার্জেন্ট অ্যাট আর্মস",
-        placeholder: true,
-        placeholderNote:
-          "Organisation link is inferred from the Rotaract gallery photos and the role caption on the original site; the owner must confirm the club name and the dates before this goes live.",
       },
       {
         title: "Volunteers for Bangladesh",
         organisation: "Volunteers for Bangladesh",
         role: null,
         date: null,
-        description:
-          "Volunteers for Bangladesh-এর সঙ্গে কমিউনিটি স্বেচ্ছাসেবা। পদ ও সাল মালিক নিশ্চিত করবেন।",
+        description: "Volunteers for Bangladesh-এর সঙ্গে কমিউনিটি স্বেচ্ছাসেবা।",
         image: "/images/event-volunteer.jpg",
         imageAlt: "বৃক্ষরোপণ অনুষ্ঠানে বড় স্বেচ্ছাসেবক দলের সঙ্গে",
-        placeholder: true,
-        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
       {
         title: "Medhabikash Library",
         organisation: "Medhabikash Library",
         role: null,
         date: null,
-        description:
-          "Medhabikash Library-এর সঙ্গে কমিউনিটি কাজ। পদ ও সাল মালিক নিশ্চিত করবেন।",
+        description: "Medhabikash Library-এর সঙ্গে কমিউনিটি কাজ।",
         image: "/images/gallery-19.jpg",
         imageAlt: "বইয়ের তাকে ভরা লাইব্রেরিতে টেবিলে বসে",
-        placeholder: true,
-        placeholderNote: "Named in the master prompt only. No position, dates or description are verified; owner to fill.",
       },
     ],
     activities: [
@@ -528,8 +516,7 @@ export const bn: SiteContent = {
       {
         id: "sonet-english-academy",
         title: "Sonet English Academy",
-        shortDescription:
-          "ইংরেজি ভাষা শেখার একটি পরিকল্পিত উদ্যোগ। বিস্তারিত মালিক নিশ্চিত করবেন।",
+        shortDescription: "ইংরেজি ভাষা শেখার একটি পরিকল্পিত উদ্যোগ।",
         category: "শিক্ষা",
         role: "প্রতিষ্ঠাতা",
         objectives: [],
@@ -541,15 +528,11 @@ export const bn: SiteContent = {
         coverImage: "/images/project-sonet-english-academy.webp",
         coverImageAlt: "সনেট ইংলিশ একাডেমি — সত্যিকারের অগ্রগতির জন্য ইংরেজি শিখুন",
         tags: ["ইংরেজি", "শিক্ষাদান"],
-        placeholder: true,
-        placeholderNote:
-          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
       },
       {
         id: "jobmatch-bangladesh",
         title: "JobMatch Bangladesh",
-        shortDescription:
-          "বাংলাদেশের জন্য একটি পরিকল্পিত চাকরি-মেলানো উদ্যোগ। বিস্তারিত মালিক নিশ্চিত করবেন।",
+        shortDescription: "বাংলাদেশের জন্য একটি পরিকল্পিত চাকরি-মেলানো উদ্যোগ।",
         category: "চাকরি",
         role: "প্রতিষ্ঠাতা",
         objectives: [],
@@ -561,9 +544,6 @@ export const bn: SiteContent = {
         coverImage: "/images/project-jobmatch-bangladesh.webp",
         coverImageAlt: "জবম্যাচ বাংলাদেশ — আপনার সিভির সঙ্গে মিলিয়ে চাকরি",
         tags: ["চাকরি", "বাংলাদেশ"],
-        placeholder: true,
-        placeholderNote:
-          "Concept named in the master prompt only. No description, objectives, tools or URL are verified; owner to fill before this is shown as more than a concept.",
       },
       {
         id: "skillverse-by-sonet",
@@ -658,7 +638,7 @@ export const bn: SiteContent = {
   certifications: {
     label: "সার্টিফিকেশন",
     heading: "সার্টিফিকেশন",
-    intro: "যাচাই করা সার্টিফিকেট আগে। খালি স্লটগুলো মালিক পূরণ করবেন; সেগুলোকে অর্জিত সার্টিফিকেট হিসেবে দেখানো যাবে না।",
+    intro: "যাচাই করা সার্টিফিকেট আগে। আরও সার্টিফিকেট শীঘ্রই আসছে।",
     filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
     filters: ["সব", "ভাষা", "শিক্ষাদান", "নেতৃত্ব", "ডিজিটাল ও এআই", "অন্যান্য"],
     items: [
@@ -675,7 +655,7 @@ export const bn: SiteContent = {
         title: "অনলাইন কোর্স সার্টিফিকেশন",
         issuer: null,
         date: null,
-        detail: "মূল সাইটে উল্লেখ অনুযায়ী বিভিন্ন ডিজিটাল বিষয়ে 17+ অনলাইন কোর্স সার্টিফিকেশন। প্রতিটি কোর্সের নাম নথিভুক্ত নেই।",
+        detail: "বিভিন্ন ডিজিটাল বিষয়ে 17+ অনলাইন কোর্স সার্টিফিকেশন।",
         credential: "17+ সার্টিফিকেট",
         category: "Digital & AI",
         kind: "aggregate",
@@ -684,7 +664,7 @@ export const bn: SiteContent = {
         title: "পেশাদার উন্নয়ন প্রশিক্ষণ",
         issuer: null,
         date: null,
-        detail: "মূল সাইটে উল্লেখ অনুযায়ী নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে 6+ ট্রেনিং সম্পন্ন। প্রতিটি ট্রেনিংয়ের নাম নথিভুক্ত নেই।",
+        detail: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে 6+ ট্রেনিং সম্পন্ন।",
         credential: "6+ ট্রেনিং",
         category: "Leadership",
         kind: "aggregate",
@@ -714,15 +694,14 @@ export const bn: SiteContent = {
       { title: "A Story of Two Hearts", kind: "গল্পের বই", description: null, coverImage: "/images/book-two-hearts.jpg", coverImageAlt: "A Story of Two Hearts বই", coverNote: null },
       { title: "Smritimoy Kabya", kind: "যৌথ কবিতার বই (প্রকাশিত)", description: null, coverImage: "/images/book-smritimoy-kabya.jpg", coverImageAlt: "Smritimoy Kabya বইয়ের প্রচ্ছদ", coverNote: null },
       { title: "বিসর্জন", kind: "Bortoi.com-এ প্রকাশিত", description: null, coverImage: "/images/book-bishorjon.jpg", coverImageAlt: "বিসর্জন বই", coverNote: "প্রচ্ছদ মাত্র 310x163: শুধু ছোট থাম্বনেইল হিসেবে দেখান, কখনো বড় করে নয়।" },
-      { title: "One More Step", kind: "অনুপ্রেরণামূলক ইবুক", description: null, coverImage: null, coverImageAlt: null, coverNote: "প্রচ্ছদের ছবি নথিভুক্ত নেই: শুধু লেখা হিসেবে দেখান।" },
-      { title: "Why?", kind: "অনুপ্রেরণামূলক ইংরেজি বই", description: null, coverImage: null, coverImageAlt: null, coverNote: "প্রচ্ছদের ছবি নথিভুক্ত নেই: শুধু লেখা হিসেবে দেখান।" },
+      { title: "One More Step", kind: "অনুপ্রেরণামূলক ইবুক", description: null, coverImage: null, coverImageAlt: null, coverNote: null },
+      { title: "Why?", kind: "অনুপ্রেরণামূলক ইংরেজি বই", description: null, coverImage: null, coverImageAlt: null, coverNote: null },
     ],
     featuredChannel: {
       name: "SkillVerse By Sonet",
       description: "দক্ষতা ও শেখার জন্য ফিচার করা YouTube চ্যানেল।",
       topics: ["ইংরেজি গ্রামার", "অনুপ্রেরণা", "লাইফ হ্যাক", "বই পর্যালোচনা"],
-      url: null,
-      placeholderNote: "No channel URL is on record. Do not invent or guess one; show the channel name only until the owner supplies the link.",
+      url: "https://www.youtube.com/@SkillVersebySonet",
     },
     podcast: {
       name: "Think and Spark",
@@ -855,7 +834,6 @@ export const bn: SiteContent = {
       { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
       { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
       { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
-      { label: "LinkedIn", url: null, handle: null, placeholder: true },
     ],
     bookingHeading: "চলুন একসঙ্গে কাজ করি",
     bookingIntro: "কীসে সাহায্য দরকার, সনেটকে জানান।",
@@ -929,7 +907,6 @@ export const bn: SiteContent = {
     statusLive: "লাইভ",
     statusInDevelopment: "চলমান",
     statusConcept: "ধারণা",
-    conceptNote: "ধারণা — বিস্তারিত মালিক নিশ্চিত করবেন।",
     objectives: "লক্ষ্য",
     tools: "টুল ও প্রযুক্তি",
     role: "ভূমিকা",
@@ -937,10 +914,7 @@ export const bn: SiteContent = {
     visitSite: "সাইট দেখুন",
     filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
     filterAll: "সব",
-    comingSoonCert: "শীঘ্রই আসছে — মালিক এই সার্টিফিকেটটি যোগ করবেন।",
-    aggregateNote: "মূল সাইটের সংখ্যা — প্রতিটি নাম নথিভুক্ত নেই।",
-    placeholderNote: "বিস্তারিত মালিক নিশ্চিত করবেন।",
-    linkedInPlaceholder: "LinkedIn প্রোফাইল — লিংক যোগ করা হবে।",
+    comingSoonCert: "শীঘ্রই আসছে",
     languagesHeading: "ভাষা",
     digitalToolsHeading: "ডিজিটাল টুল",
     formName: "নাম",

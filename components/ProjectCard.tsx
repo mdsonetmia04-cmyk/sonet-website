@@ -83,9 +83,6 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <span className="chip">{project.category}</span>
         <StatusBadge status={project.status} />
-        {project.placeholder ? (
-          <span className="caption-2 text-muted">{c.ui.conceptNote}</span>
-        ) : null}
       </div>
       <h3 className="heading-4 mt-4">
         <Link href={`/projects/${project.id}`} className="hover:text-gold">
