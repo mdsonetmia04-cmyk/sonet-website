@@ -52,7 +52,7 @@ export const bn: SiteContent = {
     { id: "projects", label: "প্রজেক্ট", href: "/projects" },
     { id: "achievements", label: "অর্জন", href: "/achievements" },
     { id: "certifications", label: "সার্টিফিকেশন", href: "/certifications" },
-    { id: "publications", label: "প্রকাশনা", href: "/publications" },
+    { id: "publications", label: "বই ও ড্রাফট", href: "/publications" },
     { id: "contact", label: "যোগাযোগ", href: "/contact" },
   ],
   footerNav: [
@@ -684,7 +684,7 @@ export const bn: SiteContent = {
   },
 
   publications: {
-    label: "প্রকাশনা",
+    label: "বই ও ড্রাফট",
     heading: "অনুপ্রেরণার শব্দ",
     intro: "লেখার মধ্য দিয়ে মানুষের আবেগ ও অনুপ্রেরণা খোঁজা।",
     body: "লেখা আমার আজীবনের সঙ্গী। কবিতা থেকে অনুপ্রেরণামূলক বই — শব্দ দিয়ে আমি মানুষের সঙ্গে যুক্ত হই, অনুপ্রাণিত করি, আর সারা বিশ্বের পাঠকদের মনে পরিবর্তনের সূচনা করি।",

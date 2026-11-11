@@ -509,7 +509,7 @@ export const content: SiteContent = {
     { id: "projects", label: "Projects", href: "/projects" },
     { id: "achievements", label: "Achievements", href: "/achievements" },
     { id: "certifications", label: "Certifications", href: "/certifications" },
-    { id: "publications", label: "Publications", href: "/publications" },
+    { id: "publications", label: "Books & Drafts", href: "/publications" },
     { id: "contact", label: "Contact", href: "/contact" },
   ],
   footerNav: [
@@ -1141,7 +1141,7 @@ export const content: SiteContent = {
   },
 
   publications: {
-    label: "Publications",
+    label: "Books & Drafts",
     heading: "Words that inspire",
     intro: "Exploring human emotion and motivation through writing.",
     body: "Writing has been my lifelong companion. From poetry to motivational books, I use words to connect, inspire, and spark change in readers around the world.",

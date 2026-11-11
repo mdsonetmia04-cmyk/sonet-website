@@ -9,7 +9,7 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Publications page: 5 books (all with full-size covers now),
+ * Books & Drafts page: 5 books (all with full-size covers now),
  * SkillVerse By Sonet as featured channel (no URL invented),
  * Think and Spark podcast, Adobe Stock, and the 20-photo gallery.
  * Book cards are all the same size: fixed 2:3 cover area,
