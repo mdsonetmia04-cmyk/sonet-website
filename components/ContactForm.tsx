@@ -4,12 +4,12 @@ import { useState, type FormEvent } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { useLang } from "@/i18n/LanguageContext";
+import { buildContactWhatsApp } from "@/lib/whatsapp";
 
 /**
  * Contact form. There is no email service connected, so the form never
- * claims an email was sent: it validates server-side (app/api/contact)
- * and returns a WhatsApp deep link, which the visitor opens to send
- * the message to Sonet.
+ * claims an email was sent: it builds a WhatsApp deep link in the
+ * browser, which the visitor opens to send the message to Sonet.
  */
 export function ContactForm() {
   const c = useContent();
@@ -36,32 +36,22 @@ export function ContactForm() {
       return;
     }
     setSending(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind: "contact",
-          name: name.trim(),
-          email: email.trim(),
-          subject: subject.trim(),
-          message: message.trim(),
-          website,
-          lang,
-        }),
-      });
-      const data = (await res.json()) as { whatsappUrl?: string; errors?: Record<string, string> };
-      if (!res.ok || !data.whatsappUrl) {
-        setErrors({ generic: c.ui.formErrorGeneric });
-        return;
-      }
-      setWhatsappUrl(data.whatsappUrl);
-      window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
-    } catch {
+    const whatsappUrl = buildContactWhatsApp({
+      name: name.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+      website,
+      lang,
+    });
+    if (!whatsappUrl) {
       setErrors({ generic: c.ui.formErrorGeneric });
-    } finally {
       setSending(false);
+      return;
     }
+    setWhatsappUrl(whatsappUrl);
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setSending(false);
   }
 
   if (whatsappUrl) {

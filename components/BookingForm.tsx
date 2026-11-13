@@ -4,12 +4,13 @@ import { useState, type FormEvent } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { useLang } from "@/i18n/LanguageContext";
+import { buildBookingWhatsApp } from "@/lib/whatsapp";
 
 /**
  * Session-booking form. As with the contact form, there is no email
- * service: the request is validated server-side (app/api/contact) and
- * returned as a WhatsApp deep link, which the visitor opens to send
- * the request to Sonet. No payment is taken on this site.
+ * service: the request is validated in the browser and returned as a
+ * WhatsApp deep link, which the visitor opens to send the request to
+ * Sonet. No payment is taken on this site.
  */
 export function BookingForm() {
   const c = useContent();
@@ -41,33 +42,23 @@ export function BookingForm() {
       return;
     }
     setSending(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          kind: "booking",
-          name: name.trim(),
-          contact: value,
-          sessionType: sessionTypes[type],
-          date: date || undefined,
-          message: message.trim() || undefined,
-          website,
-          lang,
-        }),
-      });
-      const data = (await res.json()) as { whatsappUrl?: string };
-      if (!res.ok || !data.whatsappUrl) {
-        setErrors({ generic: c.ui.formErrorGeneric });
-        return;
-      }
-      setWhatsappUrl(data.whatsappUrl);
-      window.open(data.whatsappUrl, "_blank", "noopener,noreferrer");
-    } catch {
+    const whatsappUrl = buildBookingWhatsApp({
+      name: name.trim(),
+      contact: value,
+      sessionType: sessionTypes[type],
+      date: date || undefined,
+      message: message.trim() || undefined,
+      website,
+      lang,
+    });
+    if (!whatsappUrl) {
       setErrors({ generic: c.ui.formErrorGeneric });
-    } finally {
       setSending(false);
+      return;
     }
+    setWhatsappUrl(whatsappUrl);
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    setSending(false);
   }
 
   if (whatsappUrl) {

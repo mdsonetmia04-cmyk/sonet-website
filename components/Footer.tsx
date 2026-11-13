@@ -49,10 +49,10 @@ export function Footer() {
                 ) : null
               )}
             </div>
-            <a href="/cv/Md-Sonet-Mia-CV.pdf" download className="btn-primary button-sm mt-6">
+            <Link href="/cv/Md-Sonet-Mia-CV.pdf" download className="btn-primary button-sm mt-6">
               <Download size={16} aria-hidden="true" />
               {c.ui.downloadCv}
-            </a>
+            </Link>
           </div>
           <nav aria-label={c.footer.quickLinksHeading} className="md:col-span-3">
             <p className="title-2 font-semibold">{c.footer.quickLinksHeading}</p>

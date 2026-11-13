@@ -10,6 +10,9 @@ import { SettingsButton } from "./appearance/SettingsButton";
 export function Nav() {
   const c = useContent();
   const pathname = usePathname();
+  // usePathname() includes the basePath on the GitHub Pages build
+  // (/sonet-website/about), so strip it before comparing with nav hrefs.
+  const path = pathname.replace(/^\/sonet-website(?=\/|$)/, "") || "/";
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -20,8 +23,8 @@ export function Nav() {
   }, [open ]);
 
   function isActive(href: string) {
-    if (href === "/") return pathname === "/";
-    return pathname === href || pathname.startsWith(`${href}/`);
+    if (href === "/") return path === "/";
+    return path === href || path.startsWith(`${href}/`);
   }
 
   return (
@@ -71,14 +74,14 @@ export function Nav() {
               </Link>
             </span>
             <span className="hidden 2xl:inline-flex">
-              <a
+              <Link
                 href="/cv/Md-Sonet-Mia-CV.pdf"
                 download
                 className="btn-secondary button-sm"
               >
                 <Download size={16} aria-hidden="true" />
                 {c.ui.downloadCv}
-              </a>
+              </Link>
             </span>
             <SettingsButton onOpen={() => setOpen(false)} />
             <button
@@ -129,14 +132,14 @@ export function Nav() {
               </Link>
             </li>
             <li className="menu-link mt-3" style={{ transitionDelay: "440ms" }}>
-              <a
+              <Link
                 href="/cv/Md-Sonet-Mia-CV.pdf"
                 download
                 className="btn-secondary button-md w-full"
               >
                 <Download size={16} aria-hidden="true" />
                 {c.ui.downloadCv}
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
