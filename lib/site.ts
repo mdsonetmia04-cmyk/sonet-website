@@ -13,3 +13,7 @@ export const siteUrl =
 // The Pages site lives under /sonet-website, so the build needs a
 // basePath there; the Vercel deployment stays at the domain root.
 export const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
+// URL prefix for files served from the site root ("/sonet-website" on
+// Pages, "" on Vercel). The image loader and the favicon link use it.
+export const basePath = isGitHubPages ? "/sonet-website" : "";
