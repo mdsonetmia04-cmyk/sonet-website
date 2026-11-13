@@ -43,10 +43,10 @@ export function HomePage() {
                   {c.ui.exploreWork}
                   <ArrowRight size={18} aria-hidden="true" />
                 </Link>
-                <a href="/cv/Md-Sonet-Mia-CV.pdf" download className="btn-secondary button-md">
+                <Link href="/cv/Md-Sonet-Mia-CV.pdf" download className="btn-secondary button-md">
                   <Download size={18} aria-hidden="true" />
                   {c.ui.downloadCv}
-                </a>
+                </Link>
               </div>
               <p className="caption-1 mt-6">{c.hero.proofLine}</p>
             </Reveal>
