@@ -3,7 +3,7 @@
 /* ---------- SolaimanLipi (self-hosted, OFL) — Bangla ---------- */
 @font-face {
   font-family: "SolaimanLipi";
-  src: url("/fonts/SolaimanLipi.woff") format("woff");
+  src: url("../public/fonts/SolaimanLipi.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;

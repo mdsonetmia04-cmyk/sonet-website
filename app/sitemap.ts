@@ -1,7 +1,11 @@
 import type { MetadataRoute } from "next";
 import { content } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
-const base = "https://sonet-website.vercel.app";
+// Static export needs this route to be explicitly static.
+export const dynamic = "force-static";
+
+const base = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [

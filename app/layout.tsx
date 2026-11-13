@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { content } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 import { AppearanceProvider } from "@/providers/AppearanceProvider";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
@@ -35,7 +36,6 @@ const playfair = localFont({
 
 // Metadata stays English: it is SEO/social metadata, not on-page UI copy.
 // On-page strings live in lib/content.ts / i18n/bn.ts.
-const siteUrl = "https://sonet-website.vercel.app";
 const ogImage = "/images/hero-portrait.jpg";
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ const personJsonLd = {
   description: content.seo.description,
   address: { "@type": "PostalAddress", addressLocality: "Tangail", addressCountry: "BD" },
   sameAs: [
-    "https://facebook.com/mdsont.mia.777",
+    "https://facebook.com/mdsonet.mia.777",
     "https://www.youtube.com/@SweetCGILab",
     "https://github.com/mdsonetmia04-cmyk",
   ],
