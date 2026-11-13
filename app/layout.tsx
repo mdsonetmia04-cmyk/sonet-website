@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { content } from "@/lib/content";
-import { siteUrl } from "@/lib/site";
+import { basePath, siteUrl } from "@/lib/site";
 import { AppearanceProvider } from "@/providers/AppearanceProvider";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description: content.seo.description,
     images: [ogImage],
   },
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: `${basePath}/favicon.svg` },
 };
 
 const personJsonLd = {
