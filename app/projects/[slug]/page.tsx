@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
 import { notFound } from "next/navigation";
 import { content } from "@/lib/content";
 import { ProjectDetailPage } from "@/components/pages/ProjectDetailPage";
@@ -20,7 +21,7 @@ export async function generateMetadata({
   return {
     title: `${project.title} | ${content.personal.name}`,
     description: project.shortDescription,
-    alternates: { canonical: `https://sonet-website.vercel.app/projects/${project.id}` },
+    alternates: { canonical: `${siteUrl}/projects/${project.id}` },
   };
 }
 
