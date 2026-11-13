@@ -6,8 +6,11 @@ import { isGitHubPages } from "./lib/site";
 // - GitHub Pages serves this repo under /sonet-website, so the Pages
 //   build (GITHUB_PAGES=true, set by the deploy workflow) uses that
 //   basePath. The Vercel deployment has no basePath and is unaffected.
-// - next/image optimisation needs a server, so images are served
-//   unoptimised in the static build.
+// - next/image optimisation needs a server, so the static build uses a
+//   custom loader (lib/image-loader.ts) that prefixes the basePath onto
+//   local image URLs. Do NOT set `unoptimized: true` — it skips the
+//   loader entirely, which is what broke every picture on Pages
+//   (src stayed /images/... instead of /sonet-website/images/...).
 // - Server redirects are not supported in a static export: the two
 //   old project slugs redirect via static pages instead
 //   (app/projects/prompt-ex and app/projects/skillverse).
@@ -16,7 +19,7 @@ import { isGitHubPages } from "./lib/site";
 const nextConfig: NextConfig = {
   output: "export",
   ...(isGitHubPages ? { basePath: "/sonet-website" } : {}),
-  images: { unoptimized: true },
+  images: { loader: "custom", loaderFile: "./lib/image-loader.ts" },
 };
 
 export default nextConfig;
