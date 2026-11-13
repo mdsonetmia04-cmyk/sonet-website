@@ -105,7 +105,7 @@ source-verified:
 - Language levels: Hindi "Fluent"; Arabic / Urdu / Korean "Reading" (CONTENT_SOURCE.md
   lists the six languages but no levels — the live crawl showed 0% for all).
 - Contact details: email md.Sonet.mia2@gmail.com, WhatsApp 01797953059, Facebook
-  facebook.com/mdsont.mia.777 (present in page.tsx only).
+  facebook.com/mdsonet.mia.777 (present in page.tsx only).
 - "Think and Spark" described as a faceless YouTube podcast (CONTENT_SOURCE.md names the
   channel but not the "faceless podcast" framing).
 - Adobe Stock "Active contributor" status (CONTENT_SOURCE.md shows the section but the

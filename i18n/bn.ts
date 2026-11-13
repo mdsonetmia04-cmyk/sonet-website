@@ -838,7 +838,7 @@ export const bn: SiteContent = {
     whatsappDisplay: "WhatsApp 01797953059",
     whatsappUrl: "https://wa.me/8801797953059",
     socials: [
-      { label: "Facebook", url: "https://facebook.com/mdsont.mia.777", handle: "facebook.com/mdsont.mia.777" },
+      { label: "Facebook", url: "https://facebook.com/mdsonet.mia.777", handle: "facebook.com/mdsonet.mia.777" },
       { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
       { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
       { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
