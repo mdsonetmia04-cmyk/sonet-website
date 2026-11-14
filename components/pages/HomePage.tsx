@@ -51,8 +51,7 @@ export function HomePage() {
               <p className="caption-1 mt-6">{c.hero.proofLine}</p>
             </Reveal>
             <Reveal className="mx-auto w-full max-w-[520px]">
-              <div className="hero-portrait-wrap relative overflow-hidden border border-border">
-                <div aria-hidden="true" className="hero-portrait-circle" />
+              <div className="hero-portrait-wrap relative">
                 <Image
                   src={c.personal.portraitImage}
                   alt={c.personal.portraitAlt}

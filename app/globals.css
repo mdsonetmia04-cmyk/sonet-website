@@ -615,27 +615,18 @@ html[data-theme-variant="warm-editorial"] .hero-title::after {
   content: ".";
   color: var(--gold);
 }
+/* Hero portrait: cut-out photo with NO background — no panel, no border,
+   no radius, no box shadow. It sits directly on the hero section's own
+   theme background; only a soft drop-shadow follows the cut-out shape. */
 html[data-theme-variant="warm-editorial"] .hero-portrait {
-  border-radius: 1.25rem;
-  box-shadow: 0 20px 48px var(--shadow);
+  border-radius: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 24px 32px rgba(0, 0, 0, 0.45));
 }
-
-/* Hero portrait card: warm cream panel + gold circle behind the cut-out
-   portrait. Pinned to the cream hex (not var(--surface-2)): the variable
-   turns dark olive (#2e362f) in dark mode, but this card must stay cream. */
 .hero-portrait-wrap {
-  background: #f2ebdb;
-  border-radius: 1.25rem;
-  box-shadow: 0 20px 48px var(--shadow);
-}
-.hero-portrait-circle {
-  position: absolute;
-  width: 68%;
-  aspect-ratio: 1;
-  border-radius: 9999px;
-  background: color-mix(in srgb, var(--gold) 22%, transparent);
-  right: -14%;
-  bottom: -18%;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 /* Short gold rule after the hero eyebrow, as on the home design */
 .hero-eyebrow-rule {
