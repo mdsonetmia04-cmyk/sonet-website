@@ -620,9 +620,11 @@ html[data-theme-variant="warm-editorial"] .hero-portrait {
   box-shadow: 0 20px 48px var(--shadow);
 }
 
-/* Hero portrait card: warm panel + gold circle behind the cut-out portrait */
+/* Hero portrait card: warm cream panel + gold circle behind the cut-out
+   portrait. Pinned to the cream hex (not var(--surface-2)): the variable
+   turns dark olive (#2e362f) in dark mode, but this card must stay cream. */
 .hero-portrait-wrap {
-  background: var(--surface-2);
+  background: #f2ebdb;
   border-radius: 1.25rem;
   box-shadow: 0 20px 48px var(--shadow);
 }
