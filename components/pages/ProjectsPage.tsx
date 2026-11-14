@@ -29,7 +29,7 @@ export function ProjectsPage() {
       <Nav />
       <main id="main">
         <PageHeader label={c.projects.label} heading={c.projects.heading} intro={c.projects.intro} />
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <div
               role="group"

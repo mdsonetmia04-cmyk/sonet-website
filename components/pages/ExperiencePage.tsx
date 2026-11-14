@@ -19,7 +19,7 @@ export function ExperiencePage() {
         <PageHeader label={e.label} heading={e.heading} intro={e.intro} />
 
         {/* Overview + stats */}
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <Reveal>
               <div className="flex flex-wrap items-end justify-between gap-6">

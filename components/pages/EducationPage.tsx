@@ -16,7 +16,7 @@ export function EducationPage() {
       <main id="main">
         <PageHeader label={ed.label} heading={ed.heading} intro={ed.intro} />
 
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <Reveal>
               <div className="grid gap-6 lg:grid-cols-5">

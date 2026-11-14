@@ -24,7 +24,7 @@ export function AchievementsPage() {
       <main id="main">
         <PageHeader label={a.label} heading={a.heading} intro={a.intro} />
 
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
               {a.stats.map((s) => (

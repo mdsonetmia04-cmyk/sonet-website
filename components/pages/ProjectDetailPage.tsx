@@ -110,7 +110,7 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
           </section>
         ) : null}
 
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto grid max-w-[1280px] gap-10 px-6 md:px-8 lg:grid-cols-3">
             <div className="lg:col-span-2">
               {project.objectives.length > 0 ? (

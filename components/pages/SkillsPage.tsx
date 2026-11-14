@@ -3,7 +3,7 @@
 import { useContent } from "@/lib/useContent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Section, PageHeader } from "@/components/Section";
+import { PageHeader } from "@/components/Section";
 
 /** Skills page: six categories as clean tags only. No percentage bars,
  *  no levels-as-numbers anywhere — languages carry word levels only. */
@@ -15,7 +15,7 @@ export function SkillsPage() {
       <Nav />
       <main id="main">
         <PageHeader label={s.label} heading={s.heading} intro={s.intro} />
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <div className="grid gap-6 md:grid-cols-2">
               {s.categories.map((cat) => (
@@ -30,18 +30,10 @@ export function SkillsPage() {
               ))}
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2">
-              <article className="card">
-                <h2 className="heading-4">{c.ui.digitalToolsHeading}</h2>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {s.digitalTools.map((tool) => (
-                    <li key={tool} className="chip">{tool}</li>
-                  ))}
-                </ul>
-              </article>
+            <div className="mt-8">
               <article className="card">
                 <h2 className="heading-4">{c.ui.languagesHeading}</h2>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {s.languages.map((l) => (
                     <li key={l.name} className="flex items-center justify-between gap-4">
                       <span className="title-2">{l.name}</span>
@@ -53,13 +45,6 @@ export function SkillsPage() {
             </div>
           </div>
         </section>
-        <Section id="ai-capabilities" index="01" label={s.label} heading={c.ui.skillsAiHeading} band>
-          <ul className="flex flex-wrap gap-2">
-            {s.aiCapabilities.map((cap) => (
-              <li key={cap} className="chip !px-3 !py-1.5 !text-sm">{cap}</li>
-            ))}
-          </ul>
-        </Section>
       </main>
       <Footer />
     </>

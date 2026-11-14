@@ -41,7 +41,7 @@ export function ContactPage() {
       <main id="main">
         <PageHeader label={contact.label} heading={contact.heading} intro={contact.intro} />
 
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:px-8 lg:grid-cols-5">
             {/* Contact details */}
             <div className="lg:col-span-2">

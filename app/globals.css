@@ -622,7 +622,7 @@ html[data-theme-variant="warm-editorial"] .hero-portrait {
 
 /* Hero portrait card: warm panel + gold circle behind the cut-out portrait */
 .hero-portrait-wrap {
-  background: var(--surface-2);
+  background: #000;
   border-radius: 1.25rem;
   box-shadow: 0 20px 48px var(--shadow);
 }

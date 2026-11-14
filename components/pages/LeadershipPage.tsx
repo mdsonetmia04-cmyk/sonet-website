@@ -42,7 +42,7 @@ export function LeadershipPage() {
       <main id="main">
         <PageHeader label={l.label} heading={l.heading} intro={l.intro} />
 
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             {/* Stats */}
             <Reveal>

@@ -60,7 +60,7 @@ export function HomePage() {
                   height={1199}
                   priority
                   sizes="(max-width: 1024px) 100vw, 520px"
-                  className="hero-portrait relative z-10 aspect-square w-full object-cover"
+                  className="hero-portrait relative z-10 block aspect-[1312/1199] w-full object-cover"
                 />
               </div>
             </Reveal>
@@ -146,7 +146,7 @@ export function HomePage() {
         </Section>
 
         {/* ---------- Final CTA ---------- */}
-        <section className="bg-ink py-16 md:py-24" aria-label={c.contact.finalCtaHeading}>
+        <section className="bg-ink py-10 md:py-14" aria-label={c.contact.finalCtaHeading}>
           <div className="mx-auto max-w-[1280px] px-6 text-center md:px-8">
             <Reveal>
               <div className="gold-rule mx-auto" aria-hidden="true" />

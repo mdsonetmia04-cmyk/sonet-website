@@ -16,8 +16,8 @@ export function AboutPage() {
       <Nav />
       <main id="main">
         <PageHeader label={c.about.label} heading={c.about.heading} />
-        <section className="bg-bg py-16 md:py-24">
-          <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:px-8 lg:grid-cols-5">
+        <section className="bg-bg py-10 md:py-14">
+          <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:px-8 lg:grid-cols-5 lg:items-start">
             <Reveal className="lg:col-span-2">
               <Image
                 src={c.personal.formalImage}
@@ -46,7 +46,7 @@ export function AboutPage() {
                   {p}
                 </p>
               ))}
-              <h2 className="heading-3 mt-12">{c.ui.aboutValues}</h2>
+              <h2 className="heading-3 mt-8">{c.ui.aboutValues}</h2>
               <ul className="mt-4 space-y-3">
                 {c.about.values.map((v) => (
                   <li key={v} className="flex items-start gap-3">
@@ -55,7 +55,7 @@ export function AboutPage() {
                   </li>
                 ))}
               </ul>
-              <h2 className="heading-3 mt-12">{c.ui.aboutVision}</h2>
+              <h2 className="heading-3 mt-8">{c.ui.aboutVision}</h2>
               <p className="body-2 mt-4 leading-relaxed">{c.about.vision}</p>
               <blockquote className="mt-10 rounded-xl bg-surface-2 p-6">
                 <Quote size={20} aria-hidden="true" className="text-gold" />

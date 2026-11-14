@@ -1103,9 +1103,9 @@ export const content: SiteContent = {
   certifications: {
     label: "Certifications",
     heading: "Certifications",
-    intro: "Verified certificates first. More certificates coming soon.",
+    intro: "Verified certificates and training completed so far.",
     filterLabel: "Filter by category",
-    filters: ["All", "Language", "Teaching", "Leadership", "Digital & AI", "Other"],
+    filters: ["All", "Language", "Teaching", "Leadership", "Digital & AI"],
     items: [
       {
         title: "IELTS Academic",
@@ -1134,12 +1134,6 @@ export const content: SiteContent = {
         category: "Leadership",
         kind: "aggregate",
       },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
     ],
   },
 

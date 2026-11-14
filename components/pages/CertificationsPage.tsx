@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BadgeCheck, Layers, Clock } from "lucide-react";
+import { BadgeCheck, Layers } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
@@ -29,7 +29,7 @@ export function CertificationsPage() {
       <Nav />
       <main id="main">
         <PageHeader label={certs.label} heading={certs.heading} intro={certs.intro} />
-        <section className="bg-bg py-16 md:py-24">
+        <section className="bg-bg py-10 md:py-14">
           <div className="mx-auto max-w-[1280px] px-6 md:px-8">
             <div role="group" aria-label={certs.filterLabel} className="flex flex-wrap gap-2">
               {filterKeys.map((key, i) => (
@@ -50,20 +50,7 @@ export function CertificationsPage() {
             </div>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {visible.map((item, i) => {
-                if (item.kind === "placeholder") {
-                  return (
-                    <article
-                      key={`placeholder-${i}`}
-                      className="card flex min-h-[220px] flex-col items-center justify-center border-dashed text-center"
-                    >
-                      <span className="icon-tile">
-                        <Clock size={24} aria-hidden="true" />
-                      </span>
-                      <p className="body-3 mt-4 text-muted">{c.ui.comingSoonCert}</p>
-                    </article>
-                  );
-                }
+              {visible.map((item) => {
                 return (
                   <article key={item.title} className="card card-hover">
                     <span className="icon-tile">

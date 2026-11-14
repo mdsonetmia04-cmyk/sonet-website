@@ -646,9 +646,9 @@ export const bn: SiteContent = {
   certifications: {
     label: "সার্টিফিকেশন",
     heading: "সার্টিফিকেশন",
-    intro: "যাচাই করা সার্টিফিকেট আগে। আরও সার্টিফিকেট শীঘ্রই আসছে।",
+    intro: "এখন পর্যন্ত সম্পন্ন যাচাই করা সার্টিফিকেট ও প্রশিক্ষণ।",
     filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
-    filters: ["সব", "ভাষা", "শিক্ষাদান", "নেতৃত্ব", "ডিজিটাল ও এআই", "অন্যান্য"],
+    filters: ["সব", "ভাষা", "শিক্ষাদান", "নেতৃত্ব", "ডিজিটাল ও এআই"],
     items: [
       {
         title: "IELTS Academic",
@@ -677,12 +677,6 @@ export const bn: SiteContent = {
         category: "Leadership",
         kind: "aggregate",
       },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
-      { title: "", issuer: null, date: null, detail: "", credential: null, category: "Other", kind: "placeholder", placeholder: true },
     ],
   },
 
