@@ -6,13 +6,13 @@ import { useContent } from "@/lib/useContent";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Section, PageHeader } from "@/components/Section";
-import { ContactForm } from "@/components/ContactForm";
 import { BookingForm } from "@/components/BookingForm";
 
 /**
- * Contact page: honest contact details (LinkedIn is an editable
- * placeholder — no URL invented), the WhatsApp-routed contact form,
- * the session-booking form, and the Open to Opportunities section.
+ * Contact page: honest contact details (each social shown with its
+ * label, not a bare handle), one form only — the session-booking
+ * form, which also covers a general message via its "Something else"
+ * session type — and the Open to Opportunities section.
  */
 export function ContactPage() {
   const c = useContent();
@@ -41,7 +41,7 @@ export function ContactPage() {
       <main id="main">
         <PageHeader label={contact.label} heading={contact.heading} intro={contact.intro} />
 
-        <section className="bg-bg py-10 md:py-14">
+        <section id="booking" className="bg-bg py-10 md:py-14">
           <div className="mx-auto grid max-w-[1280px] gap-12 px-6 md:px-8 lg:grid-cols-5">
             {/* Contact details */}
             <div className="lg:col-span-2">
@@ -53,7 +53,10 @@ export function ContactPage() {
                     <span className="icon-tile !h-11 !w-11">
                       <Mail size={20} aria-hidden="true" />
                     </span>
-                    <span className="title-2 break-all">{contact.email}</span>
+                    <span className="flex flex-col">
+                      <span className="title-2">Email</span>
+                      <span className="caption-1 break-all text-muted">{contact.email}</span>
+                    </span>
                   </a>
                 </li>
                 <li>
@@ -75,7 +78,12 @@ export function ContactPage() {
                     <li key={s.label}>
                       <a href={s.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-body hover:text-ink">
                         <span className="icon-tile !h-11 !w-11">{socialIcon(s.label)}</span>
-                        <span className="title-2 break-all">{s.handle ?? s.label}</span>
+                        <span className="flex flex-col">
+                          <span className="title-2">{s.label}</span>
+                          {s.handle ? (
+                            <span className="caption-1 break-all text-muted">{s.handle}</span>
+                          ) : null}
+                        </span>
                       </a>
                     </li>
                   ) : null
@@ -83,22 +91,19 @@ export function ContactPage() {
               </ul>
             </div>
 
-            {/* Contact form */}
+            {/* Session booking — the only form on this page */}
             <div className="lg:col-span-3">
-              <ContactForm />
+              <h2 className="heading-3">{contact.bookingHeading}</h2>
+              <p className="body-2 mt-2 leading-relaxed">{contact.bookingIntro}</p>
+              <div className="mt-6">
+                <BookingForm />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Session booking */}
-        <Section id="booking" index="01" label={contact.label} heading={contact.bookingHeading} intro={contact.bookingIntro} band>
-          <div className="mx-auto max-w-[720px]">
-            <BookingForm />
-          </div>
-        </Section>
-
         {/* Open to opportunities */}
-        <Section id="opportunities" index="02" label={c.careerInterests.label} heading={c.careerInterests.heading} intro={c.careerInterests.intro}>
+        <Section id="opportunities" index="01" label={c.careerInterests.label} heading={c.careerInterests.heading} intro={c.careerInterests.intro}>
           <div className="grid gap-6 md:grid-cols-3">
             <article className="card">
               <h3 className="heading-4">{c.ui.opportunitiesRoles}</h3>

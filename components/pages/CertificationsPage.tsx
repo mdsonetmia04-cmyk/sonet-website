@@ -9,18 +9,18 @@ import { PageHeader } from "@/components/Section";
 
 /**
  * Certifications gallery, filterable by category. Real entries first;
- * aggregate counts are labelled as counts (not named certificates);
- * empty slots render visibly as "coming soon" placeholders — never
- * as fake certificates.
+ * aggregate counts are labelled as counts (not named certificates).
+ * Category keys are English in both languages (they must match the
+ * `category` stored on each item); `certs.filters` holds only the
+ * button labels, translated in bn.ts. Index i of filterKeys matches
+ * index i of certs.filters. A filter with no certificates shows an
+ * explicit empty state instead of a blank page.
  */
 export function CertificationsPage() {
   const c = useContent();
   const certs = c.certifications;
   const [filter, setFilter] = useState<string>("All");
-  // filters array order: ["All", "Language", "Teaching", "Leadership",
-  // "Digital & AI", "Other"] — index 0 is All; the rest are the
-  // category keys stored on each item (identical in EN and BN).
-  const filterKeys = ["All", ...certs.filters.slice(1)];
+  const filterKeys = ["All", "Language", "Leadership", "Digital & AI"];
   const visible =
     filter === "All" ? certs.items : certs.items.filter((item) => item.category === filter);
 
@@ -72,6 +72,9 @@ export function CertificationsPage() {
                 );
               })}
             </div>
+            {visible.length === 0 ? (
+              <p className="body-2 mt-10 text-center text-muted">{c.ui.noCertsInCategory}</p>
+            ) : null}
           </div>
         </section>
       </main>

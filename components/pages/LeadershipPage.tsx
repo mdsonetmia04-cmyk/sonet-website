@@ -10,7 +10,7 @@ import { Section, PageHeader } from "@/components/Section";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Leadership page. The three leadership entries show confirmed
+ * Leadership page. The four leadership entries show confirmed
  * information only. Every community activity gets its own card
  * (11 cards, all the same size); Awards & Recognition and Public
  * Speaking & Anchoring come first. Each card keeps the small
@@ -112,15 +112,6 @@ export function LeadershipPage() {
               })}
             </div>
 
-            {/* Scope */}
-            <div className="mt-14 grid grid-cols-3 gap-6">
-              {l.scope.map((s) => (
-                <div key={s.label} className="card text-center">
-                  <p className="font-display text-4xl font-bold text-ink tabular">{s.figure}</p>
-                  <p className="body-4 mt-2 text-muted">{s.label}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 

@@ -9,8 +9,9 @@ import { Footer } from "@/components/Footer";
 import { StatusBadge } from "@/components/ProjectCard";
 
 /**
- * Project detail page. Typographic cover (no fake screenshots),
- * honest status, real results only, external link only where real.
+ * Project detail page. Title cover (no fake screenshots, no giant
+ * initial letter), honest status, real results only, external link
+ * only where real.
  */
 export function ProjectDetailPage({ slug }: { slug: string }) {
   const c = useContent();
@@ -57,11 +58,11 @@ export function ProjectDetailPage({ slug }: { slug: string }) {
                 />
               </div>
             ) : (
-              <div className="mt-8 flex aspect-[21/9] flex-col justify-between rounded-2xl bg-ink p-6 md:p-10">
-                <span className="font-display text-6xl font-bold text-gold md:text-8xl" aria-hidden="true">
-                  {project.title.charAt(0)}
+              <div className="mt-8 flex aspect-[21/9] flex-col justify-end rounded-2xl bg-ink p-6 md:p-10">
+                <span className="caption-1 uppercase tracking-[0.14em] text-gold">
+                  {project.category}
                 </span>
-                <span className="font-display text-2xl font-semibold leading-snug text-bg md:text-4xl">
+                <span className="font-display mt-3 text-2xl font-semibold leading-snug text-bg md:text-4xl">
                   {project.title}
                 </span>
               </div>

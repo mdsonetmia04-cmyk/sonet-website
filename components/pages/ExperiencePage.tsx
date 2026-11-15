@@ -59,14 +59,6 @@ export function ExperiencePage() {
                   <h3 className="heading-4 mt-5">{role.title}</h3>
                   <p className="title-2 mt-1">{role.organisation}</p>
                   <p className="caption-1 mt-1">{role.dates}</p>
-                  <ul className="mt-4 space-y-2">
-                    {role.responsibilities.map((r) => (
-                      <li key={r} className="flex items-start gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                        <span className="body-4">{r}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </article>
               ))}
             </div>
@@ -125,7 +117,6 @@ export function ExperiencePage() {
 
         {/* Acting / theatre */}
         <Section id="acting" index="02" label={e.acting.label} heading={e.acting.heading} intro={e.acting.intro}>
-          <p className="title-1 mb-6">{e.acting.playTitle}</p>
           <div className="grid gap-6 md:grid-cols-3">
             {e.acting.cards.map((card) => (
               <article key={card.title} className="card">

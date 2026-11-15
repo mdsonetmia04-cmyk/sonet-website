@@ -11,7 +11,7 @@ import { Reveal } from "@/components/Reveal";
 /**
  * Books & Drafts page: 5 books (all with full-size covers now),
  * SkillVerse By Sonet as featured channel (no URL invented),
- * Think and Spark podcast, Adobe Stock, and the 20-photo gallery.
+ * Think and Spark podcast, Adobe Stock, and the 19-photo gallery.
  * Book cards are all the same size: fixed 2:3 cover area,
  * equal-height rows.
  */
@@ -62,11 +62,11 @@ export function PublicationsPage() {
                         className="aspect-[2/3] w-full rounded-lg border border-border object-cover"
                       />
                     ) : (
-                      <div className="flex aspect-[2/3] flex-col justify-between rounded-lg bg-ink p-5">
-                        <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
-                          {book.title.charAt(0)}
+                      <div className="flex aspect-[2/3] flex-col justify-end rounded-lg bg-ink p-5">
+                        <span className="caption-1 uppercase tracking-[0.14em] text-gold">
+                          {book.kind}
                         </span>
-                        <span className="font-display text-lg font-semibold leading-snug text-bg">
+                        <span className="font-display mt-2 text-lg font-semibold leading-snug text-bg">
                           {book.title}
                         </span>
                       </div>
@@ -102,7 +102,7 @@ export function PublicationsPage() {
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center gap-1.5 font-semibold text-gold hover:underline"
                 >
-                  {c.ui.visitSite}
+                  {c.ui.visitChannel}
                 </a>
               ) : null}
             </article>
