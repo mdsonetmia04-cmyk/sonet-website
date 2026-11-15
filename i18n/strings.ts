@@ -676,10 +676,6 @@ export const strings: Record<string, { en: string; bn: string }> = {
   },
 
   // Adobe Stock stats (original site) — replace the status card (T8).
-  "stock.stats.downloads.figure": { en: "1,143", bn: "1,143" },
-  "stock.stats.downloads.label": { en: "Total Downloads", bn: "মোট ডাউনলোড" },
-  "stock.stats.earnings.figure": { en: "$1,122.44", bn: "$1,122.44" },
-  "stock.stats.earnings.label": { en: "Total Earnings", bn: "মোট আয়" },
   "stock.stats.status.figure": { en: "Active Contributor", bn: "সক্রিয় কন্ট্রিবিউটর" },
   "stock.stats.status.label": { en: "Status", bn: "অবস্থা" },
   // ---------------------------------------------------------------- digital skills
