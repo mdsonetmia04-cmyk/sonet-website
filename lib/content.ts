@@ -1185,8 +1185,6 @@ export const content: SiteContent = {
         { title: "Stock content strategy", description: "Choosing topics by season and demand, not by guesswork." },
       ],
       stats: [
-        { figure: "1,143", label: "Total Downloads" },
-        { figure: "$1,122.44", label: "Total Earnings" },
         { figure: "Active Contributor", label: "Status" },
       ],
     },
