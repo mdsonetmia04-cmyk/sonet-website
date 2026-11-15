@@ -554,7 +554,7 @@ export const content: SiteContent = {
       {
         title: "Microstock Mentoring",
         description:
-          "Microstock Training, Adobe Stock & Shutterstock, AI Image Generation, Vector Design, Metadata SEO and Contributor Mentorship.",
+          "Microstock Training, Adobe Stock & Shutterstock, AI Image Generation, Vector Design, Metadata SEO and Contributor Mentorship. Team Leader of 100+ students.",
       },
       {
         title: "Leadership & Community Development",
@@ -577,7 +577,7 @@ export const content: SiteContent = {
   about: {
     label: "About me",
     heading: "The story behind the vision",
-    bio: "I am Md. Sonet Mia, a multidisciplinary professional from Bangladesh with an academic background in English Language and Literature. My professional interests span education, teaching, community development, leadership and digital innovation. Through teaching and community engagement, I have developed an interest in creating inclusive learning opportunities and supporting meaningful social development. I am also interested in exploring how artificial intelligence and digital technologies can improve education, creativity and access to knowledge. I aspire to contribute to education, international development and community-focused initiatives while continuing to grow as a lifelong learner.",
+    bio: "I am Md. Sonet Mia, a multidisciplinary professional from Bangladesh with an academic background in English Language and Literature. My professional interests span education, teaching, community development, leadership and digital innovation. I am also interested in creating inclusive learning opportunities and supporting meaningful social development. As an AI enthusiast, I explore how artificial intelligence and digital technologies can improve education, creativity and access to knowledge. I aspire to contribute to education, international development and community-focused initiatives while continuing to grow as a lifelong learner.",
     mission:
       "My mission is to contribute to a more inclusive and accessible learning environment through education, leadership, community engagement and technology.",
     paragraphs: [
@@ -667,6 +667,12 @@ export const content: SiteContent = {
     ],
     roles: [
       {
+        title: "Microstock Trainer & Team Leader",
+        organisation: "Microstock Training",
+        dates: "Present",
+        location: null,
+      },
+      {
         title: "Assistant Teacher (English Language & Grammar)",
         organisation: "Sobuz Kuri Laboratory School & College",
         dates: "2022–2023",
@@ -755,6 +761,15 @@ export const content: SiteContent = {
     joinCta: "Join my volunteer network",
     joinCtaHref: "/contact",
     items: [
+      {
+        title: "Active Politician",
+        organisation: "Jatiya Chhatra Shakti",
+        role: "Convenor, Tangail Sadar Upazila",
+        date: null,
+        description: "Active in student politics as Convenor of Jatiya Chhatra Shakti, Tangail Sadar Upazila.",
+        image: null,
+        imageAlt: null,
+      },
       {
         title: "Chief Sergeant at Arms",
         organisation: "Rotaract Club",
