@@ -166,7 +166,7 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "about.detailLocation.value": { en: "Tangail, Bangladesh", bn: "টাঙ্গাইল, বাংলাদেশ" },
   // ---------------------------------------------------------------- projects
   "projects.label": { en: "My projects", bn: "আমার প্রজেক্ট" },
-  "projects.heading": { en: "Work that is already live", bn: "যেসব কাজ ইতিমধ্যে লাইভ" },
+  "projects.heading": { en: "Live projects and new concepts", bn: "লাইভ প্রজেক্ট ও নতুন কনসেপ্ট" },
   "projects.intro": {
     en: "Four projects, built for real people: learners, creators, and readers. Every link opens the live project.",
     bn: "চারটি প্রজেক্ট, আসল মানুষের জন্য তৈরি: শিক্ষার্থী, স্রষ্টা ও পাঠক। নিচের প্রতিটি লিংক সরাসরি লাইভ প্রজেক্টে নিয়ে যাবে।",
@@ -266,9 +266,9 @@ export const strings: Record<string, { en: string; bn: string }> = {
   "education.stats.study.label": { en: "Years of Study", bn: "বছরের পড়াশোনা" },
   "education.stats.courses.figure": { en: "40+", bn: "40+" },
   "education.stats.courses.label": { en: "Courses Completed", bn: "কোর্স সম্পন্ন" },
-  "education.stats.languages.figure": { en: "3", bn: "3" },
+  "education.stats.languages.figure": { en: "6", bn: "6" },
   "education.stats.languages.label": { en: "Languages", bn: "ভাষা" },
-  "education.stats.certifications.figure": { en: "5+", bn: "5+" },
+  "education.stats.certifications.figure": { en: "17+", bn: "17+" },
   "education.stats.certifications.label": { en: "Certifications", bn: "সার্টিফিকেশন" },
   // ---------------------------------------------------------------- teaching
   "teaching.label": { en: "Teaching services", bn: "শিক্ষাদান সেবা" },
@@ -373,8 +373,8 @@ export const strings: Record<string, { en: string; bn: string }> = {
   // Acting cards (original site) — replace the body paragraph (T4).
   "acting.card1.title": { en: "The Merchant of Venice", bn: "The Merchant of Venice" },
   "acting.card1.desc": {
-    en: "Performed in William Shakespeare's iconic tragedy, showcasing dramatic range and stage presence at a university-level production.",
-    bn: "উইলিয়াম শেকসপিয়রের আইকনিক ট্র্যাজেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
+    en: "Performed in William Shakespeare's iconic comedy, showcasing dramatic range and stage presence at a university-level production.",
+    bn: "উইলিয়াম শেকসপিয়রের আইকনিক কমেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
   },
   "acting.card2.title": { en: "Stage Performance", bn: "মঞ্চ পরিবেশনা" },
   "acting.card2.desc": {
@@ -462,14 +462,12 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।",
   },
   // Achievements stats (original site).
-  "achievements.stats.awards.figure": { en: "5+", bn: "5+" },
+  "achievements.stats.awards.figure": { en: "4", bn: "4" },
   "achievements.stats.awards.label": { en: "Awards", bn: "পুরস্কার" },
   "achievements.stats.certifications.figure": { en: "17+", bn: "17+" },
   "achievements.stats.certifications.label": { en: "Certifications", bn: "সার্টিফিকেশন" },
   "achievements.stats.trainings.figure": { en: "6+", bn: "6+" },
   "achievements.stats.trainings.label": { en: "Trainings", bn: "প্রশিক্ষণ" },
-  "achievements.stats.events.figure": { en: "30+", bn: "30+" },
-  "achievements.stats.events.label": { en: "Events", bn: "অনুষ্ঠান" },
   // Achievements carousel captions (original site).
   "achievements.carousel1.caption": { en: "Chief Sergeant at Arms", bn: "চিফ সার্জেন্ট অ্যাট আর্মস" },
   "achievements.carousel1.sub": { en: "Leadership Role", bn: "নেতৃত্বের ভূমিকা" },
@@ -530,20 +528,14 @@ export const strings: Record<string, { en: string; bn: string }> = {
     bn: "কমিউনিটি অনুষ্ঠানের মধ্য দিয়ে বাংলাদেশি সংস্কৃতি, ভাষা ও ঐতিহ্যের প্রচার।",
   },
   // Volunteering stats + scope (original site).
-  "volunteering.stats.activities.figure": { en: "117+", bn: "117+" },
-  "volunteering.stats.activities.label": { en: "Social Activities", bn: "সামাজিক কার্যক্রম" },
+  "volunteering.stats.activities.figure": { en: "11", bn: "11" },
+  "volunteering.stats.activities.label": { en: "Community Activities", bn: "কমিউনিটি কার্যক্রম" },
   "volunteering.stats.lives.figure": { en: "500+", bn: "500+" },
   "volunteering.stats.lives.label": { en: "Lives Impacted", bn: "জীবনে প্রভাব" },
-  "volunteering.stats.trainings.figure": { en: "12+", bn: "12+" },
+  "volunteering.stats.trainings.figure": { en: "6+", bn: "6+" },
   "volunteering.stats.trainings.label": { en: "Certified Training Completed", bn: "সার্টিফায়েড ট্রেনিং সম্পন্ন" },
   "volunteering.stats.organizations.figure": { en: "13+", bn: "13+" },
   "volunteering.stats.organizations.label": { en: "Organizations", bn: "সংস্থা" },
-  "volunteering.scope.international.label": { en: "International", bn: "আন্তর্জাতিক" },
-  "volunteering.scope.international.value": { en: "4", bn: "4" },
-  "volunteering.scope.national.label": { en: "National", bn: "জাতীয়" },
-  "volunteering.scope.national.value": { en: "6", bn: "6" },
-  "volunteering.scope.local.label": { en: "Local", bn: "স্থানীয়" },
-  "volunteering.scope.local.value": { en: "3", bn: "3" },
   // ---------------------------------------------------------------- apps
   "apps.label": { en: "Applications", bn: "অ্যাপ্লিকেশন" },
   "apps.heading": { en: "My applications", bn: "আমার অ্যাপ্লিকেশন" },
@@ -628,10 +620,10 @@ export const strings: Record<string, { en: string; bn: string }> = {
 
   // Think & Spark topics (original site).
   "podcast.topicsHeading": { en: "Topics", bn: "টপিক" },
-  "podcast.topic1": { en: "English Grammar", bn: "ইংরেজি গ্রামার" },
+  "podcast.topic1": { en: "Ideas & Learning", bn: "আইডিয়া ও শেখা" },
   "podcast.topic2": { en: "Motivation", bn: "অনুপ্রেরণা" },
-  "podcast.topic3": { en: "Life Hacks", bn: "লাইফ হ্যাক" },
-  "podcast.topic4": { en: "Book Reviews", bn: "বই পর্যালোচনা" },
+  "podcast.topic3": { en: "Life Lessons", bn: "জীবনের শিক্ষা" },
+  "podcast.topic4": { en: "Honest Conversations", bn: "সৎ আলোচনা" },
   // ---------------------------------------------------------------- ai creator
   "ai.label": { en: "AI creator", bn: "এআই ক্রিয়েটর" },
   "ai.heading": { en: "AI powered creativity", bn: "এআই-চালিত সৃজনশীলতা" },

@@ -73,14 +73,14 @@ export const bn: SiteContent = {
     primaryCtaHref: "/contact",
     secondaryCta: "আমার প্রজেক্টগুলো দেখুন",
     secondaryCtaHref: "/projects",
-    proofLine: "3+ বছর ধরে পড়াচ্ছি, 1–5 জনের টিম মেন্টরশিপ করছি।",
+    proofLine: "2+ বছর ধরে পড়াচ্ছি, 1–5 জনের টিম মেন্টরশিপ করছি।",
   },
 
   snapshotStats: [
-    { figure: "3+", label: "বছরের শিক্ষাদানের অভিজ্ঞতা" },
+    { figure: "2+", label: "বছরের শিক্ষাদানের অভিজ্ঞতা" },
     { figure: "1–5", label: "টিম মেন্টরশিপ" },
     { figure: "17+", label: "সার্টিফিকেশন" },
-    { figure: "74+", label: "কমিউনিটি অনুষ্ঠান" },
+    { figure: "8", label: "প্রজেক্ট" },
   ],
 
   whatIDo: {
@@ -141,7 +141,7 @@ export const bn: SiteContent = {
       "শিক্ষায় প্রযুক্তির সৎ ও বাস্তবসম্মত ব্যবহার",
     ],
     vision:
-      "আরও অন্তর্ভুক্তিমূলক ও সহজলভ্য শেখার পরিবেশ — যেখানে শিক্ষা, নেতৃত্ব, কমিউনিটি সম্পৃক্ততা ও প্রযুক্তি একসঙ্গে কাজ করে।",
+      "আজীবন শিক্ষার্থী হিসেবে নিজেকে গড়ে তোলা, আর বাংলাদেশে ও তার বাইরে শিক্ষা, আন্তর্জাতিক উন্নয়ন ও কমিউনিটিকেন্দ্রিক কাজে অবদান রাখা।",
     reflectionQuote:
       "প্রতিটি অর্জন আল্লাহর রহমত আর আমার বাবা-মা ও বোনের সহযোগিতার ফল।",
   },
@@ -173,8 +173,8 @@ export const bn: SiteContent = {
     stats: [
       { figure: "4+", label: "বছরের পড়াশোনা" },
       { figure: "40+", label: "কোর্স সম্পন্ন" },
-      { figure: "3", label: "ভাষা" },
-      { figure: "5+", label: "সার্টিফিকেশন" },
+      { figure: "6", label: "ভাষা" },
+      { figure: "17+", label: "সার্টিফিকেশন" },
     ],
     researchInterests: [
       "ইংরেজি ভাষা শিক্ষা",
@@ -195,9 +195,9 @@ export const bn: SiteContent = {
   experience: {
     label: "অভিজ্ঞতা",
     heading: "মানসম্মত ইংরেজি শিক্ষা, যা শিক্ষার্থীদের আত্মবিশ্বাসী করে তোলে",
-    intro: "3+ বছর ধরে পড়াচ্ছি, 1–5 জনের টিম মেন্টরশিপ করছি, প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল।",
+    intro: "2+ বছর ধরে পড়াচ্ছি, 1–5 জনের টিম মেন্টরশিপ করছি, প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল।",
     title: "ইংরেজি ভাষা শিক্ষক",
-    yearsExperience: "3+ বছর",
+    yearsExperience: "2+ বছর",
     studentsPerDay: "1–5 জনের টিম মেন্টরশিপ",
     materialsPerMonth: "প্রতি মাসে 15+ লেকচার ম্যাটেরিয়াল",
     responsibilities: [
@@ -214,28 +214,12 @@ export const bn: SiteContent = {
         organisation: "Sobuz Kuri Laboratory School & College",
         dates: "2022–2023",
         location: null,
-        responsibilities: [
-          "ইংরেজি ভাষা শেখানো",
-          "পাঠ পরিকল্পনা",
-          "শ্রেণিকক্ষ পরিচালনা",
-          "শিক্ষার্থী মূল্যায়ন",
-          "শিক্ষা উপকরণ তৈরি",
-          "শিক্ষার্থীদের সম্পৃক্ত করা",
-        ],
       },
       {
         title: "সহকারী শিক্ষক (ইংরেজি ভাষা ও গ্রামার)",
         organisation: "Prativa Preparatory School & College",
         dates: "2023–2024",
         location: null,
-        responsibilities: [
-          "ইংরেজি ভাষা শেখানো",
-          "পাঠ পরিকল্পনা",
-          "শ্রেণিকক্ষ পরিচালনা",
-          "শিক্ষার্থী মূল্যায়ন",
-          "শিক্ষা উপকরণ তৈরি",
-          "শিক্ষার্থীদের সম্পৃক্ত করা",
-        ],
       },
     ],
     services: [
@@ -287,7 +271,7 @@ export const bn: SiteContent = {
         {
           title: "The Merchant of Venice",
           description:
-            "উইলিয়াম শেকসপিয়রের আইকনিক ট্র্যাজেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
+            "উইলিয়াম শেকসপিয়রের আইকনিক কমেডিতে অভিনয় — বিশ্ববিদ্যালয় পর্যায়ের প্রযোজনায় নাটকীয় ব্যাপ্তি ও মঞ্চ উপস্থিতি তুলে ধরা।",
         },
         {
           title: "মঞ্চ পরিবেশনা",
@@ -319,7 +303,7 @@ export const bn: SiteContent = {
         organisation: "Rotaract Club",
         role: "চিফ সার্জেন্ট অ্যাট আর্মস",
         date: null,
-        description: "রোটার্যাক্ট ক্লাবের চিফ সার্জেন্ট অ্যাট আর্মস।",
+        description: "জামালপুর রোটার্যাক্ট ক্লাবে চিফ সার্জেন্ট অ্যাট আর্মসের দায়িত্ব পালন করেছি; 2022 সালে চিফ সার্জেন্ট অ্যাট আর্মস অ্যাওয়ার্ড পেয়েছি।",
         image: "/images/chief-sergeant.jpg",
         imageAlt: "চিফ সার্জেন্ট অ্যাট আর্মস",
       },
@@ -340,6 +324,15 @@ export const bn: SiteContent = {
         description: "Medhabikash Library-এর সঙ্গে কমিউনিটি কাজ।",
         image: "/images/gallery-19.jpg",
         imageAlt: "বইয়ের তাকে ভরা লাইব্রেরিতে টেবিলে বসে",
+      },
+      {
+        title: "International Law Thinkers Society",
+        organisation: "International Law Thinkers Society",
+        role: null,
+        date: null,
+        description: "ইন্টারন্যাশনাল ল থিংকার্স সোসাইটির সঙ্গে যুক্ত।",
+        image: null,
+        imageAlt: null,
       },
     ],
     activities: [
@@ -362,22 +355,17 @@ export const bn: SiteContent = {
       { src: "/images/cultural-dress.jpg", width: 1920, height: 864, alt: "সাংস্কৃতিক সম্পৃক্ততা" },
     ],
     stats: [
-      { figure: "117+", label: "সামাজিক কার্যক্রম" },
+      { figure: "11", label: "কমিউনিটি কার্যক্রম" },
       { figure: "500+", label: "জীবনে প্রভাব" },
-      { figure: "12+", label: "সার্টিফায়েড ট্রেনিং সম্পন্ন" },
+      { figure: "6+", label: "সার্টিফায়েড ট্রেনিং সম্পন্ন" },
       { figure: "13+", label: "সংস্থা" },
-    ],
-    scope: [
-      { figure: "4", label: "আন্তর্জাতিক" },
-      { figure: "6", label: "জাতীয়" },
-      { figure: "3", label: "স্থানীয়" },
     ],
   },
 
   skills: {
     label: "দক্ষতা",
     heading: "টুল ও প্রযুক্তি",
-    intro: "দক্ষতাগুলো ট্যাগ হিসেবে দেখানো হয়েছে। শতাংশের বার নেই; স্তর শুধু শব্দে বলা হয়েছে।",
+    intro: "আমি যা পারি — শিক্ষাদান, যোগাযোগ, নেতৃত্ব, ডিজিটাল টুল ও এআই — ক্ষেত্র অনুযায়ী সাজানো। স্তর শুধু শব্দে বলা হয়েছে, নম্বরে নয়।",
     categories: [
       {
         category: "শিক্ষা",
@@ -389,7 +377,7 @@ export const bn: SiteContent = {
       },
       {
         category: "নেতৃত্ব",
-        tags: ["যুব নেতৃত্ব", "কমিউনিটি সম্পৃক্ততা", "স্বেচ্ছাসেবক সমন্বয়", "অনুষ্ঠান আয়োজন", "মেন্টরিং"],
+        tags: ["যুব নেতৃত্ব", "কমিউনিটি সম্পৃক্ততা", "স্বেচ্ছাসেবক সমন্বয়", "অনুষ্ঠান আয়োজন"],
       },
       {
         category: "ডিজিটাল",
@@ -397,7 +385,7 @@ export const bn: SiteContent = {
       },
       {
         category: "এআই ও প্রযুক্তি",
-        tags: ["এআই টুল (ChatGPT, Gemini, DeepSeek +)", "প্রম্পট লেখা", "কনটেন্ট তৈরি", "ভিডিও জেনারেশন", "সৃজনশীল কৌশল", "এআই ছবি তৈরি", "এআই ভিডিও জেনারেশন"],
+        tags: ["এআই টুল (ChatGPT, Gemini, DeepSeek)", "প্রম্পট লেখা", "সৃজনশীল কৌশল", "এআই ছবি তৈরি", "এআই ভিডিও জেনারেশন"],
       },
       {
         category: "উদ্যোক্তা",
@@ -411,7 +399,7 @@ export const bn: SiteContent = {
       "Photoshop",
       "ইন্টারনেট রিসার্চ",
       "ইমেইল ব্যবস্থাপনা",
-      "এআই টুল (ChatGPT, Gemini, DeepSeek +)",
+      "এআই টুল (ChatGPT, Gemini, DeepSeek)",
     ],
     languages: [
       { name: "বাংলা", level: "মাতৃভাষা" },
@@ -447,7 +435,7 @@ export const bn: SiteContent = {
 
   projects: {
     label: "প্রজেক্ট",
-    heading: "যেসব কাজ ইতিমধ্যে লাইভ",
+    heading: "লাইভ প্রজেক্ট ও নতুন কনসেপ্ট",
     intro: "আসল মানুষের জন্য তৈরি প্রজেক্ট: শিক্ষার্থী, স্রষ্টা ও পাঠক। কনসেপ্টকে কনসেপ্ট হিসেবেই দেখানো হয়েছে; শুধু লাইভ কাজেরই লিংক দেওয়া আছে।",
     items: [
       {
@@ -490,7 +478,7 @@ export const bn: SiteContent = {
         ],
         tools: ["PromptEx", "Gemini", "Groq", "OpenRouter", "Together", "Mistral", "HuggingFace"],
         status: "Live",
-        results: [{ figure: "ফ্রি", label: "ব্যবহার সম্পূর্ণ ফ্রি, আপনার নিজের API কি" }],
+        results: [],
         url: "https://promptex-nine.vercel.app",
         urlLabel: "PromptEx দেখুন",
         coverImage: null,
@@ -514,8 +502,8 @@ export const bn: SiteContent = {
         urlLabel: null,
         coverImage: null,
         coverImageAlt: null,
-        videoId: "QEMB14UxTkk",
-        videoTitle: "You Missed Christmas. Don't Miss the Next Season! Sweet Smart Calculator (For team members only)",
+        videoId: null,
+        videoTitle: null,
         tags: ["অ্যাপ", "ক্যালকুলেটর", "ভিডিও"],
       },
       {
@@ -622,17 +610,15 @@ export const bn: SiteContent = {
       { title: "চিফ সার্জেন্ট অ্যাট আর্মস অ্যাওয়ার্ড", description: "জামালপুর রোটার্যাক্ট ক্লাবের পক্ষ থেকে পুরস্কৃত।", date: "2022", image: "/images/chief-sergeant.jpg", imageAlt: "চিফ সার্জেন্ট অ্যাট আর্মস স্যাশ" },
       { title: "সেরা স্বেচ্ছাসেবক পুরস্কার", description: "Volunteers for Bangladesh-এর পক্ষ থেকে অসাধারণ সমাজসেবা ও নিষ্ঠার জন্য সম্মানিত।", date: "2024", image: "/images/medal-ceremony-honoring.jpg", imageAlt: "অনুষ্ঠানে মেডেল গ্রহণ করছেন" },
       { title: "লিডারশিপ অ্যাওয়ার্ড", description: "নেতৃত্বের স্বীকৃতি।", date: null, image: null, imageAlt: null },
-      { title: "ইন্টারন্যাশনাল ল থিংকার্স সোসাইটি", description: "ইন্টারন্যাশনাল ল থিংকার্স সোসাইটির সঙ্গে যুক্ত।", date: null, image: null, imageAlt: null },
       { title: "বিতর্ক প্রতিযোগিতার সার্টিফিকেট", description: "প্রতিযোগিতামূলক বিতর্ক অনুষ্ঠানে একাধিক স্বীকৃতি।", date: null, image: null, imageAlt: null },
       { title: "দাবা চ্যাম্পিয়নশিপ সার্টিফিকেট", description: "কৌশলগত দাবা টুর্নামেন্টে অর্জন।", date: null, image: null, imageAlt: null },
       { title: "17+ অনলাইন কোর্স সার্টিফিকেশন", description: "বিভিন্ন ডিজিটাল বিষয়ে নিরবচ্ছিন্ন শেখা।", date: null, image: null, imageAlt: null },
       { title: "6+ ট্রেনিং সম্পন্ন", description: "নেতৃত্ব, সক্ষমতা বৃদ্ধি ও যুব ক্ষমতায়নে পেশাদার উন্নয়ন প্রশিক্ষণ।", date: null, image: "/images/usaid-capacity-building-group-chart.jpg", imageAlt: "USAID Youth for Change সক্ষমতা বৃদ্ধি প্রশিক্ষণের দল" },
     ],
     stats: [
-      { figure: "5+", label: "পুরস্কার" },
+      { figure: "4", label: "পুরস্কার" },
       { figure: "17+", label: "সার্টিফিকেশন" },
       { figure: "6+", label: "প্রশিক্ষণ" },
-      { figure: "30+", label: "অনুষ্ঠান" },
     ],
     carousel: [
       { src: "/images/chief-sergeant.jpg", width: 960, height: 943, caption: "চিফ সার্জেন্ট অ্যাট আর্মস", sub: "নেতৃত্বের ভূমিকা" },
@@ -648,7 +634,7 @@ export const bn: SiteContent = {
     heading: "সার্টিফিকেশন",
     intro: "এখন পর্যন্ত সম্পন্ন যাচাই করা সার্টিফিকেট ও প্রশিক্ষণ।",
     filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
-    filters: ["সব", "ভাষা", "শিক্ষাদান", "নেতৃত্ব", "ডিজিটাল ও এআই"],
+    filters: ["সব", "ভাষা", "নেতৃত্ব", "ডিজিটাল ও এআই"],
     items: [
       {
         title: "IELTS Academic",
@@ -688,7 +674,7 @@ export const bn: SiteContent = {
     writingServices: ["সৃজনশীল লেখা মেন্টরিং", "কবিতা লেখার ওয়ার্কশপ", "গল্প লেখার গাইডলাইন"],
     stats: [
       { figure: "5", label: "বই" },
-      { figure: "3", label: "প্রকাশিত" },
+      { figure: "2", label: "প্রকাশিত" },
       { figure: "4", label: "ধরন" },
     ],
     booksHeading: "আমার বই",
@@ -709,7 +695,7 @@ export const bn: SiteContent = {
       name: "Think and Spark",
       description: "একটি ফেসলেস YouTube পডকাস্ট — বিশ্বজুড়ে শ্রোতাদের শিক্ষিত ও অনুপ্রাণিত করে।",
       body: "Think and Spark শ্রোতাদের জন্য তৈরি: পরিষ্কার আইডিয়া, সৎ আলোচনা, আর একই দিনে ব্যবহার করা যায় এমন শিক্ষা।",
-      topics: ["ইংরেজি গ্রামার", "অনুপ্রেরণা", "লাইফ হ্যাক", "বই পর্যালোচনা"],
+      topics: ["আইডিয়া ও শেখা", "অনুপ্রেরণা", "জীবনের শিক্ষা", "সৎ আলোচনা"],
       images: [
         { src: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: "Think and Spark পডকাস্টের জন্য মঞ্চে বক্তৃতা দিচ্ছেন Md Sonet Mia" },
         { src: "/images/capacity-building.jpg", width: 1655, height: 1228, alt: "ক্যাপাসিটি বিল্ডিং ট্রেনিং সেশন" },
@@ -739,7 +725,7 @@ export const bn: SiteContent = {
     heading: "ধারণ করা মুহূর্ত",
     intro: "আমার অভিজ্ঞতা, অনুষ্ঠান ও স্মৃতির ভিজ্যুয়াল যাত্রা।",
     stats: [
-      { figure: "20+", label: "ছবি" },
+      { figure: "19", label: "ছবি" },
       { figure: "15+", label: "অনুষ্ঠান" },
       { figure: "∞", label: "স্মৃতি" },
     ],
@@ -753,7 +739,6 @@ export const bn: SiteContent = {
       { src: "/images/gallery-07.jpg", width: 720, height: 525, alt: "অনুষ্ঠানের দলগত ছবি", caption: "অনুষ্ঠানের দলগত ছবি" },
       { src: "/images/gallery-08.jpg", width: 1920, height: 1088, alt: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ", caption: "বন্ধুদের সঙ্গে নৌকা ভ্রমণ" },
       { src: "/images/gallery-09.jpg", width: 930, height: 689, alt: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান", caption: "শিশুদের সঙ্গে কমিউনিটি অনুষ্ঠান" },
-      { src: "/images/gallery-10.jpg", width: 1920, height: 1080, alt: "A Story of Two Hearts বই", caption: "A Story of Two Hearts বই" },
       { src: "/images/gallery-11.jpg", width: 1527, height: 1279, alt: "অনুষ্ঠানে বক্তৃতা", caption: "অনুষ্ঠানে বক্তৃতা" },
       { src: "/images/gallery-12.jpg", width: 1101, height: 647, alt: "ওয়ার্কশপ সেশন", caption: "ওয়ার্কশপ সেশন" },
       { src: "/images/gallery-13.jpg", width: 934, height: 672, alt: "রাইজিং স্টার অ্যাওয়ার্ড গ্রহণ করছেন", caption: "রাইজিং স্টার অ্যাওয়ার্ড" },
@@ -792,7 +777,7 @@ export const bn: SiteContent = {
   careerInterests: {
     label: "সুযোগের জন্য উন্মুক্ত",
     heading: "সুযোগের জন্য উন্মুক্ত",
-    intro: "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+    intro: "যেসব ভূমিকা, ক্ষেত্র ও পড়াশোনার পথে আমি আগ্রহী — শিক্ষা, কমিউনিটি উন্নয়ন ও ডিজিটাল কাজে।",
     roles: [
       "ইংরেজি ভাষা শিক্ষক",
       "শিক্ষা কর্মসূচি সহকারী",
@@ -823,17 +808,16 @@ export const bn: SiteContent = {
     heading: "যোগাযোগ করুন",
     intro: "সনেটের কাছে পৌঁছানোর দ্রুততম উপায় WhatsApp। ইমেইলও চলবে।",
     description:
-      "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+      "পাঠ, সেশন, লেখার প্রজেক্ট বা কমিউনিটির আইডিয়া নিয়ে লিখুন — প্রতিটি বার্তা সরাসরি WhatsApp-এ যায়।",
     finalCtaHeading: "আসুন যুক্ত হই, অর্থবহ পরিবর্তন তৈরি করি।",
     finalCtaText:
-      "সহযোগিতা, শিক্ষা, গবেষণা, পেশাদার উন্নয়ন ও কমিউনিটি উদ্যোগের সুযোগকে আমি স্বাগত জানাই।",
+      "কোনো পাঠ সাজাতে হবে, গল্প লিখতে হবে, নাকি কমিউনিটির জন্য কিছু করতে হবে? কী দরকার জানান — WhatsApp-এ উত্তর দিই।",
     finalCtaLabel: "যোগাযোগ করুন",
     email: "md.sonet.mia01@gmail.com",
     whatsappDisplay: "WhatsApp 01797953059",
     whatsappUrl: "https://wa.me/8801797953059",
     socials: [
       { label: "Facebook", url: "https://facebook.com/mdsonet.mia.777", handle: "facebook.com/mdsonet.mia.777" },
-      { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
       { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
       { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
     ],
@@ -914,9 +898,11 @@ export const bn: SiteContent = {
     role: "ভূমিকা",
     results: "ফলাফল",
     visitSite: "সাইট দেখুন",
+    visitChannel: "চ্যানেলটি দেখুন",
     filterLabel: "ক্যাটাগরি অনুযায়ী ফিল্টার করুন",
     filterAll: "সব",
     comingSoonCert: "শীঘ্রই আসছে",
+    noCertsInCategory: "এই ক্যাটাগরিতে এখনো কোনো সার্টিফিকেট তালিকাভুক্ত হয়নি।",
     languagesHeading: "ভাষা",
     digitalToolsHeading: "ডিজিটাল টুল",
     formName: "নাম",
