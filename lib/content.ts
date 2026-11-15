@@ -54,7 +54,6 @@ export interface ExperienceRole {
   organisation: string;
   dates: string;
   location: string | null;
-  responsibilities: string[];
   placeholder?: boolean;
 }
 
@@ -124,8 +123,8 @@ export interface Certification {
   date: string | null;
   detail: string;
   credential: string | null;
-  /** Filter key — one of the English filter labels ("Language", "Teaching",
-   *  "Leadership", "Digital & AI", "Other"). Kept identical in bn.ts so
+  /** Filter key — one of the English filter labels ("Language",
+   *  "Leadership", "Digital & AI"). Kept identical in bn.ts so
    *  filtering works in both languages. */
   category: string;
   /** "real" = verified from the original site / master prompt. "aggregate"
@@ -255,7 +254,6 @@ export interface SiteContent {
     activities: { title: string; description: string; image?: string | null; imageAlt?: string | null; imageWidth?: number; imageHeight?: number }[];
     photos: { src: string; width: number; height: number; alt: string }[];
     stats: Stat[];
-    scope: Stat[];
   };
   skills: {
     label: string;
@@ -414,9 +412,11 @@ export interface SiteContent {
     role: string;
     results: string;
     visitSite: string;
+    visitChannel: string;
     filterLabel: string;
     filterAll: string;
     comingSoonCert: string;
+    noCertsInCategory: string;
     languagesHeading: string;
     digitalToolsHeading: string;
     formName: string;
@@ -530,14 +530,14 @@ export const content: SiteContent = {
     primaryCtaHref: "/contact",
     secondaryCta: "See my projects",
     secondaryCtaHref: "/projects",
-    proofLine: "Teaching 3+ years, mentoring teams of 1–5.",
+    proofLine: "Teaching 2+ years, mentoring teams of 1–5.",
   },
 
   snapshotStats: [
-    { figure: "3+", label: "Years Teaching Experience" },
+    { figure: "2+", label: "Years Teaching Experience" },
     { figure: "1–5", label: "Team Mentorship" },
     { figure: "17+", label: "Certifications" },
-    { figure: "74+", label: "Community Events" },
+    { figure: "8", label: "Projects" },
   ],
 
   whatIDo: {
@@ -598,7 +598,7 @@ export const content: SiteContent = {
       "Honest, practical use of technology in education",
     ],
     vision:
-      "A more inclusive and accessible learning environment, where education, leadership, community engagement and technology work together.",
+      "To keep growing as a lifelong learner while contributing to education, international development and community-focused initiatives — in Bangladesh and beyond.",
     reflectionQuote:
       "Every achievement is by the mercy of Allah and the support of my parents and sister.",
   },
@@ -630,8 +630,8 @@ export const content: SiteContent = {
     stats: [
       { figure: "4+", label: "Years of Study" },
       { figure: "40+", label: "Courses Completed" },
-      { figure: "3", label: "Languages" },
-      { figure: "5+", label: "Certifications" },
+      { figure: "6", label: "Languages" },
+      { figure: "17+", label: "Certifications" },
     ],
     researchInterests: [
       "English Language Education",
@@ -652,9 +652,9 @@ export const content: SiteContent = {
   experience: {
     label: "Experience",
     heading: "Quality English teaching that empowers students",
-    intro: "3+ years teaching, teams of 1–5 mentored, 15+ lecture materials a month.",
+    intro: "2+ years teaching, teams of 1–5 mentored, 15+ lecture materials a month.",
     title: "English Language Educator",
-    yearsExperience: "3+ years",
+    yearsExperience: "2+ years",
     studentsPerDay: "Teams of 1–5 mentored",
     materialsPerMonth: "15+ lecture materials a month",
     responsibilities: [
@@ -671,28 +671,12 @@ export const content: SiteContent = {
         organisation: "Sobuz Kuri Laboratory School & College",
         dates: "2022–2023",
         location: null,
-        responsibilities: [
-          "English language instruction",
-          "Lesson planning",
-          "Classroom management",
-          "Student assessment",
-          "Educational material development",
-          "Student engagement",
-        ],
       },
       {
         title: "Assistant Teacher (English Language & Grammar)",
         organisation: "Prativa Preparatory School & College",
         dates: "2023–2024",
         location: null,
-        responsibilities: [
-          "English language instruction",
-          "Lesson planning",
-          "Classroom management",
-          "Student assessment",
-          "Educational material development",
-          "Student engagement",
-        ],
       },
     ],
     services: [
@@ -744,7 +728,7 @@ export const content: SiteContent = {
         {
           title: "The Merchant of Venice",
           description:
-            "Performed in William Shakespeare's iconic tragedy, showcasing dramatic range and stage presence at a university-level production.",
+            "Performed in William Shakespeare's iconic comedy, showcasing dramatic range and stage presence at a university-level production.",
         },
         {
           title: "Stage Performance",
@@ -776,7 +760,7 @@ export const content: SiteContent = {
         organisation: "Rotaract Club",
         role: "Chief Sergeant at Arms",
         date: null,
-        description: "Chief Sergeant at Arms of the Rotaract Club.",
+        description: "Held the Chief Sergeant at Arms role in the Rotaract Club of Jamalpur, recognised with the Chief Sergeant at Arms Award in 2022.",
         image: "/images/chief-sergeant.jpg",
         imageAlt: "Chief Sergeant at Arms",
       },
@@ -797,6 +781,15 @@ export const content: SiteContent = {
         description: "Community work with Medhabikash Library.",
         image: "/images/gallery-19.jpg",
         imageAlt: "Seated at a table in a library, in front of bookshelves full of books",
+      },
+      {
+        title: "International Law Thinkers Society",
+        organisation: "International Law Thinkers Society",
+        role: null,
+        date: null,
+        description: "Involved with the International Law Thinkers Society.",
+        image: null,
+        imageAlt: null,
       },
     ],
     activities: [
@@ -819,22 +812,17 @@ export const content: SiteContent = {
       { src: "/images/cultural-dress.jpg", width: 1920, height: 864, alt: "Cultural engagement" },
     ],
     stats: [
-      { figure: "117+", label: "Social Activities" },
+      { figure: "11", label: "Community Activities" },
       { figure: "500+", label: "Lives Impacted" },
-      { figure: "12+", label: "Certified Training Completed" },
+      { figure: "6+", label: "Certified Training Completed" },
       { figure: "13+", label: "Organizations" },
-    ],
-    scope: [
-      { figure: "4", label: "International" },
-      { figure: "6", label: "National" },
-      { figure: "3", label: "Local" },
     ],
   },
 
   skills: {
     label: "Skills",
     heading: "Tools and technologies",
-    intro: "Skills as tags. No percentage bars; levels are plain words.",
+    intro: "What I can do — teaching, communication, leadership, digital tools and AI, grouped by area. Levels are plain words, not scores.",
     categories: [
       {
         category: "Education",
@@ -846,15 +834,15 @@ export const content: SiteContent = {
       },
       {
         category: "Leadership",
-        tags: ["Youth leadership", "Community engagement", "Volunteer coordination", "Event organisation", "Mentoring"],
+        tags: ["Youth leadership", "Community engagement", "Volunteer coordination", "Event organisation"],
       },
       {
         category: "Digital",
-        tags: ["Microsoft Word", "Excel", "PowerPoint", "Photoshop", "Internet Research", "Email Management"],
+        tags: ["Microsoft Word", "Excel", "PowerPoint", "Photoshop", "Internet research", "Email management"],
       },
       {
         category: "AI & Technology",
-        tags: ["AI Tools (ChatGPT, Gemini, DeepSeek +)", "Prompt writing", "Content creation", "Video generation", "Creative strategy", "AI image creation", "AI video generation"],
+        tags: ["AI Tools (ChatGPT, Gemini, DeepSeek)", "Prompt writing", "Creative strategy", "AI image creation", "AI video generation"],
       },
       {
         category: "Entrepreneurship",
@@ -866,9 +854,9 @@ export const content: SiteContent = {
       "Excel",
       "PowerPoint",
       "Photoshop",
-      "Internet Research",
-      "Email Management",
-      "AI Tools (ChatGPT, Gemini, DeepSeek +)",
+      "Internet research",
+      "Email management",
+      "AI Tools (ChatGPT, Gemini, DeepSeek)",
     ],
     languages: [
       { name: "Bangla", level: "Native" },
@@ -904,7 +892,7 @@ export const content: SiteContent = {
 
   projects: {
     label: "Projects",
-    heading: "Work that is already live",
+    heading: "Live projects and new concepts",
     intro: "Projects built for real people: learners, creators, and readers. Concepts are labelled as concepts; only live work links out.",
     items: [
       {
@@ -947,7 +935,7 @@ export const content: SiteContent = {
         ],
         tools: ["PromptEx", "Gemini", "Groq", "OpenRouter", "Together", "Mistral", "HuggingFace"],
         status: "Live",
-        results: [{ figure: "Free", label: "To use, with your own API keys" }],
+        results: [],
         url: "https://promptex-nine.vercel.app",
         urlLabel: "Visit PromptEx",
         coverImage: null,
@@ -971,8 +959,8 @@ export const content: SiteContent = {
         urlLabel: null,
         coverImage: null,
         coverImageAlt: null,
-        videoId: "QEMB14UxTkk",
-        videoTitle: "You Missed Christmas. Don't Miss the Next Season! Sweet Smart Calculator (For team members only)",
+        videoId: null,
+        videoTitle: null,
         tags: ["App", "Calculator", "Video"],
       },
       {
@@ -1079,17 +1067,15 @@ export const content: SiteContent = {
       { title: "Chief Sergeant at Arms Award", description: "Awarded by the Rotaract Club of Jamalpur.", date: "2022", image: "/images/chief-sergeant.jpg", imageAlt: "Chief Sergeant at Arms sash" },
       { title: "Best Volunteer Award", description: "Honored for exceptional community service and dedication by Volunteers for Bangladesh.", date: "2024", image: "/images/medal-ceremony-honoring.jpg", imageAlt: "Receiving a medal at a ceremony" },
       { title: "Leadership Award", description: "Recognized for leadership.", date: null, image: null, imageAlt: null },
-      { title: "International Law Thinkers Society", description: "Involved with the International Law Thinkers Society.", date: null, image: null, imageAlt: null },
       { title: "Debate Competition Certificates", description: "Multiple recognitions in competitive debate events.", date: null, image: null, imageAlt: null },
       { title: "Chess Championship Certificates", description: "Achievements in strategic chess tournaments.", date: null, image: null, imageAlt: null },
       { title: "17+ Online Course Certifications", description: "Continuous learning across diverse digital disciplines.", date: null, image: null, imageAlt: null },
       { title: "6+ Training Completed", description: "Professional development training in leadership, capacity building, and youth empowerment.", date: null, image: "/images/usaid-capacity-building-group-chart.jpg", imageAlt: "USAID Youth for Change capacity-building group" },
     ],
     stats: [
-      { figure: "5+", label: "Awards" },
+      { figure: "4", label: "Awards" },
       { figure: "17+", label: "Certifications" },
       { figure: "6+", label: "Trainings" },
-      { figure: "30+", label: "Events" },
     ],
     carousel: [
       { src: "/images/chief-sergeant.jpg", width: 960, height: 943, caption: "Chief Sergeant at Arms", sub: "Leadership Role" },
@@ -1105,7 +1091,7 @@ export const content: SiteContent = {
     heading: "Certifications",
     intro: "Verified certificates and training completed so far.",
     filterLabel: "Filter by category",
-    filters: ["All", "Language", "Teaching", "Leadership", "Digital & AI"],
+    filters: ["All", "Language", "Leadership", "Digital & AI"],
     items: [
       {
         title: "IELTS Academic",
@@ -1145,7 +1131,7 @@ export const content: SiteContent = {
     writingServices: ["Creative writing mentoring", "Poetry writing workshop", "Story writing guidance"],
     stats: [
       { figure: "5", label: "Books" },
-      { figure: "3", label: "Published" },
+      { figure: "2", label: "Published" },
       { figure: "4", label: "Genres" },
     ],
     booksHeading: "My books",
@@ -1166,7 +1152,7 @@ export const content: SiteContent = {
       name: "Think and Spark",
       description: "A faceless YouTube podcast that educates and inspires listeners around the world.",
       body: "Think and Spark is built for listeners: clear ideas, honest conversation, lessons you can use the same day.",
-      topics: ["English Grammar", "Motivation", "Life Hacks", "Book Reviews"],
+      topics: ["Ideas & Learning", "Motivation", "Life Lessons", "Honest Conversations"],
       images: [
         { src: "/images/speaking-stage.jpg", width: 1920, height: 1279, alt: "Md Sonet Mia speaking on stage for the Think and Spark podcast" },
         { src: "/images/capacity-building.jpg", width: 1655, height: 1228, alt: "Capacity building training session" },
@@ -1196,7 +1182,7 @@ export const content: SiteContent = {
     heading: "Captured moments",
     intro: "A visual journey through my experiences, events, and memories.",
     stats: [
-      { figure: "20+", label: "Photos" },
+      { figure: "19", label: "Photos" },
       { figure: "15+", label: "Events" },
       { figure: "∞", label: "Memories" },
     ],
@@ -1210,7 +1196,6 @@ export const content: SiteContent = {
       { src: "/images/gallery-07.jpg", width: 720, height: 525, alt: "Event group photo", caption: "Event group photo" },
       { src: "/images/gallery-08.jpg", width: 1920, height: 1088, alt: "Boat ride with friends", caption: "Boat ride with friends" },
       { src: "/images/gallery-09.jpg", width: 930, height: 689, alt: "Community event with children", caption: "Community event with children" },
-      { src: "/images/gallery-10.jpg", width: 1920, height: 1080, alt: "A Story of Two Hearts book", caption: "A Story of Two Hearts book" },
       { src: "/images/gallery-11.jpg", width: 1527, height: 1279, alt: "Speaking at event", caption: "Speaking at event" },
       { src: "/images/gallery-12.jpg", width: 1101, height: 647, alt: "Workshop session", caption: "Workshop session" },
       { src: "/images/gallery-13.jpg", width: 934, height: 672, alt: "Receiving the Rising Star Award", caption: "Rising Star Award" },
@@ -1249,7 +1234,7 @@ export const content: SiteContent = {
   careerInterests: {
     label: "Open to Opportunities",
     heading: "Open to opportunities",
-    intro: "I welcome opportunities for collaboration, education, research, professional development and community initiatives.",
+    intro: "Roles, sectors and study paths I am open to — in education, community development and digital work.",
     roles: [
       "English Language Educator",
       "Education Programme Assistant",
@@ -1280,17 +1265,16 @@ export const content: SiteContent = {
     heading: "Get in touch",
     intro: "The fastest way to reach Sonet is WhatsApp. Email works too.",
     description:
-      "I welcome opportunities for collaboration, education, research, professional development and community initiatives.",
+      "Write about a lesson, a session, a writing project or a community idea — every message goes straight to WhatsApp.",
     finalCtaHeading: "Let's Connect and Create Meaningful Impact.",
     finalCtaText:
-      "I welcome opportunities for collaboration, education, research, professional development and community initiatives.",
+      "Have a lesson to plan, a story to write, or a community to serve? Tell me what you need — I reply on WhatsApp.",
     finalCtaLabel: "Get in Touch",
     email: "md.sonet.mia01@gmail.com",
     whatsappDisplay: "WhatsApp 01797953059",
     whatsappUrl: "https://wa.me/8801797953059",
     socials: [
       { label: "Facebook", url: "https://facebook.com/mdsonet.mia.777", handle: "facebook.com/mdsonet.mia.777" },
-      { label: "WhatsApp", url: "https://wa.me/8801797953059", handle: "01797953059" },
       { label: "YouTube", url: "https://www.youtube.com/@SweetCGILab", handle: "@SweetCGILab" },
       { label: "GitHub", url: "https://github.com/mdsonetmia04-cmyk", handle: "mdsonetmia04-cmyk" },
     ],
@@ -1367,11 +1351,13 @@ export const content: SiteContent = {
     statusInDevelopment: "In Development",
     statusConcept: "Concept",
     comingSoonCert: "Coming soon",
+    noCertsInCategory: "No certificates listed in this category yet.",
     objectives: "Objectives",
     tools: "Tools & Technologies",
     role: "Role",
     results: "Results",
     visitSite: "Visit site",
+    visitChannel: "Visit channel",
     filterLabel: "Filter by category",
     filterAll: "All",
     languagesHeading: "Languages",
