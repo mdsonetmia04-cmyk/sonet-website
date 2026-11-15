@@ -30,7 +30,8 @@ export function StatusBadge({ status }: { status: Project["status"] }) {
 
 /**
  * Project card. Projects with a video show the playable YouTube embed
- * as the cover; the rest keep the typographic cover (no fake screenshots).
+ * as the cover; the rest keep the title cover (no fake screenshots,
+ * no giant initial letter).
  */
 export function ProjectCard({ project }: { project: Project }) {
   const c = useContent();
@@ -70,11 +71,11 @@ export function ProjectCard({ project }: { project: Project }) {
           aria-label={`${project.title} — ${c.ui.viewProject}`}
           className="block"
         >
-          <div className="project-cover flex aspect-[16/9] flex-col justify-between rounded-lg bg-ink p-5">
-            <span className="font-display text-5xl font-bold text-gold" aria-hidden="true">
-              {project.title.charAt(0)}
+          <div className="project-cover flex aspect-[16/9] flex-col justify-end rounded-lg bg-ink p-5">
+            <span className="caption-1 uppercase tracking-[0.14em] text-gold">
+              {project.category}
             </span>
-            <span className="font-display text-lg font-semibold leading-snug text-bg">
+            <span className="font-display mt-2 text-lg font-semibold leading-snug text-bg">
               {project.title}
             </span>
           </div>
