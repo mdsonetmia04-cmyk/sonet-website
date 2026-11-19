@@ -17,8 +17,10 @@ import { isGitHubPages } from "./lib/site";
 // - When a custom domain is bought, build without GITHUB_PAGES and
 //   point NEXT_PUBLIC_SITE_URL at the domain.
 const nextConfig: NextConfig = {
-  output: "export",
-  ...(isGitHubPages ? { basePath: "/sonet-website" } : {}),
+  // Static export only for the GitHub Pages build. The Vercel build runs
+  // the full Next.js server, so the /api/booking route (Telegram delivery)
+  // works there; the Pages form POSTs to that Vercel URL instead.
+  ...(isGitHubPages ? { output: "export", basePath: "/sonet-website" } : {}),
   images: { loader: "custom", loaderFile: "./lib/image-loader.ts" },
 };
 
