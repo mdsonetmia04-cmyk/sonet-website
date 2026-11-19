@@ -446,6 +446,8 @@ export interface SiteContent {
     bookingSubmit: string;
     bookingSuccessTitle: string;
     bookingSuccessBody: string;
+    bookingTelegramSuccessTitle: string;
+    bookingTelegramSuccessBody: string;
     contactInfoHeading: string;
     privacyLink: string;
     termsLink: string;
@@ -1278,7 +1280,7 @@ export const content: SiteContent = {
     heading: "Get in touch",
     intro: "The fastest way to reach Sonet is WhatsApp. Email works too.",
     description:
-      "Write about a lesson, a session, a writing project or a community idea — every message goes straight to WhatsApp.",
+      "Write about a lesson, a session, a writing project or a community idea — every message goes straight to Sonet.",
     finalCtaHeading: "Let's Connect and Create Meaningful Impact.",
     finalCtaText:
       "Have a lesson to plan, a story to write, or a community to serve? Tell me what you need — I reply on WhatsApp.",
@@ -1294,7 +1296,7 @@ export const content: SiteContent = {
     bookingHeading: "Let's work together",
     bookingIntro: "Tell Sonet what you need help with.",
     bookingHelper:
-      "Sending opens WhatsApp with your request ready to send. No payment is taken on this site.",
+      "Your request goes straight to Sonet. No payment is taken on this site. If delivery fails, WhatsApp opens with your request ready to send.",
     sessionTypes: [
       "English guidance session",
       "Writing consultation",
@@ -1399,9 +1401,11 @@ export const content: SiteContent = {
     bookingType: "Session type",
     bookingDate: "Preferred date",
     bookingOptional: "Optional",
-    bookingSubmit: "Send request via WhatsApp",
+    bookingSubmit: "Send request",
     bookingSuccessTitle: "Ready to open WhatsApp",
     bookingSuccessBody: "Your session request is prepared in WhatsApp. Press send and it will reach Sonet.",
+    bookingTelegramSuccessTitle: "Request sent",
+    bookingTelegramSuccessBody: "Your session request has been sent straight to Sonet. He will reply soon.",
     contactInfoHeading: "Contact details",
     privacyLink: "Privacy policy",
     termsLink: "Terms",
