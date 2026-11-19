@@ -4,13 +4,19 @@ import { useState, type FormEvent } from "react";
 import { CheckCircle2, MessageCircle } from "lucide-react";
 import { useContent } from "@/lib/useContent";
 import { useLang } from "@/i18n/LanguageContext";
+import { isGitHubPages } from "@/lib/site";
 import { buildBookingWhatsApp } from "@/lib/whatsapp";
 
+// API base: same origin on Vercel; the GitHub Pages mirror is a static
+// export with no server, so its form POSTs to the Vercel API instead.
+const API_BASE = isGitHubPages ? "https://sonet-mia.vercel.app" : "";
+
 /**
- * Session-booking form. As with the contact form, there is no email
- * service: the request is validated in the browser and returned as a
- * WhatsApp deep link, which the visitor opens to send the request to
- * Sonet. No payment is taken on this site.
+ * Session-booking form. The request is validated in the browser, then
+ * sent straight to Sonet via the /api/booking route (Telegram). If that
+ * delivery fails for any reason, it falls back to a WhatsApp deep link,
+ * which the visitor opens to send the request to Sonet. No payment is
+ * taken on this site.
  */
 export function BookingForm() {
   const c = useContent();
@@ -24,6 +30,7 @@ export function BookingForm() {
   const [errors, setErrors] = useState<{ name?: string; contact?: string; message?: string; generic?: string }>({});
   const [sending, setSending] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
+  const [sentViaTelegram, setSentViaTelegram] = useState(false);
 
   const sessionTypes = c.contact.sessionTypes;
 
@@ -42,6 +49,32 @@ export function BookingForm() {
       return;
     }
     setSending(true);
+    // Telegram delivery first: the request goes straight to Sonet. Any
+    // failure (API down, not configured, network error) falls back to
+    // the WhatsApp flow exactly as before.
+    try {
+      const res = await fetch(`${API_BASE}/api/booking`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          contact: value,
+          sessionType: sessionTypes[type],
+          date: date || undefined,
+          message: message.trim() || undefined,
+          website,
+          lang,
+        }),
+      });
+      const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      if (res.ok && data?.ok) {
+        setSentViaTelegram(true);
+        setSending(false);
+        return;
+      }
+    } catch {
+      // Network error — fall through to WhatsApp.
+    }
     const whatsappUrl = buildBookingWhatsApp({
       name: name.trim(),
       contact: value,
@@ -61,7 +94,7 @@ export function BookingForm() {
     setSending(false);
   }
 
-  if (whatsappUrl) {
+  if (whatsappUrl || sentViaTelegram) {
     return (
       <div className="card" role="status">
         <div className="flex items-start gap-4">
@@ -69,22 +102,29 @@ export function BookingForm() {
             <CheckCircle2 size={24} aria-hidden="true" />
           </span>
           <div>
-            <p className="title-1">{c.ui.bookingSuccessTitle}</p>
-            <p className="body-4 mt-2">{c.ui.bookingSuccessBody}</p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary button-sm mt-4"
-            >
-              <MessageCircle size={16} aria-hidden="true" />
-              {c.ui.bookingSubmit}
-            </a>
+            <p className="title-1">
+              {sentViaTelegram ? c.ui.bookingTelegramSuccessTitle : c.ui.bookingSuccessTitle}
+            </p>
+            <p className="body-4 mt-2">
+              {sentViaTelegram ? c.ui.bookingTelegramSuccessBody : c.ui.bookingSuccessBody}
+            </p>
+            {whatsappUrl ? (
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary button-sm mt-4"
+              >
+                <MessageCircle size={16} aria-hidden="true" />
+                {c.ui.bookingSubmit}
+              </a>
+            ) : null}
             <button
               type="button"
               className="text-link button-sm mt-4 block"
               onClick={() => {
                 setWhatsappUrl(null);
+                setSentViaTelegram(false);
                 setName("");
                 setContact("");
                 setMessage("");
