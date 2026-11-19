@@ -821,7 +821,7 @@ export const bn: SiteContent = {
     heading: "যোগাযোগ করুন",
     intro: "সনেটের কাছে পৌঁছানোর দ্রুততম উপায় WhatsApp। ইমেইলও চলবে।",
     description:
-      "পাঠ, সেশন, লেখার প্রজেক্ট বা কমিউনিটির আইডিয়া নিয়ে লিখুন — প্রতিটি বার্তা সরাসরি WhatsApp-এ যায়।",
+      "পাঠ, সেশন, লেখার প্রজেক্ট বা কমিউনিটির আইডিয়া নিয়ে লিখুন — প্রতিটি বার্তা সরাসরি সনেটের কাছে যায়।",
     finalCtaHeading: "আসুন যুক্ত হই, অর্থবহ পরিবর্তন তৈরি করি।",
     finalCtaText:
       "কোনো পাঠ সাজাতে হবে, গল্প লিখতে হবে, নাকি কমিউনিটির জন্য কিছু করতে হবে? কী দরকার জানান — WhatsApp-এ উত্তর দিই।",
@@ -837,7 +837,7 @@ export const bn: SiteContent = {
     bookingHeading: "চলুন একসঙ্গে কাজ করি",
     bookingIntro: "কীসে সাহায্য দরকার, সনেটকে জানান।",
     bookingHelper:
-      "পাঠালে WhatsApp খুলবে, আপনার অনুরোধ পাঠানোর জন্য প্রস্তুত থাকবে। এই সাইটে কোনো পেমেন্ট নেওয়া হয় না।",
+      "আপনার অনুরোধ সরাসরি সনেটের কাছে যাবে। এই সাইটে কোনো পেমেন্ট নেওয়া হয় না। পাঠাতে না পারলে WhatsApp খুলবে, আপনার অনুরোধ পাঠানোর জন্য প্রস্তুত থাকবে।",
     sessionTypes: [
       "ইংরেজি গাইডলাইন সেশন",
       "লেখার পরামর্শ",
@@ -942,9 +942,11 @@ export const bn: SiteContent = {
     bookingType: "সেশনের ধরন",
     bookingDate: "পছন্দের তারিখ",
     bookingOptional: "ঐচ্ছিক",
-    bookingSubmit: "WhatsApp-এ অনুরোধ পাঠান",
+    bookingSubmit: "অনুরোধ পাঠান",
     bookingSuccessTitle: "WhatsApp খুলতে প্রস্তুত",
     bookingSuccessBody: "আপনার সেশন অনুরোধ WhatsApp-এ তৈরি আছে। সেন্ড চাপলেই সনেটের কাছে পৌঁছে যাবে।",
+    bookingTelegramSuccessTitle: "অনুরোধ পাঠানো হয়েছে",
+    bookingTelegramSuccessBody: "আপনার সেশন অনুরোধ সরাসরি সনেটের কাছে পৌঁছে গেছে। শীঘ্রই উত্তর দেবেন।",
     contactInfoHeading: "যোগাযোগের তথ্য",
     privacyLink: "গোপনীয়তা নীতি",
     termsLink: "শর্তাবলি",
